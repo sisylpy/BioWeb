@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+		<title>生物试验品</title>
+		<link href="css/bootstrap.css"  rel="stylesheet"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/common.css"/>-->
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<!--[if lt IE 9]>
+      	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+	</head>  
+
+	<body>
+		<!--导航-->
+		<div class="navbar navbar-inverse">
+			<div class="container">
+				<div class="row my-nav">
+						<div class="navbar-header col-md-3 col-xs-12 col-sm-4">
+		      				<a class="navbar-brand" href="#">
+		        				<img alt="Brand"  src="/img/logo.png">
+		      				</a>
+		    			</div>		
+		    			<nav class="col-md-9 col-xs-12 col-sm-8">
+		    				<a href="index.html" class="col-xs-3">生物实验品</a>
+		    				<a href="collection.html" class="col-xs-3">我的收藏</a>
+		    				<a href="operation.html" class="col-xs-3">我的操作</a>
+		    				<a href="products.html" class="col-xs-3">我的试用品</a>
+		    			</nav>	 		    			
+				</div>
+			</div>
+		</div>
+		<!--end-->
+		<!--焦点图-->
+		<!--平板直大屏幕-->
+		<div class="pc-img-box">
+			<img src="/img/brand-1327.jpg" class="img-responsive"  style="width:100%;" />		
+		</div>
+		<!--手机小屏幕-->
+		<div class="iph-img-box">
+			<img src="/img/iphone-img.jpg" class="img-responsive" />
+		</div>	
+		<!--end-->
+		<!--主题部分-->
+		<div class="con-wrap">
+			<div class="container my-main">
+				<div class="row">
+					<div class="col-sm-3 swsyp-txt">/ 生物实验品</div>
+					<div class="col-sm-1"></div>
+					<div class="col-sm-7">
+						<input type="text" id="search_text"  class="form-control" placeholder="货号/产品名称"/>
+					</div>
+					<div class="col-sm-1">
+						<input type="button" id="search_btn"  class="form-control" value="搜索"/>
+					</div>
+				</div>
+				<div class="row result-box" id="search_list">
+					<h5>搜索结果：</h5>
+					<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
+						<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list">
+							<picture class="col-sm-1 col-xs-2 result-list-img">
+								<img v-bind:src="'http://192.168.1.107:3005'+item.thumb_img" />
+							</picture>
+							<div class="col-sm-11 col-xs-10 ">
+								<strong>{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}} </strong>
+								<div class="cata-numb">
+									<span class="cata">货物编号：</span>
+									<span> {{item.item_name}}</span>
+								</div>
+								<div class="label-box">
+									<span class="zw" v-if="item.language === 1">中文</span>
+									<span class="zw" v-else>英文</span>
+									<span class="sp">视频</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>			
+		</div>
+
+		<!--end-->
+		
+		
+		
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		var pdfVue = new Vue({
+				el: '#search_list',
+				data: {
+				 	pdfs: []
+				},
+				methods:{
+				  	getPfd:function(){
+				  		//.....
+				  		$.ajax({
+				  			url:'http://192.168.1.107:3005/api/getPdf',
+				  			type:'get',
+				  			dataType:'json',
+				  			success:function(res){
+				  				if(res.res){
+				  					this.pdfs=res.data;
+				  				}
+				  			}.bind(this)
+				  		})
+	
+				  	},
+				  	searchPdf:function(){
+				  		var Tval = $("#search_text").val();
+						$.ajax({
+							url:'http://192.168.1.107:3005/api/searchPdf?value='+Tval,
+							type:'get',
+							dataType:'json',
+				  			success:function(res){
+				  				if(res.res){
+				  					this.pdfs=res.data;
+				  				}
+				  			}.bind(this)
+						})
+				  	}
+				}
+			});
+			pdfVue.getPfd();
+			//搜索
+			$("#search_btn").click(function(){
+				pdfVue.searchPdf();
+			})
+    	})
+    	
+    </script>
+	</body>
+</html>
