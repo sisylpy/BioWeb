@@ -164,7 +164,11 @@
 			$("#search_btn").click(function(){
 				pdfVue.loadMore();
 			});
-			
+            $("#search_text").keypress(function(event){
+                if(event.keyCode == 13){
+                    pdfVue.searchPdf();
+                }
+            });
 			
 			
 			
