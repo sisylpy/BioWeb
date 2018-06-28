@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+		<title>我的操作</title>
+		<link href="/css/bootstrap.css"  rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<!--时间控件-->
+		<link href="/css/bootstrap-datetimepicker.min.css"  rel="stylesheet"/>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!--[if lt IE 9]>
+      	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+	</head>  
+
+	<body>
+		<!--导航-->
+		<div class="navbar navbar-inverse">
+			<div class="container">
+				<div class="row my-nav">
+						<div class="navbar-header col-md-3 col-xs-12 col-sm-4">
+		      				<a class="navbar-brand" href="#">
+		        				<img alt="Brand"  src="img/logo.png">
+		      				</a>
+		    			</div>		
+		    			<nav class="col-md-9 col-xs-12 col-sm-8">
+		    				<a href="/" class="col-xs-3">生物实验品</a>
+		    				<a href="/collection" class="col-xs-3">我的收藏</a>
+		    				<a href="/operation" class="col-xs-3">我的操作</a>
+		    				<a href="/products" class="col-xs-3">我的试用品</a>
+		    			</nav>	 		    			
+				</div>
+			</div>
+		</div>
+		<!--end-->
+
+		<!--主题部分-->
+		<div class="con-wrap" id="myOperat">
+			<div class="container my-main">
+				<div class="row collect operat">
+					<div class="col-md-3 swsyp-txt prod">我的操作 > 全部</div>
+				</div>
+				<div class="row operat-botb">
+					<div class="col-md-3 col-xs-12 col-md-offset-6 pull-left">
+						<select class="form-control">
+						  <option>全部</option>
+						  <option>打印</option>
+						  <option>下载</option>
+						  <option>收藏</option>
+						</select>
+					</div>
+					<div class="col-md-2 col-xs-12 col-md-offset-1 pull-left">
+						<input size="16" type="text" value="2012-06-15 14:45" readonly class="form-control form_datetime">
+					</div>
+				</div>
+				<div class="row border-bot" v-for="getMyOperation in getMyOperations">
+					<div class="time col-md-2 col-xs-2"><strong>{{getMyOperation.operation_time}}</strong></div> 
+					<div class="col-md-10 col-xs-10">
+						<span class="col-md-1 col-xs-2 shoucang" v-if="getMyOperation.operation_type == 2">[收藏]</span>
+						<span class="col-md-1 col-xs-2 dayin" v-else-if="getMyOperation.operation_type == 1">[打印]</span>
+						<span class="col-md-1 col-xs-2 xiazai" v-else-if="getMyOperation.operation_type == 0">[下载]</span>
+						<span class="col-md-1 col-xs-2" v-else="getMyOperation.operation_type == 3">[分享]</span>
+						<p class="col-md-11 col-xs-10">{{getMyOperation.manuName}}.{{getMyOperation.manuSubName}} {{getMyOperation.pdf_name}} </p>
+					</div>
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+		<!--end-->
+		
+		
+		
+		
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript">
+	    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+	</script>   
+    <script type="text/javascript">
+    	var myOperatVue=new Vue({
+    		el:"#myOperat",
+    		data:{
+    			getMyOperations:[]
+    		},
+    		methods:{
+				getMyOperation:function(){
+					$.ajax({
+						url:"http://47.104.15.240:3005/api/getMyOperation",
+						type:"get",
+						dataType:"json",
+						success:function(res){
+							console.log(res);
+	  						if(res.res){
+								this.getMyOperations=res.data;
+	  						}
+	  					}.bind(this)
+						
+					})
+				}
+    		}
+    		
+    	})
+    	myOperatVue.getMyOperation();
+    </script>
+	</body>
+</html>

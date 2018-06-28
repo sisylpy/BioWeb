@@ -25,10 +25,10 @@
 		      				</a>
 		    			</div>		
 		    			<nav class="col-md-9 col-xs-12 col-sm-8">
-		    				<a href="index.html" class="col-xs-3">生物实验品</a>
-		    				<a href="collection.html" class="col-xs-3">我的收藏</a>
-		    				<a href="operation.html" class="col-xs-3">我的操作</a>
-		    				<a href="products.html" class="col-xs-3">我的试用品</a>
+		    				<a href="/" class="col-xs-3">生物实验品</a>
+		    				<a href="/collection" class="col-xs-3">我的收藏</a>
+		    				<a href="/operation" class="col-xs-3">我的操作</a>
+		    				<a href="/products" class="col-xs-3">我的试用品</a>
 		    			</nav>	 		    			
 				</div>
 			</div>
@@ -47,22 +47,22 @@
 		<!--主题部分-->
 		<div class="con-wrap">
 			<div class="container my-main">
-				<div class="row">
-					<div class="col-sm-3 swsyp-txt">/ 生物实验品</div>
-					<div class="col-sm-1"></div>
-					<div class="col-sm-7">
-						<input type="text" id="search_text"  class="form-control" placeholder="货号/产品名称"/>
+				<div class="row ">
+					<div class="col-sm-3 swsyp-txt">/ 生物试验品&nbsp;&nbsp;</div>
+					<div class="col-sm-7 form-group  has-feedback has-success">
+						<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+						<input type="text" id="search_text"  class="form-control" placeholder="查找货号"/>
 					</div>
-					<div class="col-sm-1">
+<!-- 					<div class="col-sm-1">
 						<input type="button" id="search_btn"  class="form-control" value="搜索"/>
-					</div>
+					</div> -->
 				</div>
 				<div class="row result-box" id="search_list">
-					<h5>搜索结果：</h5>
+					<!--<h5>搜索结果：</h5>-->
 					<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
 						<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list">
 							<picture class="col-sm-1 col-xs-2 result-list-img">
-								<img v-bind:src="'http://192.168.1.107:3005'+item.thumb_img" />
+								<img v-bind:src="'http://47.104.15.240:3005'+item.thumb_img" />
 							</picture>
 							<div class="col-sm-11 col-xs-10 ">
 								<strong>{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}} </strong>
@@ -102,13 +102,14 @@
 				  	getPfd:function(){
 				  		//.....
 				  		$.ajax({
-				  			url:'http://192.168.1.107:3005/api/getPdf',
+				  			url:'http://47.104.15.240:3005/api/getPdf',
 				  			type:'get',
 				  			dataType:'json',
 				  			success:function(res){
 				  				if(res.res){
 				  					this.pdfs=res.data;
 				  				}
+
 				  			}.bind(this)
 				  		})
 	
@@ -116,7 +117,7 @@
 				  	searchPdf:function(){
 				  		var Tval = $("#search_text").val();
 						$.ajax({
-							url:'http://192.168.1.107:3005/api/searchPdf?value='+Tval,
+							url:'http://47.104.15.240:3005/api/searchPdf?value='+Tval,
 							type:'get',
 							dataType:'json',
 				  			success:function(res){
@@ -132,7 +133,12 @@
 			//搜索
 			$("#search_btn").click(function(){
 				pdfVue.searchPdf();
-			})
+			});
+			
+			
+			
+			
+			
     	})
     	
     </script>

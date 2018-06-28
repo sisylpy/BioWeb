@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+	<title>详情页面</title>
+	<link href="/css/bootstrap.css"  rel="stylesheet"/>
+	<!--<link rel="stylesheet" type="text/css" href="css/common.css"/>-->
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<link href="/css/video-js.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link href="/css/star-rating.css" media="all" rel="stylesheet">
+	<!-- If you'd like to support IE8 -->
+	<script src="/js/videojs-ie8.min.js"></script>
+	<!--时间控件-->
+	<link href="/css/bootstrap-datetimepicker.min.css"  rel="stylesheet"/>
+	<!--[if lt IE 9]>
+  	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<style>
+	.pdfobject-container { height: 500px;}
+	.pdfobject { border: 1px solid #666; }
+	.m{ width:100%;  margin-left: auto; margin-right: auto; margin-top:50px; }
+	</style>
+</head>  
+
+<body>
+	<!--导航-->
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="row my-nav">
+					<div class="navbar-header col-md-3 col-xs-12 col-sm-4">
+	      				<a class="navbar-brand" href="#">
+	        				<img alt="Brand"  src="/img/logo.png">
+	      				</a>
+	    			</div>		
+	    			<nav class="col-md-9 col-xs-12 col-sm-8">
+	    				<a href="/" class="col-xs-3">生物试验品</a>
+	    				<a href="collection.html" class="col-xs-3">我的收藏</a>
+	    				<a href="operation.html" class="col-xs-3">我的操作</a>
+	    				<a class="col-xs-3">我的试用品</a>
+	    			</nav>	 		    			
+			</div>
+		</div>
+	</div>
+	<!--end-->
+
+	<!--主题部分-->
+	<div class="con-wrap">
+		<div class="main-top">
+			<div class="container">
+				<div class="row collect ">
+					<div class="swsyp-txt prod">GraneService &nbsp;&nbsp;&nbsp;&nbsp;<span class="blue-font">/生物试验品</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="detail_hd">
+			<div class="row detail">
+				<div class="col-sm-3">
+					<div class="list-group-item return-btn">
+						<a href="/">返回查找</a>
+					</div>
+					<div class="list-group">
+						  <div class="list-group-item active">
+							    <span class="badge" v-if="detail.language == 1">0</span>
+							    <span class="badge" v-else>1</span>
+							    英文操作手册						  		
+						  </div>
+						  <div class="list-group-item">
+								<span class="badge" v-if="detail.language === 0">0</span>
+								<span class="badge" v-else>1</span>
+								
+							    中文操作手册
+						  </div>
+						  <div class="list-group-item">
+						    	<span class="badge">2</span>
+						    	文献
+						  </div>
+						  <div class="list-group-item">
+								<span class="badge">1</span>
+						    	视频
+						  </div>
+						  <div class="list-group-item">
+						    	<span class="badge">1</span>
+						    	其他人还下载，打印，收藏了
+						  </div>
+						  <div class="list-group-item">
+						    	<span class="badge">7</span>
+						    	现货
+						  </div>
+						  <div class="list-group-item">
+						    	<span class="badge">0</span>
+						    	试用品
+						  </div>
+						  <div class="list-group-item">
+						    	<span class="badge">5</span>
+						    	评论
+						  </div>
+					</div>
+				</div>
+				<div class="col-sm-9 padd015 pdfSrc">
+					<div class="row">
+						<div class="result-box" >
+							<div class="col-sm-12 col-xs-12 paddB15" >
+								<a class="result-list media result-list-img">
+									<picture class="col-sm-1 col-xs-2">
+										<img class="media-object" v-bind:src="'http://192.168.1.107:3005'+detail.thumb_img" />
+									</picture>
+									<div class="col-sm-11 col-xs-10">
+										<strong >{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</strong>
+										<div class="cata-numb">
+											<span class="cata">货物编号：</span>
+											<span>{{detail.item_name}}</span>
+										</div>
+										<div class="share-love">
+											<span class="glyphicon glyphicon-heart"></span>
+											<span class="glyphicon glyphicon-th-large"></span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				<!--英文操作手册-->
+					<div class="tab_con">
+						<div class="detai-tit-box">
+							<strong class="col-xs-10 detai-tit2">英文操作手册</strong>
+						</div>
+						<div class="row">
+							<div>
+								<div class="ctrlDiv">
+								    <div class="eleContainer elePaddingBtm" style="height:1190px;">
+								        <iframe v-bind:src='"http://192.168.1.107:3005/pdfjs/web/viewer.html?file=http://192.168.1.107:3005/"+pdfSrcj.pdf_url+"&pdf_id="+"<%=pdf_id%>"' width="100%" height="100%"></iframe>
+								    </div>
+								</div>
+								
+							</div>
+						</div>		
+					</div>
+				<!--end-->
+				<!--中文操作手册-->
+					<div class="tab_con dis_none">
+						<div class="detai-tit-box">
+							<strong class="col-xs-10 detai-tit2">中文操作手册</strong>
+						</div>
+						<div class="row">
+							<div>
+								<div class="ctrlDiv">
+								    <div class="eleContainer elePaddingBtm" style="height:1190px;">
+								        <iframe id="displayPdfIframe-zh" width="100%" height="100%"></iframe>
+								    </div>
+								</div>
+							</div>
+						</div>		
+					</div>
+				<!--end-->
+				<!--文献-->
+					<div class="tab_con dis_none wenx">
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+						  <div class="panel panel-default" v-for="(material,mindex) in materials">
+						    <div class="panel-heading" role="tab">
+						      <h4 class="panel-title" >
+						        <a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href='"#collapse"+mindex' aria-expanded="true" v-bind:aria-controls='"collapse"+mindex'>
+						          文献标题：{{materials.experiment_name}}
+						        </a>
+						      </h4>
+						    </div>
+						    <div v-bind:id='"collapse"+mindex'  class="panel-collapse collapse in" role="tabpanel" v-bind:aria-labelledby='"heading"+mindex'>
+						      <div class="panel-body" >
+									<div>
+										<p>出版机构：<span>{{material.author}}</span></p>
+						        		<p>发布时间：<span>{{material.issue_time}}</span></p>
+									</div>
+									<div>
+										<p class="wenx_con">
+											<div>摘要：{{material.summary}}</div>
+											<div>实验材料：</div>
+											<div v-for="(list,index) in material.materials"><span>{{index+1}}.&nbsp;{{list}}</span>&nbsp;&nbsp;&nbsp;<a v-bind:href="'http://192.168.1.107:3005/'+pdfSrcj.pdf_url" type="button" class="btn btn-default">PDF</a></div>
+										</p>
+									</div>
+						      </div>
+						    </div>
+						  </div>
+					
+						</div>
+					</div>
+				<!--end-->
+				<!--视频-->
+					<div class="tab_con dis_none">
+						<div class="detai-tit-box">
+							<strong class="col-xs-10 detai-tit2">视频</strong>
+						</div>
+						<div class="row">
+							<div class="m">
+								<video id="my-video" class="video-js" controls preload="auto" style="width:100%;height:364px;"
+								   data-setup="{}">
+									<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+									<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+									<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+									<p class="vjs-no-js">
+									  To view this video please enable JavaScript, and consider upgrading to a web browser that
+									  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+									</p>
+								</video>
+								  
+							</div>
+							<!--星级评价-->
+							<div  style="height:100px;">
+								<form>
+    								<input id="comment" value="4" type="number" class="rating" data-min=0 data-max=5 data-step=1 data-size="md"
+           							required title="">
+								 </form>
+
+							</div>
+							<!--end-->
+						</div>
+					</div>						
+				<!--end-->
+				<!--其他人打印收藏-->
+					<div class="tab_con dis_none">
+						<div class="detai-tit-box">
+							<strong class="col-xs-10 detai-tit2">其他人还下载了</strong>
+						</div>
+						<div class="row result-box">
+							<div class="col-sm-12 col-xs-12 result-list-wrap ">
+								<a href="#" class="result-list">
+									<picture class="col-sm-1 col-xs-2 result-list-img">
+										<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+										<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+										<img src="img/placeholder-54-3.png" />
+									</picture>
+									<div class="col-sm-11 col-xs-10 ">
+										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+										<div class="cata-numb">
+											<span class="cata">目录编号：</span>
+											<span> A1254201</span>
+										</div>
+										<div class="label-box">
+											<span class="zw">中文</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-12 col-xs-12 result-list-wrap ">
+								<a href="#" class="result-list">
+									<picture class="col-sm-1 col-xs-2 result-list-img">
+										<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+										<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+										<img src="/img/placeholder-54-3.png" />
+									</picture>
+									<div class="col-sm-11 col-xs-10 ">
+										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+										<div class="cata-numb">
+											<span class="cata">目录编号：</span>
+											<span> A1254201</span>
+										</div>
+										<div class="label-box">
+											<span class="zw">中文</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-12 col-xs-12 result-list-wrap ">
+								<a href="#" class="result-list">
+									<picture class="col-sm-1 col-xs-2 result-list-img">
+										<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+										<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+										<img src="/img/placeholder-54-3.png" />
+									</picture>
+									<div class="col-sm-11 col-xs-10 ">
+										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+										<div class="cata-numb">
+											<span class="cata">目录编号：</span>
+											<span> A1254201</span>
+										</div>
+										<div class="label-box">
+											<span class="zw">中文</span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-sm-12 col-xs-12 result-list-wrap ">
+								<a href="#" class="result-list">
+									<picture class="col-sm-1 col-xs-2 result-list-img">
+										<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+										<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+										<img src="/img/placeholder-54-3.png" />
+									</picture>
+									<div class="col-sm-11 col-xs-10 ">
+										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+										<div class="cata-numb">
+											<span class="cata">目录编号：</span>
+											<span> A1254201</span>
+										</div>
+										<div class="label-box">
+											<span class="zw">中文</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>					
+				<!--end-->
+				<!--现货-->
+					<div class="tab_con dis_none">
+						<div class="detai-tit-box">
+							<strong class="col-xs-10 detai-tit2">其他人还下载了</strong>
+						</div>
+						<div class="row">
+							<div class="bs-example" data-example-id="striped-table">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>品牌</th>
+											<th>货号</th>
+											<th>货品规格</th>
+											<th>库存数量</th>
+											<th>单位</th>	
+											<th>目录价</th>	
+											<th>销售价</th>	
+											<th>经销商</th>	
+											<th>联系人</th>	
+											<th>联系电话</th>	
+											<th>更新日期</th>	
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>10次</td>
+											<td>1</td>
+											<td>盒</td>
+											<td>2908</td>
+											<td>2035.6</td>
+											<td>北京粒子科技有限公司</td>
+											<td>李小姐 </td>
+											<td>13910825707</td>
+											<td>2018-03-12</td>
+										</tr>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>10次</td>
+											<td>1</td>
+											<td>盒</td>
+											<td>2908</td>
+											<td>2035.6</td>
+											<td>北京粒子科技有限公司</td>
+											<td>李小姐 </td>
+											<td>13910825707</td>
+											<td>2018-03-12</td>
+										</tr>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>10次</td>
+											<td>1</td>
+											<td>盒</td>
+											<td>2908</td>
+											<td>2035.6</td>
+											<td>北京粒子科技有限公司</td>
+											<td>李小姐 </td>
+											<td>13910825707</td>
+											<td>2018-03-12</td>
+										</tr>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>10次</td>
+											<td>1</td>
+											<td>盒</td>
+											<td>2908</td>
+											<td>2035.6</td>
+											<td>北京粒子科技有限公司</td>
+											<td>李小姐 </td>
+											<td>13910825707</td>
+											<td>2018-03-12</td>
+										</tr>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>10次</td>
+											<td>1</td>
+											<td>盒</td>
+											<td>2908</td>
+											<td>2035.6</td>
+											<td>北京粒子科技有限公司</td>
+											<td>李小姐 </td>
+											<td>13910825707</td>
+											<td>2018-03-12</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				<!--end-->
+				<!--试用品-->
+					<div class="tab_con dis_none">
+						<div class="detai-tit-box">
+							<strong class="col-xs-10 detai-tit2">试用品</strong>
+						</div>
+						<div class="row">
+							<div class="bs-example" data-example-id="striped-table">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>品牌</th>
+											<th>货号</th>
+											<th>试用数量</th>
+											<th>经销商</th>	
+											<th>销售区域</th>	
+											<th>&nbsp;</th>	
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>1 盒 </td>
+											<td>北京粒子科技有限责任公司</td>
+											<td>销售区域</td>
+											<td>
+												<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+														现在申请
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>Fisher</td>
+											<td>A1254201 </td>
+											<td>1 盒 </td>
+											<td>北京粒子科技有限责任公司</td>
+											<td>销售区域</td>
+											<td>
+												<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+														现在申请
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>					
+				<!--end-->
+				<!--评论-->
+					<div class="tab_con dis_none">
+						<div class="detai-tit-box">
+							<strong class="row detai-tit2">评论</strong>
+						</div>
+						<div class="row">
+							<div class="syp panel panel-default" style="overflow:hidden;">
+								<div class="panel-heading ov_f">
+									<div class="col-md-10 ">试用品申请时间：<span class="time">2018-05-12 </span></div>
+									<div class="col-md-2">申请数量：<span>5盒</span></div>										
+								</div>
+
+								<div class="col-md-12 pl_con_wrap">
+									<p class="col-md-9 fontB">评论：</p>
+									<p class="col-md-3">发表时间：2018-06-17  </p>
+									<div class="pl_con">
+										<p>此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好</p>
+										<button class="pull-right btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">回复</button>
+									</div>
+								</div>
+								<div class="huifu">
+									<div class="col-md-9 fontB">热心用户</div>
+									<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
+									<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
+								</div>
+								<div class="huifu">
+									<div class="col-md-9 fontB">热心用户</div>
+									<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
+									<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
+								</div>
+							</div>
+							<div class="syp panel panel-default" style="overflow:hidden;">
+								<div class="panel-heading ov_f">
+									<div class="col-md-10 ">试用品申请时间：<span class="time">2018-05-12 </span></div>
+									<div class="col-md-2">申请数量：<span>5盒</span></div>										
+								</div>
+								<div class="col-md-12 pl_con_wrap">
+									<p class="col-md-9 fontB">评论：</p>
+									<p class="col-md-3">发表时间：2018-06-17  </p>
+									<div class="pl_con">
+										<p>此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好</p>
+										<button class="pull-right btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">回复</button>
+									</div>
+								</div>
+								<div class="huifu">
+									<div class="col-md-9 fontB">热心用户</div>
+									<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
+									<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
+								</div>
+								<div class="huifu">
+									<div class="col-md-9 fontB>热心用户</div>
+										<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
+										<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					<!--end-->
+					
+	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!--end-->
+		
+		
+		
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="/js/star-rating.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function(){
+        $("#comment").rating();           
+    });
+	</script>
+    
+    <script type="text/javascript">
+    <!--tab切换-->
+    	$(document).on("click",".list-group .list-group-item",function(){
+    		var Tindex=$(this).index();
+    		$(this).addClass("active").siblings(".list-group-item").removeClass("active");
+    		$(".col-sm-9 .tab_con").eq(Tindex).show().siblings(".tab_con").hide();
+    	})
+    </script>
+<!-- 现在申请Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">申请单</h4>
+      </div>
+      <div class="modal-body">
+      	<form class="form-horizontal">
+  			<div class="form-group">
+		   		<label for="name" class="col-sm-2 control-label">姓名</label>
+		    	<div class="col-sm-9">
+		      		<input type="text" class="form-control" id="name" placeholder="请输入姓名">
+		    	</div>
+	  		</div>
+			<div class="form-group">
+			    <label for="tel_num" class="col-sm-2 control-label">手机</label>
+			    <div class="col-sm-9">
+			      <input type="number" class="form-control" id="tel_num"  placeholder="请输入手机号">
+			    </div>
+			</div>
+			<div class="form-group">
+			    <label for="company" class="col-sm-2 control-label">单位名称</label>
+			    <div class="col-sm-9">
+			      <input type="text" class="form-control" id="company"  placeholder="请输入单位名称">
+			    </div>
+			</div>
+			<div class="form-group">
+			    <label for="address" class="col-sm-2 control-label">地址</label>
+			    <div class="col-sm-9">
+			      <input type="text" class="form-control" id="address"  placeholder="请输入地址">
+			    </div>
+			</div>
+			 <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+			    <div class="col-sm-9">
+			      <input type="email" class="form-control" id="inputEmail3" placeholder="请输入邮箱">
+			    </div>
+			</div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-->
+<!--评论框-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">回复</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <!--<label for="message-text" class="control-label">Message:</label>-->
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-->
+ 
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var detailhdVue=new Vue({
+			el:"#detail_hd",
+			data:{
+				detail:{},
+				pdf_id:'<%=pdf_id%>',
+				pdfSrcj:{},			
+				materials:[]
+			},
+			methods:{
+				getDetailhd:function(){
+					$.ajax({
+						type:"get",
+						url:"http://192.168.1.107:3005/api/getOnePdf?pdf_id="+this.pdf_id,
+						dataType:'json',
+			  			success:function(res){
+	  						if(res.res){
+	  							this.detail=res.data;
+	  						}
+	  					}.bind(this)
+					});
+				},
+				getPdfSrc:function(){
+					$.ajax({
+						type:"get",
+						url:"http://192.168.1.107:3005/api/getPdfNodeBook?pdf_id="+this.pdf_id,
+						dataType:'json',
+						success:function(res){
+	  						if(res.res){
+	  							this.pdfSrcj=res.data;
+	  						}
+	  					}.bind(this)	
+						
+					})
+				},
+				getmaterials:function(){
+					$.ajax({
+						type:"get",
+						url:"http://192.168.1.107:3005/api/getMaterials?pdf_id="+this.pdf_id,
+						dataType:'json',
+						success:function(res){
+	  						if(res.res){
+	  							this.materials=res.data;	
+	  						}
+	  						console.log(res);
+	  						console.log(res.data);
+	  					}.bind(this)
+						
+					})
+				}
+				
+			}
+		});
+
+		
+		detailhdVue.getDetailhd();
+		detailhdVue.getPdfSrc();
+		detailhdVue.getmaterials();
+	</script>
+	<script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>	
+		<script type="text/javascript">
+		var myPlayer = videojs('my-video');
+		videojs("my-video").ready(function(){
+		var myPlayer = this;
+//		myPlayer.play();
+		});
+	</script>
+
+</html>

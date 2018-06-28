@@ -37,9 +37,9 @@
 	      				</a>
 	    			</div>		
 	    			<nav class="col-md-9 col-xs-12 col-sm-8">
-	    				<a href="/" class="col-xs-3">生物实验品</a>
-	    				<a href="collection.html" class="col-xs-3">我的收藏</a>
-	    				<a href="operation.html" class="col-xs-3">我的操作</a>
+	    				<a href="/" class="col-xs-3">生物试验品</a>
+	    				<a href="/collection" class="col-xs-3">我的收藏</a>
+	    				<a href="/operation" class="col-xs-3">我的操作</a>
 	    				<a class="col-xs-3">我的试用品</a>
 	    			</nav>	 		    			
 			</div>
@@ -48,580 +48,637 @@
 	<!--end-->
 
 	<!--主题部分-->
-	<div class="con-wrap">
-		<div class="container my-main">
-			<div class="row collect operat">
-				<div class="swsyp-txt prod">生物实验品</div>
+	<div class="main-top">
+		<div class="container">
+			<div class="row collect ">
+				<div class="swsyp-txt prod">GraneService &nbsp;&nbsp;&nbsp;&nbsp;<span class="blue-font">/生物试验品</span></div>
 			</div>
 		</div>
-		<div class="container" id="detail_hd">
-			<div class="row">
-				<div class="result-box" >
-					<div class="col-sm-12 col-xs-12 paddB15" >
-						<a class="result-list media result-list-img">
-							<picture class="col-sm-1 col-xs-2">
-								<img class="media-object" v-bind:src="'http://192.168.1.107:3005'+detail.thumb_img" />
-							</picture>
-							<div class="col-sm-11 col-xs-10">
-								<strong >{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</strong>
-								<div class="cata-numb">
-									<span class="cata">货物编号：</span>
-									<span>{{detail.item_name}}</span>
-								</div>
-								<div class="">
-									<button type="button" class="btn btn-default">分享</button>
-									<button type="button" class="btn btn-default">收藏</button>
-								</div>
+	</div>
+	<!-- 移动端显示 -->
+	<div id="detail_hd">
+		<div class="container visible-xs-block iph-block">
+			<div class="result-box" >
+				<div class="col-sm-12 col-xs-12 paddB15" >
+					<a class="result-list media result-list-img">
+						<picture class="col-sm-1 col-xs-2">
+							<img class="media-object" v-bind:src="'http://47.104.15.240:3005'+detail.thumb_img" />
+						</picture>
+						<div class="col-sm-11 col-xs-10">
+							<strong >{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</strong>
+							<div class="cata-numb">
+								<span class="cata">货物编号：</span>
+								<span>{{detail.item_name}}</span>
 							</div>
-						</a>
-					</div>
+							<div class="share-love">
+								<span class="glyphicon glyphicon-heart changRed" id="collectStar" v-if="isCollect === true"></span>
+								<span class="glyphicon glyphicon-heart" id="collectStar" v-else></span>
+								<span class="glyphicon glyphicon-th-large"></span>
+							</div>
+						</div>
+					</a>
 				</div>
 			</div>
-			<div class="row detail">
-				<div class="col-sm-3">
-					<div class="list-group">
-						  <div class="list-group-item active">
-							    <span class="badge" v-if="detail.language == 1">0</span>
-							    <span class="badge" v-else>1</span>
-							    英文操作手册						  		
-						  </div>
-						  <div class="list-group-item">
-								<span class="badge" v-if="detail.language === 0">0</span>
-								<span class="badge" v-else>1</span>
-								
-							    中文操作手册
-						  </div>
-						  <div class="list-group-item">
-						    	<span class="badge">2</span>
-						    	文献
-						  </div>
-						  <div class="list-group-item">
-								<span class="badge">1</span>
-						    	视频
-						  </div>
-						  <div class="list-group-item">
-						    	<span class="badge">1</span>
-						    	其他人还下载，打印，收藏了
-						  </div>
-						  <div class="list-group-item">
-						    	<span class="badge">7</span>
-						    	现货
-						  </div>
-						  <div class="list-group-item">
-						    	<span class="badge">0</span>
-						    	试用品
-						  </div>
-						  <div class="list-group-item">
-						    	<span class="badge">5</span>
-						    	评论
-						  </div>
-					</div>
-				</div>
-				<div class="col-sm-9 padd015 pdfSrc">
-				<!--英文操作手册-->
-					<div class="tab_con">
-						<div class="detai-tit-box">
-							<strong class="col-xs-10 detai-tit2">英文操作手册</strong>
+		</div>
+		<!-- end -->
+		<div class="con-wrap">
+			<div class="container">
+				<div class="row detail">
+					<div class="col-sm-3 tel_left" id="tel_left">
+						<div class="list-group-item return-btn">
+							<a href="/">返回查找</a>
 						</div>
-						<div class="row">
-							<div>
-								<div class="ctrlDiv">
-								    <div class="eleContainer elePaddingBtm" style="height:1190px;">
-								        <iframe v-bind:src='"http://192.168.1.107:3005/pdfjs/web/viewer.html?file=http://192.168.1.107:3005/"+pdfSrcj.pdf_url+"&pdf_id="+"<%=pdf_id%>"' width="100%" height="100%"></iframe>
-								    </div>
-								</div>
-								
-							</div>
-						</div>		
-					</div>
-				<!--end-->
-				<!--中文操作手册-->
-					<div class="tab_con dis_none">
-						<div class="detai-tit-box">
-							<strong class="col-xs-10 detai-tit2">中文操作手册</strong>
-						</div>
-						<div class="row">
-							<div>
-								<div class="ctrlDiv">
-								    <div class="eleContainer elePaddingBtm" style="height:1190px;">
-								        <iframe id="displayPdfIframe-zh" width="100%" height="100%"></iframe>
-								    </div>
-								</div>
-							</div>
-						</div>		
-					</div>
-				<!--end-->
-				<!--文献-->
-					<div class="tab_con dis_none wenx">
-						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
-						  <div class="panel panel-default" v-for="(material,mindex) in materials">
-						    <div class="panel-heading" role="tab">
-						      <h4 class="panel-title" >
-						        <a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href='"#collapse"+mindex' aria-expanded="true" v-bind:aria-controls='"collapse"+mindex'>
-						          文献标题：{{materials.experiment_name}}
-						        </a>
-						      </h4>
-						    </div>
-						    <div v-bind:id='"collapse"+mindex'  class="panel-collapse collapse in" role="tabpanel" v-bind:aria-labelledby='"heading"+mindex'>
-						      <div class="panel-body" >
-									<div>
-										<p>出版机构：<span>{{material.author}}</span></p>
-						        		<p>发布时间：<span>{{material.issue_time}}</span></p>
-									</div>
-									<div>
-										<p class="wenx_con">
-											<div>摘要：{{material.summary}}</div>
-											<div>实验材料：</div>
-											<div v-for="(list,index) in material.materials"><span>{{index+1}}.&nbsp;{{list}}</span>&nbsp;&nbsp;&nbsp;<a v-bind:href="'http://192.168.1.107:3005/'+pdfSrcj.pdf_url" type="button" class="btn btn-default">PDF</a></div>
-										</p>
-									</div>
-						      </div>
-						    </div>
-						  </div>
-					
+						<div class="list-group">
+							  <div class="list-group-item active">
+								    <span class="badge" v-if="detail.language == 1">0</span>
+								    <span class="badge" v-else>1</span>
+								    英文操作手册						  		
+							  </div>
+							  <div class="list-group-item">
+									<span class="badge" v-if="detail.language === 0">0</span>
+									<span class="badge" v-else>1</span>
+									
+								    中文操作手册
+							  </div>
+							  <div class="list-group-item">
+							    	<span class="badge">2</span>
+							    	文献
+							  </div>
+							  <div class="list-group-item">
+									<span class="badge">1</span>
+							    	视频
+							  </div>
+							  <div class="list-group-item">
+							    	<span class="badge">1</span>
+							    	相关产品
+							  </div>
+							  <div class="list-group-item">
+							    	<span class="badge">7</span>
+							    	现货
+							  </div>
+							  <div class="list-group-item">
+							    	<span class="badge">0</span>
+							    	试用品
+							  </div>
+							  <div class="list-group-item">
+							    	<span class="badge">5</span>
+							    	留言
+							  </div>
 						</div>
 					</div>
-				<!--end-->
-				<!--视频-->
-					<div class="tab_con dis_none">
-						<div class="detai-tit-box">
-							<strong class="col-xs-10 detai-tit2">视频</strong>
-						</div>
-						<div class="row">
-							<div class="m">
-								<video id="my-video" class="video-js" controls preload="auto" style="width:100%;height:364px;"
-								   data-setup="{}">
-									<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-									<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-									<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
-									<p class="vjs-no-js">
-									  To view this video please enable JavaScript, and consider upgrading to a web browser that
-									  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-									</p>
-								</video>
-								  
-							</div>
-							<!--星级评价-->
-							<div  style="height:100px;">
-								<form>
-    								<input id="comment" value="4" type="number" class="rating" data-min=0 data-max=5 data-step=1 data-size="md"
-           							required title="">
-								 </form>
-
-							</div>
-							<!--end-->
-						</div>
-					</div>						
-				<!--end-->
-				<!--其他人打印收藏-->
-					<div class="tab_con dis_none">
-						<div class="detai-tit-box">
-							<strong class="col-xs-10 detai-tit2">其他人还下载了</strong>
-						</div>
-						<div class="row result-box">
-							<div class="col-sm-12 col-xs-12 result-list-wrap ">
-								<a href="#" class="result-list">
-									<picture class="col-sm-1 col-xs-2 result-list-img">
-										<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-										<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-										<img src="img/placeholder-54-3.png" />
-									</picture>
-									<div class="col-sm-11 col-xs-10 ">
-										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-										<div class="cata-numb">
-											<span class="cata">目录编号：</span>
-											<span> A1254201</span>
+	
+					<div class="col-sm-9 padd015 pdfSrc iph-tab" id="iph-tab">
+						<div class="row hidden-xs">
+							<div class="result-box" >
+								<div class="col-sm-12 col-xs-12 paddB15" >
+									<a class="result-list media result-list-img">
+										<picture class="col-sm-1 col-xs-2">
+											<img class="media-object" v-bind:src="'http://47.104.15.240:3005'+detail.thumb_img" />
+										</picture>
+										<div class="col-sm-11 col-xs-10">
+											<strong >{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</strong>
+											<div class="cata-numb">
+												<span class="cata">货物编号：</span>
+												<span>{{detail.item_name}}</span>
+											</div>
+											<div class="share-love">
+												<span class="glyphicon glyphicon-heart changRed" v-if="isCollect === true"></span>
+												<span class="glyphicon glyphicon-heart" v-else></span>
+												<span class="glyphicon glyphicon-th-large"></span>
+											</div>
 										</div>
-										<div class="label-box">
-											<span class="zw">中文</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					<!--英文操作手册-->
+						<div class="tab_con">
+							<div class="detai-tit-box">
+								<strong class="col-xs-10 detai-tit2">英文操作手册</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+							</div>
+							<div class="row">
+								<div>
+									<div class="ctrlDiv">
+									    <div class="eleContainer elePaddingBtm" style="height:1190px;">
+									        <iframe v-bind:src='"http://47.104.15.240:3005/pdfjs/web/viewer.html?file=http://47.104.15.240:3005/"+pdfSrcj.pdf_url+"&pdf_id="+"<%=pdf_id%>"' width="100%" height="100%"></iframe>
+									    </div>
+									</div>
+									
+								</div>
+							</div>		
+						</div>
+					<!--end-->
+					<!--中文操作手册-->
+						<div class="tab_con dis_none">
+							<div class="detai-tit-box">
+								<strong class="col-xs-10 detai-tit2">中文操作手册</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+							</div>
+							<div class="row">
+								<div>
+									<div class="ctrlDiv">
+									    <div class="eleContainer elePaddingBtm" style="height:1190px;">
+									        <iframe id="displayPdfIframe-zh" width="100%" height="100%"></iframe>
+									    </div>
+									</div>
+								</div>
+							</div>		
+						</div>
+					<!--end-->
+					<!--文献-->
+						<div class="tab_con dis_none wenx">
+							<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+							  <div class="panel panel-default" v-for="(material,mindex) in materials">
+							    <div class="panel-heading" role="tab">
+							      <h4 class="panel-title" >
+							        <a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href='"#collapse"+mindex' aria-expanded="true" v-bind:aria-controls='"collapse"+mindex'>
+							          文献标题：{{materials.experiment_name}}
+							        </a>
+							      </h4>
+							    </div>
+							    <div v-bind:id='"collapse"+mindex'  class="panel-collapse collapse in" role="tabpanel" v-bind:aria-labelledby='"heading"+mindex'>
+							      <div class="panel-body" >
+										<div>
+											<p>发表年份：<span>{{material.issue_yea}}</span></p>
+											<p>期刊名：<span>{{material.experiment_name}}</span></p>
+							        		<p>篇名：<span>{{material.magazine_name}}</span></p>
+							        		<p>作者：<span>{{material.author}}</span></p>
+							        		<p>地址：<span>{{material.address}}</span></p>
+										</div>
+										<div>
+											<p class="wenx_con">
+												<div>摘要：{{material.summary}}</div>
+												<div>实验材料：</div>
+												<div v-for="(list,index) in material.materials"><span>{{index+1}}.&nbsp;{{list}}</span>&nbsp;&nbsp;&nbsp;</div>
+											</p>
+										</div>
+							      </div>
+							    </div>
+							  </div>
+						
+							</div>
+						</div>
+					<!--end-->
+					<!--视频-->
+						<div class="tab_con dis_none">
+							<div class="detai-tit-box">
+								<strong class="col-xs-10 detai-tit2">视频</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+							</div>
+							<div class="row">
+								<a href="#" class="col-xs-6 col-md-3">
+									<div class="thumbnail">
+										<img src="/img/iphone-img.jpg"alt="...">
+										<div class="caption">
+											<h3>pureyield-plasmid-midiprep-system
+												-1
+											</h3>
+												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
+												</p>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-xs-6 col-md-3">
+									<div class="thumbnail">
+										<img src="/img/iphone-img.jpg"alt="...">
+										<div class="caption">
+											<h3>pureyield-plasmid-midiprep-system
+												-1
+											</h3>
+												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
+												</p>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-xs-6 col-md-3">
+									<div class="thumbnail">
+										<img src="/img/iphone-img.jpg"alt="...">
+										<div class="caption">
+											<h3>pureyield-plasmid-midiprep-system
+												-1
+											</h3>
+												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
+												</p>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-xs-6 col-md-3">
+									<div class="thumbnail">
+										<img src="/img/iphone-img.jpg"alt="...">
+										<div class="caption">
+											<h3>pureyield-plasmid-midiprep-system
+												-1
+											</h3>
+												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
+												</p>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="col-xs-6 col-md-3">
+									<div class="thumbnail">
+										<img src="/img/iphone-img.jpg"alt="...">
+										<div class="caption">
+											<h3>pureyield-plasmid-midiprep-system
+												-1
+											</h3>
+												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
+												</p>
 										</div>
 									</div>
 								</a>
 							</div>
-							<div class="col-sm-12 col-xs-12 result-list-wrap ">
-								<a href="#" class="result-list">
-									<picture class="col-sm-1 col-xs-2 result-list-img">
-										<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-										<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-										<img src="/img/placeholder-54-3.png" />
-									</picture>
-									<div class="col-sm-11 col-xs-10 ">
-										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-										<div class="cata-numb">
-											<span class="cata">目录编号：</span>
-											<span> A1254201</span>
-										</div>
-										<div class="label-box">
-											<span class="zw">中文</span>
-										</div>
-									</div>
-								</a>
+						</div>						
+					<!--end-->
+					<!--相关产品-->
+						<div class="tab_con dis_none">
+							<div class="detai-tit-box">
+								<strong class="col-xs-10 detai-tit2">相关产品</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
 							</div>
-							<div class="col-sm-12 col-xs-12 result-list-wrap ">
-								<a href="#" class="result-list">
-									<picture class="col-sm-1 col-xs-2 result-list-img">
-										<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-										<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-										<img src="/img/placeholder-54-3.png" />
-									</picture>
-									<div class="col-sm-11 col-xs-10 ">
-										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-										<div class="cata-numb">
-											<span class="cata">目录编号：</span>
-											<span> A1254201</span>
+							<div class="row result-box">
+								<div class="col-sm-12 col-xs-12 result-list-wrap ">
+									<a href="#" class="result-list">
+										<picture class="col-sm-1 col-xs-2 result-list-img">
+											<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+											<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+											<img src="img/placeholder-54-3.png" />
+										</picture>
+										<div class="col-sm-11 col-xs-10 ">
+											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+											<div class="cata-numb">
+												<span class="cata">目录编号：</span>
+												<span> A1254201</span>
+											</div>
+											<div class="label-box">
+												<span class="zw">中文</span>
+											</div>
 										</div>
-										<div class="label-box">
-											<span class="zw">中文</span>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-sm-12 col-xs-12 result-list-wrap ">
-								<a href="#" class="result-list">
-									<picture class="col-sm-1 col-xs-2 result-list-img">
-										<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-										<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-										<img src="/img/placeholder-54-3.png" />
-									</picture>
-									<div class="col-sm-11 col-xs-10 ">
-										<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-										<div class="cata-numb">
-											<span class="cata">目录编号：</span>
-											<span> A1254201</span>
-										</div>
-										<div class="label-box">
-											<span class="zw">中文</span>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>					
-				<!--end-->
-				<!--现货-->
-					<div class="tab_con dis_none">
-						<div class="detai-tit-box">
-							<strong class="col-xs-10 detai-tit2">其他人还下载了</strong>
-						</div>
-						<div class="row">
-							<div class="bs-example" data-example-id="striped-table">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th>品牌</th>
-											<th>货号</th>
-											<th>货品规格</th>
-											<th>库存数量</th>
-											<th>单位</th>	
-											<th>目录价</th>	
-											<th>销售价</th>	
-											<th>经销商</th>	
-											<th>联系人</th>	
-											<th>联系电话</th>	
-											<th>更新日期</th>	
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>10次</td>
-											<td>1</td>
-											<td>盒</td>
-											<td>2908</td>
-											<td>2035.6</td>
-											<td>北京粒子科技有限公司</td>
-											<td>李小姐 </td>
-											<td>13910825707</td>
-											<td>2018-03-12</td>
-										</tr>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>10次</td>
-											<td>1</td>
-											<td>盒</td>
-											<td>2908</td>
-											<td>2035.6</td>
-											<td>北京粒子科技有限公司</td>
-											<td>李小姐 </td>
-											<td>13910825707</td>
-											<td>2018-03-12</td>
-										</tr>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>10次</td>
-											<td>1</td>
-											<td>盒</td>
-											<td>2908</td>
-											<td>2035.6</td>
-											<td>北京粒子科技有限公司</td>
-											<td>李小姐 </td>
-											<td>13910825707</td>
-											<td>2018-03-12</td>
-										</tr>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>10次</td>
-											<td>1</td>
-											<td>盒</td>
-											<td>2908</td>
-											<td>2035.6</td>
-											<td>北京粒子科技有限公司</td>
-											<td>李小姐 </td>
-											<td>13910825707</td>
-											<td>2018-03-12</td>
-										</tr>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>10次</td>
-											<td>1</td>
-											<td>盒</td>
-											<td>2908</td>
-											<td>2035.6</td>
-											<td>北京粒子科技有限公司</td>
-											<td>李小姐 </td>
-											<td>13910825707</td>
-											<td>2018-03-12</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				<!--end-->
-				<!--试用品-->
-					<div class="tab_con dis_none">
-						<div class="detai-tit-box">
-							<strong class="col-xs-10 detai-tit2">试用品</strong>
-						</div>
-						<div class="row">
-							<div class="bs-example" data-example-id="striped-table">
-								<table class="table table-striped">
-									<thead>
-										<tr>
-											<th>品牌</th>
-											<th>货号</th>
-											<th>试用数量</th>
-											<th>经销商</th>	
-											<th>销售区域</th>	
-											<th>&nbsp;</th>	
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>1 盒 </td>
-											<td>北京粒子科技有限责任公司</td>
-											<td>销售区域</td>
-											<td>
-												<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-														现在申请
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>Fisher</td>
-											<td>A1254201 </td>
-											<td>1 盒 </td>
-											<td>北京粒子科技有限责任公司</td>
-											<td>销售区域</td>
-											<td>
-												<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-														现在申请
-												</button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>					
-				<!--end-->
-				<!--评论-->
-					<div class="tab_con dis_none">
-						<div class="detai-tit-box">
-							<strong class="row detai-tit2">评论</strong>
-						</div>
-						<div class="row">
-							<div class="syp panel panel-default" style="overflow:hidden;">
-								<div class="panel-heading ov_f">
-									<div class="col-md-10 ">试用品申请时间：<span class="time">2018-05-12 </span></div>
-									<div class="col-md-2">申请数量：<span>5盒</span></div>										
+									</a>
 								</div>
-
-								<div class="col-md-12 pl_con_wrap">
-									<p class="col-md-9 fontB">评论：</p>
-									<p class="col-md-3">发表时间：2018-06-17  </p>
-									<div class="pl_con">
-										<p>此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好</p>
-										<button class="pull-right btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">回复</button>
-									</div>
+								<div class="col-sm-12 col-xs-12 result-list-wrap ">
+									<a href="#" class="result-list">
+										<picture class="col-sm-1 col-xs-2 result-list-img">
+											<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+											<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+											<img src="/img/placeholder-54-3.png" />
+										</picture>
+										<div class="col-sm-11 col-xs-10 ">
+											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+											<div class="cata-numb">
+												<span class="cata">目录编号：</span>
+												<span> A1254201</span>
+											</div>
+											<div class="label-box">
+												<span class="zw">中文</span>
+											</div>
+										</div>
+									</a>
 								</div>
-								<div class="huifu">
-									<div class="col-md-9 fontB">热心用户</div>
-									<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
-									<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
+								<div class="col-sm-12 col-xs-12 result-list-wrap ">
+									<a href="#" class="result-list">
+										<picture class="col-sm-1 col-xs-2 result-list-img">
+											<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+											<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+											<img src="/img/placeholder-54-3.png" />
+										</picture>
+										<div class="col-sm-11 col-xs-10 ">
+											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+											<div class="cata-numb">
+												<span class="cata">目录编号：</span>
+												<span> A1254201</span>
+											</div>
+											<div class="label-box">
+												<span class="zw">中文</span>
+											</div>
+										</div>
+									</a>
 								</div>
-								<div class="huifu">
-									<div class="col-md-9 fontB">热心用户</div>
-									<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
-									<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
+								<div class="col-sm-12 col-xs-12 result-list-wrap ">
+									<a href="#" class="result-list">
+										<picture class="col-sm-1 col-xs-2 result-list-img">
+											<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
+											<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+											<img src="/img/placeholder-54-3.png" />
+										</picture>
+										<div class="col-sm-11 col-xs-10 ">
+											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+											<div class="cata-numb">
+												<span class="cata">目录编号：</span>
+												<span> A1254201</span>
+											</div>
+											<div class="label-box">
+												<span class="zw">中文</span>
+											</div>
+										</div>
+									</a>
 								</div>
 							</div>
-							<div class="syp panel panel-default" style="overflow:hidden;">
-								<div class="panel-heading ov_f">
-									<div class="col-md-10 ">试用品申请时间：<span class="time">2018-05-12 </span></div>
-									<div class="col-md-2">申请数量：<span>5盒</span></div>										
-								</div>
-								<div class="col-md-12 pl_con_wrap">
-									<p class="col-md-9 fontB">评论：</p>
-									<p class="col-md-3">发表时间：2018-06-17  </p>
-									<div class="pl_con">
-										<p>此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好此产品很好</p>
-										<button class="pull-right btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">回复</button>
-									</div>
-								</div>
-								<div class="huifu">
-									<div class="col-md-9 fontB">热心用户</div>
-									<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
-									<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
-								</div>
-								<div class="huifu">
-									<div class="col-md-9 fontB>热心用户</div>
-										<div class="col-md-3">回复时间：<span>2018-03-29</span></div>
-										<p class="col-md-12">我感觉还可以我感觉还可以我感觉还可以我感觉还可以我感觉还可以</p>
-									</div>
+						</div>					
+					<!--end-->
+					<!--现货-->
+						<div class="tab_con dis_none">
+							<div class="detai-tit-box">
+								<strong class="col-xs-10 detai-tit2">现货</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+							</div>
+							<div class="row">
+								<div class="bs-example" data-example-id="striped-table">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>品牌</th>
+												<th>货号</th>
+												<th>货品规格</th>
+												<th>库存数量</th>
+												<th>单位</th>	
+												<th>目录价</th>	
+												<th>销售价</th>	
+												<th>经销商</th>	
+												<th>联系人</th>	
+												<th>联系电话</th>	
+												<th>更新日期</th>	
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="Product in Products">
+												<td>{{Product.manufacturer_name}}</td>
+												<td>{{Product.item_name}}</td>
+												<td>{{Product.goods_standard}}</td>
+												<td>{{Product.stock}}</td>
+												<td>{{Product.unit}}</td>
+												<td>{{Product.manufactur_price}}</td>
+												<td>{{Product.sale_price}}</td>
+												<td>{{Product.agencyName}}</td>
+												<td>{{Product.person_name}} </td>
+												<td>{{Product.person_phone}}</td>
+												<td>{{Product.update_time}}</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
 					<!--end-->
-					
-	
+					<!--试用品-->
+						<div class="tab_con dis_none" id="syp">
+							<div class="detai-tit-box">
+								<strong class="col-xs-10 detai-tit2">试用品</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+							</div>
+							<div class="row">
+								<div class="bs-example" data-example-id="striped-table">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>品牌</th>
+												<th>货号</th>
+												<th>试用数量</th>
+												<th>经销商</th>	
+												<th>销售区域</th>	
+												<th>&nbsp;</th>	
+											</tr>
+										</thead>
+										<tbody>
+											<tr v-for="TrailProduct in TrailProducts">
+												<td>{{TrailProduct.manufacturer_name}}</td>
+												<td>{{TrailProduct.item_name}} </td>
+												<td>{{TrailProduct.sample_amount}}{{TrailProduct.unit}} </td>
+												<td>{{TrailProduct.agencyName}}</td>
+												<td>{{TrailProduct.sales_area}}</td>
+												<td>
+													<button type="button" 
+														v-bind:data-item_name="TrailProduct.item_name" 
+														v-bind:data-manufacturer_name = "TrailProduct.manufacturer_name" 
+														v-bind:data-sample_amount="TrailProduct.sample_amount" 
+														v-bind:data-unit="TrailProduct.unit" 
+														v-bind:data-agency_name="TrailProduct.agencyName" 
+														v-bind:data-sales_area="TrailProduct.sales_area" 
+														v-bind:data-sale_price="TrailProduct.sale_price" 
+														v-bind:data-goods_standard="TrailProduct.goods_standard" 
+														v-bind:data-manufactur_price="TrailProduct.manufactur_price"
+														v-bind:data-product_name="TrailProduct.goods_name"
+														class="btn btn-primary btn-sm applyTrailP" data-toggle="modal" data-target="#myModal">
+															现在申请
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>					
+					<!--end-->
+					<!--留言-->
+						<div class="tab_con dis_none">
+							<div class="detai-tit-box">
+								<strong class="row detai-tit2">留言</strong>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+							</div>
+							<div class="want-com">我要留言</div>
+							<div class="row comment">
+								<h3 class="com-tit">评论是：2018-06-01</h3>
+								<p class="com-con">这个产品不好用。打飞机；拉发链接发啦开饭了阿旅客发送量克己复礼法拉省；离放假啊了；手机发了爱上；浪费空间发阿垃圾分类卡上；发链接啊失联飞
+	打打飞机啦舒服法拉咖啡里看见阿是龙卷风啦手机发啦发链接啊；了法拉省打飞机离开发了 发大水；理发师理发。。</p>
+								<ul class="com-hf">
+									<li>
+										<div class="ov_f">
+											<span class="pull-left">回复时间：2018-08-14</span>
+											<span class="pull-right">热心用户1</span>
+										</div>
+										<p class="com-con">我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。</p>
+									</li>
+									<li>
+										<div class="ov_f">
+											<span class="pull-left">回复时间：2018-08-14</span>
+											<span class="pull-right">热心用户1</span>
+										</div>
+										<p class="com-con">我觉得还可以。</p>
+									</li>
+								</ul>
+								<div class="hf-btn">回复</div>
+							</div>
+						<!--end-->
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-		<!--end-->
-		
-		
-		
-	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
-    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-    <script src="/js/star-rating.js"></script>
-   <script type="text/javascript">
-    $(document).ready(function(){
-        $("#comment").rating();           
-    });
-	</script>
-    
-    <script type="text/javascript">
-    <!--tab切换-->
-    	$(document).on("click",".list-group .list-group-item",function(){
-    		var Tindex=$(this).index();
-    		$(this).addClass("active").siblings(".list-group-item").removeClass("active");
-    		$(".col-sm-9 .tab_con").eq(Tindex).show().siblings(".tab_con").hide();
-    	})
-    </script>
-<!-- 现在申请Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">申请单</h4>
-      </div>
-      <div class="modal-body">
-      	<form class="form-horizontal">
-  			<div class="form-group">
-		   		<label for="name" class="col-sm-2 control-label">姓名</label>
-		    	<div class="col-sm-9">
-		      		<input type="text" class="form-control" id="name" placeholder="请输入姓名">
-		    	</div>
-	  		</div>
-			<div class="form-group">
-			    <label for="tel_num" class="col-sm-2 control-label">手机</label>
-			    <div class="col-sm-9">
-			      <input type="number" class="form-control" id="tel_num"  placeholder="请输入手机号">
+	<!--end-->
+			
+			
+			
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+	    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+	    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
+	    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	    <script src="/js/star-rating.js"></script>
+	   <script type="text/javascript">
+	    $(document).ready(function(){
+	        $("#comment").rating();           
+	    });
+		</script>
+	    
+	    <script type="text/javascript">
+		// tab切换
+	    $(document).on("click",".list-group .list-group-item",function(){
+	    	var Tindex=$(this).index();
+	    	$(this).addClass("active").siblings(".list-group-item").removeClass("active");
+	    	$(".col-sm-9 .tab_con").eq(Tindex).show().siblings(".tab_con").hide(); 
+	 		if(navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1){
+	   			$("#tel_left").removeClass('anima-right').addClass('anima-left');
+	   			$("#iph-tab").show().removeClass('iph-right').addClass("iph-left");
+	
+	    }else{
+	    		 	
+	    }   	
+	   })
+	    $(document).on("click",".iph-arrow",function(){
+	    	$("#iph-tab").removeClass('iph-left').addClass('iph-right');
+	    	$("#tel_left").removeClass('anima-left').addClass('anima-right');
+	    	//$(".iph-tab").removeClass("iph-left").removeClass('iph-right');
+	    	//$(".tel_left").removeClass("anima-left")
+	    	//$(".tel_left").removeClass('anima-right');
+	    	
+	    })
+	
+	    </script>
+	<!-- 现在申请Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">申请单</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<form class="form-horizontal" action="javascript:;" onSubmit="return applyTrailProduct()">
+	  			<div class="form-group">
+			   		<label for="name" class="col-sm-2 control-label">姓名</label>
+			    	<div class="col-sm-9">
+			      		<input type="text" class="form-control" id="name" name="user_name"  required="required" placeholder="请输入姓名">
+			    	</div>
+		  		</div>
+				<div class="form-group">
+				    <label for="tel_num" class="col-sm-2 control-label">手机</label>
+				    <div class="col-sm-9">
+				      <input type="number" class="form-control" id="tel_num" name="user_phone"  required="required"  placeholder="请输入手机号">
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label for="company" class="col-sm-2 control-label">单位名称</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="company"  name="user_company"  required="required"  placeholder="请输入单位名称">
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label for="address" class="col-sm-2 control-label">地址</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="address"  name="user_address"  required="required"  placeholder="请输入地址">
+				    </div>
+				</div>
+				 <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+				    <div class="col-sm-9">
+				      <input type="email" class="form-control"  required="required"  name="user_email" id="inputEmail3" placeholder="请输入邮箱">
+				    </div>
+				</div>
+				 <div class="form-group">
+				    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+				    <div class="col-sm-9">
+				      <label for="inputEmail3" class="control-label">发货前，我们会尽快与您手机联系，进行确认</label>
+				    </div>
+				</div>
+			    <div class="modal-footer">
+			        <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
+			        <button type="submit" class="btn btn-primary">确认</button>
 			    </div>
-			</div>
-			<div class="form-group">
-			    <label for="company" class="col-sm-2 control-label">单位名称</label>
-			    <div class="col-sm-9">
-			      <input type="text" class="form-control" id="company"  placeholder="请输入单位名称">
-			    </div>
-			</div>
-			<div class="form-group">
-			    <label for="address" class="col-sm-2 control-label">地址</label>
-			    <div class="col-sm-9">
-			      <input type="text" class="form-control" id="address"  placeholder="请输入地址">
-			    </div>
-			</div>
-			 <div class="form-group">
-			    <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
-			    <div class="col-sm-9">
-			      <input type="email" class="form-control" id="inputEmail3" placeholder="请输入邮箱">
-			    </div>
-			</div>
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">确认</button>
-      </div>
-    </div>
-  </div>
-</div>
+			</form>
+	      </div>
+	
+	    </div>
+	  </div>
+	</div>
 <!--end-->
-<!--评论框-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">回复</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <!--<label for="message-text" class="control-label">Message:</label>-->
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--end-->
- 
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
+		var item_name="" ;
+		var manufacturer_name = "" ;
+		var sample_amount="" ;
+		var unit="" ;
+		var agency_name="" ;
+		var sales_area="" ;
+		var sale_price="";
+		var goods_standard="" ;
+		var manufactur_price="";
+		var product_name="" ;
+		
+		$(document).on("click",".applyTrailP",function(){
+			item_name = $(this).data('item_name');
+		    manufacturer_name = $(this).data('manufacturer_name');
+		    sample_amount = $(this).data('sample_amount');
+		    unit = $(this).data('unit');
+		    agency_name = $(this).data('agency_name');
+		    sales_area = $(this).data('sales_area');
+		    sale_price = $(this).data('sale_price');
+		    goods_standard = $(this).data('goods_standard');
+		    manufactur_price = $(this).data('manufactur_price');
+		    product_name = $(this).data('product_name');
+		    
+		});
+		/*$('#myModal').on('shown.bs.modal', function (event) {
+			console.log(345);
+		    var button = $(event.relatedTarget) // Button that triggered the modal
+		    var recipient = button.data('id') // Extract info from data-* attributes
+		    var modal = $(this)
+		    item_name = modal.data('item_name');
+		    manufacturer_name = modal.data('manufacturer_name');
+		    sample_amount = modal.data('sample_amount');
+		    unit = modal.data('unit');
+		    agency_name = modal.data('agency_name');
+		    sales_area = modal.data('sales_area');
+		    sale_price = modal.data('sale_price');
+		    goods_standard = modal.data('goods_standard');
+		    manufactur_price = modal.data('manufactur_price');
+		});*/
+		
 		var detailhdVue=new Vue({
 			el:"#detail_hd",
 			data:{
 				detail:{},
 				pdf_id:'<%=pdf_id%>',
 				pdfSrcj:{},			
-				materials:[]
+				materials:[],
+				isCollect:false,
+				TrailProducts:[],
+				Products:[]
+				
 			},
 			methods:{
+				checkIsCollect:function(){
+					$.ajax({
+						type:"get",
+						url:"http://47.104.15.240:3005/api/checkIsCollect?pdf_id="+this.pdf_id,
+						dataType:'json',
+			  			success:function(res){
+	  						if(res.res){
+	  					
+	  							if(res.data == 0){
+	  								this.isCollect = false;
+	  							}else{
+	  								this.isCollect = true
+	  							}
+	  						}
+	  					}.bind(this)
+					});
+				},
 				getDetailhd:function(){
 					$.ajax({
 						type:"get",
-						url:"http://192.168.1.107:3005/api/getOnePdf?pdf_id="+this.pdf_id,
+						url:"http://47.104.15.240:3005/api/getOnePdf?pdf_id="+this.pdf_id,
 						dataType:'json',
 			  			success:function(res){
 	  						if(res.res){
@@ -633,7 +690,7 @@
 				getPdfSrc:function(){
 					$.ajax({
 						type:"get",
-						url:"http://192.168.1.107:3005/api/getPdfNodeBook?pdf_id="+this.pdf_id,
+						url:"http://47.104.15.240:3005/api/getPdfNodeBook?pdf_id="+this.pdf_id,
 						dataType:'json',
 						success:function(res){
 	  						if(res.res){
@@ -646,14 +703,71 @@
 				getmaterials:function(){
 					$.ajax({
 						type:"get",
-						url:"http://192.168.1.107:3005/api/getMaterials?pdf_id="+this.pdf_id,
+						url:"http://47.104.15.240:3005/api/getMaterials?pdf_id="+this.pdf_id,
 						dataType:'json',
 						success:function(res){
 	  						if(res.res){
 	  							this.materials=res.data;	
 	  						}
-	  						console.log(res);
-	  						console.log(res.data);
+	  					}.bind(this)
+						
+					})
+				},
+				getcollectPdf:function(){
+					$.ajax({
+						url:"http://47.104.15.240:3005/api/collectPdf",
+						type:"post",
+						dataType:"json",
+						data:{
+							pdf_id:this.pdf_id
+						},
+						success:function(res){
+							if(res.res){
+								$(".share-love .glyphicon-heart").addClass("changRed");
+								this.isCollect = true;
+							}
+						}.bind(this)
+						
+					})
+				},
+				getcancelCollect:function(){
+					$.ajax({
+						url:"http://47.104.15.240:3005/api/cancelCollect",
+						type:"post",
+						dataType:"json",
+						data:{
+							pdf_id:this.pdf_id
+						},
+						success:function(res){
+							if(res.res){
+								$(".share-love .glyphicon-heart").removeClass("changRed");
+								this.isCollect = false;
+							}
+						}.bind(this)
+					})
+				},
+				getTrailProduct:function(){
+					$.ajax({
+						url:"http://47.104.15.240:3005/api/getTrailProduct?pdf_id="+this.pdf_id,
+						type:"get",
+						dataType:"json",
+						success:function(res){
+	  						if(res.res){
+								this.TrailProducts=res.data;
+	  						}
+	  					}.bind(this)
+						
+					})
+				},
+				getProduct:function(){
+					$.ajax({
+						url:"http://47.104.15.240:3005/api/getProduct?pdf_id="+this.pdf_id,
+						type:"get",
+						dataType:"json",
+						success:function(res){
+	  						if(res.res){
+								this.Products=res.data;
+	  						}
 	  					}.bind(this)
 						
 					})
@@ -661,18 +775,61 @@
 				
 			}
 		});
-
 		
+		detailhdVue.checkIsCollect();
 		detailhdVue.getDetailhd();
 		detailhdVue.getPdfSrc();
 		detailhdVue.getmaterials();
+		detailhdVue.getTrailProduct();
+		detailhdVue.getProduct();
+		$(".share-love .glyphicon-heart").click(function(){
+			console.log(detailhdVue.isCollect);
+			if(detailhdVue.isCollect){
+				detailhdVue.getcancelCollect();
+			}else{	
+				detailhdVue.getcollectPdf();
+			}
+			
+		});
+		function applyTrailProduct(){
+			var data = {
+				item_name : item_name,
+    			manufacturer_name : manufacturer_name,
+    			sample_amount : sample_amount,
+    			unit : unit,
+    			agency_name : agency_name,
+    			sales_area : sales_area,
+    			sale_price : sale_price,
+    			goods_standard : goods_standard,
+    			manufactur_price : manufactur_price,
+    			product_name : product_name,
+    			user_name:$("input[name='user_name']").val(),
+    			user_phone:$("input[name='user_phone']").val(),
+    			user_address:$("input[name='user_address']").val(),
+    			user_company:$("input[name='user_company']").val(),
+    			user_email:$("input[name='user_email']").val(),
+			};
+			$.ajax({
+				url:"http://47.104.15.240:3005/api/applyTrailProduct",
+				type:"post",
+				dataType:"json",
+				data:data,
+				success:function(res){
+					if(res.res){
+						alert("申请成功");
+					}
+				}.bind(this)
+			})
+			return false;
+		}
+				
+		
 	</script>
 	<script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>	
-		<script type="text/javascript">
+	<script type="text/javascript">
 		var myPlayer = videojs('my-video');
 		videojs("my-video").ready(function(){
 		var myPlayer = this;
-//		myPlayer.play();
 		});
 	</script>
 
