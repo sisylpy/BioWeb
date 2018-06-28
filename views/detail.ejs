@@ -227,62 +227,13 @@
 								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
 							</div>
 							<div class="row">
-								<a href="#" class="col-xs-6 col-md-3">
+								<a href="#" class="col-xs-6 col-md-3" v-for="(video,index) in Videos">
 									<div class="thumbnail">
 										<img src="/img/iphone-img.jpg"alt="...">
 										<div class="caption">
-											<h3>pureyield-plasmid-midiprep-system
-												-1
+											<h3>{{video.video_name}}
 											</h3>
-												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
-												</p>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xs-6 col-md-3">
-									<div class="thumbnail">
-										<img src="/img/iphone-img.jpg"alt="...">
-										<div class="caption">
-											<h3>pureyield-plasmid-midiprep-system
-												-1
-											</h3>
-												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
-												</p>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xs-6 col-md-3">
-									<div class="thumbnail">
-										<img src="/img/iphone-img.jpg"alt="...">
-										<div class="caption">
-											<h3>pureyield-plasmid-midiprep-system
-												-1
-											</h3>
-												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
-												</p>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xs-6 col-md-3">
-									<div class="thumbnail">
-										<img src="/img/iphone-img.jpg"alt="...">
-										<div class="caption">
-											<h3>pureyield-plasmid-midiprep-system
-												-1
-											</h3>
-												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
-												</p>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="col-xs-6 col-md-3">
-									<div class="thumbnail">
-										<img src="/img/iphone-img.jpg"alt="...">
-										<div class="caption">
-											<h3>pureyield-plasmid-midiprep-system
-												-1
-											</h3>
-												<p><span class="pull-left">上传：2018-06-12 &nbsp;&nbsp;| </span>  <span class="pull-right">2人看过</span>
+												<p><span class="pull-left">上传：{{video.create_time}}&nbsp;&nbsp;| </span>  <span class="pull-right">{{video.show_times}}人看过</span>
 												</p>
 										</div>
 									</div>
@@ -297,75 +248,18 @@
 								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
 							</div>
 							<div class="row result-box">
-								<div class="col-sm-12 col-xs-12 result-list-wrap ">
+								<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="(rec,index) in Recs">
 									<a href="#" class="result-list">
 										<picture class="col-sm-1 col-xs-2 result-list-img">
 											<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
 											<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-											<img src="img/placeholder-54-3.png" />
+											<img v-bind:src="'http://47.104.15.240:3005'+rec.thumb_img" />
 										</picture>
 										<div class="col-sm-11 col-xs-10 ">
-											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
+											<strong>{{rec.manuName}}.{{rec.manuSubName}} {{rec.pdf_name}}</strong>
 											<div class="cata-numb">
 												<span class="cata">目录编号：</span>
-												<span> A1254201</span>
-											</div>
-											<div class="label-box">
-												<span class="zw">中文</span>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="col-sm-12 col-xs-12 result-list-wrap ">
-									<a href="#" class="result-list">
-										<picture class="col-sm-1 col-xs-2 result-list-img">
-											<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-											<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-											<img src="/img/placeholder-54-3.png" />
-										</picture>
-										<div class="col-sm-11 col-xs-10 ">
-											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-											<div class="cata-numb">
-												<span class="cata">目录编号：</span>
-												<span> A1254201</span>
-											</div>
-											<div class="label-box">
-												<span class="zw">中文</span>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="col-sm-12 col-xs-12 result-list-wrap ">
-									<a href="#" class="result-list">
-										<picture class="col-sm-1 col-xs-2 result-list-img">
-											<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-											<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-											<img src="/img/placeholder-54-3.png" />
-										</picture>
-										<div class="col-sm-11 col-xs-10 ">
-											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-											<div class="cata-numb">
-												<span class="cata">目录编号：</span>
-												<span> A1254201</span>
-											</div>
-											<div class="label-box">
-												<span class="zw">中文</span>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="col-sm-12 col-xs-12 result-list-wrap ">
-									<a href="#" class="result-list">
-										<picture class="col-sm-1 col-xs-2 result-list-img">
-											<source srcset="/img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-											<source srcset="/img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-											<img src="/img/placeholder-54-3.png" />
-										</picture>
-										<div class="col-sm-11 col-xs-10 ">
-											<strong>ThermoFisher.SuperScript Human Stem Cell cDNA Libraries </strong>
-											<div class="cata-numb">
-												<span class="cata">目录编号：</span>
-												<span> A1254201</span>
+												<span> {{rec.item_name}}</span>
 											</div>
 											<div class="label-box">
 												<span class="zw">中文</span>
@@ -476,30 +370,22 @@
 								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
 							</div>
 							<div class="want-com">我要留言</div>
-							<div class="row comment">
-								<h3 class="com-tit">评论是：2018-06-01</h3>
-								<p class="com-con">这个产品不好用。打飞机；拉发链接发啦开饭了阿旅客发送量克己复礼法拉省；离放假啊了；手机发了爱上；浪费空间发阿垃圾分类卡上；发链接啊失联飞
-	打打飞机啦舒服法拉咖啡里看见阿是龙卷风啦手机发啦发链接啊；了法拉省打飞机离开发了 发大水；理发师理发。。</p>
+							<div class="row comment" v-for="comment in Comments">
+								<h3 class="com-tit">评论时间：{{comment.create_time}}</h3>
+								<p class="com-con">{{comment.message_content}}</p>
 								<ul class="com-hf">
-									<li>
+									<li v-for="(reply,rindex) in comment.reply">
 										<div class="ov_f">
-											<span class="pull-left">回复时间：2018-08-14</span>
-											<span class="pull-right">热心用户1</span>
+											<span class="pull-left">回复时间：{{reply.create_time}}</span>
+											<span class="pull-right">热心用户{{rindex+1}}</span>
 										</div>
-										<p class="com-con">我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。我觉得还可以。</p>
-									</li>
-									<li>
-										<div class="ov_f">
-											<span class="pull-left">回复时间：2018-08-14</span>
-											<span class="pull-right">热心用户1</span>
-										</div>
-										<p class="com-con">我觉得还可以。</p>
+										<p class="com-con">{{reply.message_content}}</p>
 									</li>
 								</ul>
-								<div class="hf-btn">回复</div>
+								<div class="hf-btn" v-bind:data-message_id="comment.id">回复</div>
 							</div>
-						<!--end-->
 						</div>
+					<!--end-->
 					</div>
 				</div>
 			</div>
@@ -629,22 +515,7 @@
 		    product_name = $(this).data('product_name');
 		    
 		});
-		/*$('#myModal').on('shown.bs.modal', function (event) {
-			console.log(345);
-		    var button = $(event.relatedTarget) // Button that triggered the modal
-		    var recipient = button.data('id') // Extract info from data-* attributes
-		    var modal = $(this)
-		    item_name = modal.data('item_name');
-		    manufacturer_name = modal.data('manufacturer_name');
-		    sample_amount = modal.data('sample_amount');
-		    unit = modal.data('unit');
-		    agency_name = modal.data('agency_name');
-		    sales_area = modal.data('sales_area');
-		    sale_price = modal.data('sale_price');
-		    goods_standard = modal.data('goods_standard');
-		    manufactur_price = modal.data('manufactur_price');
-		});*/
-		
+
 		var detailhdVue=new Vue({
 			el:"#detail_hd",
 			data:{
@@ -654,7 +525,10 @@
 				materials:[],
 				isCollect:false,
 				TrailProducts:[],
-				Products:[]
+				Products:[],
+				Recs:[],
+				Videos:[],
+				Comments:[]
 				
 			},
 			methods:{
@@ -771,8 +645,47 @@
 	  					}.bind(this)
 						
 					})
-				}
-				
+				},
+				getRec:function(){
+                    $.ajax({
+                        url:"http://192.168.0.243:3005/api/getRec?pdf_id="+this.pdf_id,
+                        type:"get",
+                        dataType:"json",
+                        success:function(res){
+                            if(res.res){
+                                this.Recs=res.data;
+                            }
+                        }.bind(this)
+
+                    })
+				},
+                getVideo:function(){
+                    $.ajax({
+                        url:"http://192.168.0.243:3005/api/getVideo?pdf_id="+this.pdf_id,
+                        type:"get",
+                        dataType:"json",
+                        success:function(res){
+                            if(res.res){
+                                this.Videos=res.data;
+                            }
+                        }.bind(this)
+
+                    })
+                },
+                getComment:function(){
+                    $.ajax({
+                        url:"http://47.104.15.240:3005/api/getComment?pdf_id="+this.pdf_id,
+                        type:"get",
+                        dataType:"json",
+                        success:function(res){
+                            console.log(res);
+                            if(res.res){
+                                this.Comments=res.data;
+                            }
+                        }.bind(this)
+
+                    })
+                }
 			}
 		});
 		
@@ -782,6 +695,9 @@
 		detailhdVue.getmaterials();
 		detailhdVue.getTrailProduct();
 		detailhdVue.getProduct();
+		detailhdVue.getRec();
+		detailhdVue.getVideo();
+		detailhdVue.getComment();
 		$(".share-love .glyphicon-heart").click(function(){
 			console.log(detailhdVue.isCollect);
 			if(detailhdVue.isCollect){
