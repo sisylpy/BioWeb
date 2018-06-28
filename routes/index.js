@@ -19,4 +19,8 @@ router.get('/operation', function(req, res, next) {
 router.get('/products', function(req, res, next) {
   res.render('products');
 });
+//router.get('/detail_detail', function(req, res, next) {
+//	let video_url = req.query.video_url;
+//res.render('detail_detail',{video_url:video_url});
+//});
 module.exports = router;

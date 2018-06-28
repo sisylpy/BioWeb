@@ -30,12 +30,13 @@ input{
 .bg#000{background:#000;}
 .con-wrap div.my-main{padding-top:20px;}
 .my-main .swsyp-txt{color:rgb(0, 118, 163);font-size:1.5rem;text-align:right;line-height:45px;font-weight:600;}
-.result-box  .result-list-wrap{padding:1.5% 2%;background:#fff;}
+#search_list{overflow:hidden;}
+.result-box  .result-list-wrap{padding:1.5% 2%;background:#fff;overflow:hidden;}
 .result-box  .result-list-wrap:nth-child(2n+1){background:none;}
 .result-box  .result-list-wrap:hover{background:#C4C4C4;}
 .result-box .result-list{height:90px;display:block;}
-.result-box .result-list strong{font-size:1.5rem;font-weight:550;height:30px;display:block;}
-.result-box .result-list .cata-numb{height:35px;line-height:35px;}
+.result-box .result-list strong{font-size:1.5rem;font-weight:550;height:30px;display:block;line-height:30px;white-space:nowrap;overflow:hidden;text-overflow: ellipsis;}
+.result-box .result-list .cata-numb{height:35px;line-height:35px;white-space:nowrap;overflow:hidden;text-overflow: ellipsis;}
 .result-box .result-list .cata-numb .cata{color:#000}
 .label-box{overflow:hidden;height:35px;}
 .label-box span{height:25px;line-height:25px;float:right;color:#fff;margin-left:1rem;padding:0 2%;}
@@ -87,7 +88,7 @@ input{
 	0%{left:-500px;}
 	100% {left:0px;}
 }
-
+.more-btn{display:block;width:50%;margin:50px auto}
 
 
 

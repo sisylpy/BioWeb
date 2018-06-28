@@ -59,25 +59,29 @@
 				</div>
 				<div class="row result-box" id="search_list">
 					<!--<h5>搜索结果：</h5>-->
-					<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
-						<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list">
-							<picture class="col-sm-1 col-xs-2 result-list-img">
-								<img v-bind:src="'http://47.104.15.240:3005'+item.thumb_img" />
-							</picture>
-							<div class="col-sm-11 col-xs-10 ">
-								<strong>{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}} </strong>
-								<div class="cata-numb">
-									<span class="cata">货物编号：</span>
-									<span> {{item.item_name}}</span>
+					<div class="ov_f">
+						<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
+							<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list">
+								<picture class="col-sm-1 col-xs-2 result-list-img">
+									<img v-bind:src="'http://47.104.15.240:3005'+item.thumb_img" />
+								</picture>
+								<div class="col-sm-11 col-xs-10 ">
+									<strong>{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}} </strong>
+									<div class="cata-numb">
+										<span class="cata">货物编号：</span>
+										<span> {{item.item_name}}</span>
+									</div>
+									<div class="label-box">
+										<span class="zw" v-if="item.language === 1">中文</span>
+										<span class="zw" v-else>英文</span>
+										<span class="sp">视频</span>
+									</div>
 								</div>
-								<div class="label-box">
-									<span class="zw" v-if="item.language === 1">中文</span>
-									<span class="zw" v-else>英文</span>
-									<span class="sp">视频</span>
-								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 					</div>
+					<div class="prop-up"></div>
+					<button id="search_btn" type="button" class="btn btn-primary more-btn btn-lg">{{more}}</button>
 				</div>
 			</div>			
 		</div>
@@ -96,7 +100,10 @@
     		var pdfVue = new Vue({
 				el: '#search_list',
 				data: {
-				 	pdfs: []
+				 	pdfs: [],
+				 	Tval:"",
+				 	page:2,
+				 	more:"更多"
 				},
 				methods:{
 				  	getPfd:function(){
@@ -115,14 +122,37 @@
 	
 				  	},
 				  	searchPdf:function(){
-				  		var Tval = $("#search_text").val();
+				  		this.Tval = $("#search_text").val();
+				  		this.page=2;
 						$.ajax({
-							url:'http://47.104.15.240:3005/api/searchPdf?value='+Tval,
+							url:'http://47.104.15.240:3005/api/getPdf?value='+this.Tval,
 							type:'get',
 							dataType:'json',
 				  			success:function(res){
 				  				if(res.res){
 				  					this.pdfs=res.data;
+				  				}
+				  			}.bind(this)
+						})
+				  	},
+				  	loadMore:function(){
+				  		$.ajax({
+							url:'http://47.104.15.240:3005/api/getPdf?value='+this.Tval+'&page='+this.page,
+							type:'get',
+							dataType:'json',
+				  			success:function(res){
+				  				if(res.res){
+				  					if(res.data.length>0){
+//				  						console.log(res.data.lenght)
+				  						this.page+=1;
+				  						var that=this;
+				  						res.data.forEach(function(pdf){
+				  							that.pdfs.push(pdf);
+				  							
+				  						})
+				  					}else{
+				  						this.more="没有更多"
+				  					}
 				  				}
 				  			}.bind(this)
 						})
@@ -132,7 +162,7 @@
 			pdfVue.getPfd();
 			//搜索
 			$("#search_btn").click(function(){
-				pdfVue.searchPdf();
+				pdfVue.loadMore();
 			});
 			
 			
