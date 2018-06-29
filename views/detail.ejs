@@ -22,7 +22,7 @@
 	<style>
 	.pdfobject-container { height: 500px;}
 	.pdfobject { border: 1px solid #666; }
-	.m{ width:100%;  margin-left: auto; margin-right: auto; margin-top:50px; }
+	.m{ width:100%;margin:50px auto;}
 	</style>
 </head>  
 
@@ -55,8 +55,9 @@
 			</div>
 		</div>
 	</div>
-	<!-- 移动端显示 -->
+
 	<div id="detail_hd">
+			<!-- 移动端显示 -->
 		<div class="container visible-xs-block iph-block">
 			<div class="result-box" >
 				<div class="col-sm-12 col-xs-12 paddB15" >
@@ -101,27 +102,27 @@
 								    中文操作手册
 							  </div>
 							  <div class="list-group-item">
-							    	<span class="badge">2</span>
+							    	<span class="badge">{{OtherInfo.materialCount}}</span>
 							    	文献
 							  </div>
 							  <div class="list-group-item">
-									<span class="badge">1</span>
+									<span class="badge">{{OtherInfo.videoCount}}</span>
 							    	视频
 							  </div>
 							  <div class="list-group-item">
-							    	<span class="badge">1</span>
+							    	<span class="badge">{{OtherInfo.recCount}}</span>
 							    	相关产品
 							  </div>
 							  <div class="list-group-item">
-							    	<span class="badge">7</span>
+							    	<span class="badge">{{OtherInfo.productCount}}</span>
 							    	现货
 							  </div>
 							  <div class="list-group-item">
-							    	<span class="badge">0</span>
+							    	<span class="badge">{{OtherInfo.trailProductCount}}</span>
 							    	试用品
 							  </div>
 							  <div class="list-group-item">
-							    	<span class="badge">5</span>
+							    	<span class="badge">{{OtherInfo.messageCount}}</span>
 							    	留言
 							  </div>
 						</div>
@@ -227,7 +228,7 @@
 								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
 							</div>
 							<div class="row">
-								<a href='#' class="col-xs-6 col-md-3" v-for="(video,index) in Videos" data-toggle="modal" data-target="#myVideo">
+								<a href="javascript:;" target="_blank"  v-bind:data-url="video.video_url" class="col-xs-6 col-md-3 video_play" v-for="(video,index) in Videos">
 									<div class="thumbnail">
 										<img src="/img/iphone-img.jpg"alt="...">
 										<div class="caption">
@@ -520,55 +521,7 @@
   </div>
 </div>
 <!--end-->
-<!--视频弹窗-->
-<div class="modal fade" id="myVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document" id="videoBox">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">视频</h4>
-      </div>
-      <div class="modal-body">
-		<div class="row">
-			<div class="m">
-				<video id="my-video" class="video-js" controls preload="auto" style="width:100%;height:364px;"
-		            data-setup="{}">
-					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/webm">
-					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/ogg">
-					<p class="vjs-no-js">
-					  To view this video please enable JavaScript, and consider upgrading to a web browser that
-					  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-					</p>
-				  </video>
-				  <script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>	
-				  <script type="text/javascript">
-					var myPlayer = videojs('my-video');
-					videojs("my-video").ready(function(){
-						var myPlayer = this;
-//											myPlayer.play();
-					});
-				</script>
-			</div>
-			<!--星级评价-->
-			<div class="container" style="height:100px;padding:3rem 0;">
-				<form>
-					<input id="comment" value="4" type="number" class="rating" data-min=0 data-max=5 data-step=1 data-size="md"
-					required title="">
-				 </form>
-		           <script type="text/javascript">
-			            $(document).ready(function(){
-			                $("#comment").rating();           
-			            });
-			        </script>
-			</div>
-			<!--end-->
-		</div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--end-->
+
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
@@ -600,12 +553,17 @@
             detailhdVue.parentId = $(this).data('message_id');
             detailhdVue.typeId = 1;
 		});
-		$("#issue-comment").click(function(event){
-            detailhdVue.parentId = 0;
-            detailhdVue.typeId = 0;
+		$(document).on("click","#issue-comment",function(event){
+		          detailhdVue.parentId = 0;
+		          detailhdVue.typeId = 0;
 		});
 		$("#do_issue_comment").click(function(event){
-		    detailhdVue.issueComment($("#message-text").val());
+			if($("#message-text").val()!=""){
+		    	detailhdVue.issueComment($("#message-text").val());
+		    }else{
+		    	layer.msg('请填写留言后提交', {time: 5000, icon:0});
+		    }
+		    
 		})
 
 		var detailhdVue=new Vue({
@@ -622,7 +580,9 @@
 				Videos:[],
 				Comments:[],
 				typeId:0,
-				parentId:0
+				parentId:0,
+				OtherInfo:{},
+				video_url:""
 				
 			},
 			methods:{
@@ -708,8 +668,7 @@
 						},
 						success:function(res){
 							if(res.res){
-								$(".share-love .glyphicon-heart").removeClass("changRed");
-								this.isCollect = false;
+								this.OtherInfo = res.data;
 							}
 						}.bind(this)
 					})
@@ -772,7 +731,6 @@
                         type:"get",
                         dataType:"json",
                         success:function(res){
-                            console.log(res);
                             if(res.res){
                                 this.Comments=res.data;
                             }
@@ -794,13 +752,42 @@
                             if(res.res){
                                 this.getComment();
                                 $("[data-dismiss=modal]").trigger({ type: "click" });
+                                layer.msg('提交成功！待管理员审核通过后显示', {time: 5000, icon:6});
                             }
                         }.bind(this)
                     })
+				},
+				getPdfOtherInfo:function(){
+                    $.ajax({
+                        url:"http://47.104.15.240:3005/api/getPdfOtherInfo?pdf_id="+this.pdf_id,
+                        type:"get",
+                        dataType:"json",
+                        success:function(res){
+                            if(res.res){
+                                this.OtherInfo=res.data;
+                                console.log(this.OtherInfo);
+                            }
+                        }.bind(this)
+                    })					
 				}
 			}
 		});
 		
+		$(document).on("click",".video_play",function(){
+			if(navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1){
+				location.href="/detail_detail?pdf_id=<%=pdf_id%>&video_url="+$(this).data('url');			
+			}else{
+				layer.open({
+					type:2,
+					content: "/detail_detail?pdf_id=<%=pdf_id%>&video_url="+$(this).data('url'),
+					maxmin: true,
+					shadeClose: true, 
+					area : ['800px' , '520px']
+				})				
+			}
+
+		});
+
 		detailhdVue.checkIsCollect();
 		detailhdVue.getDetailhd();
 		detailhdVue.getPdfSrc();
@@ -810,6 +797,7 @@
 		detailhdVue.getRec();
 		detailhdVue.getVideo();
 		detailhdVue.getComment();
+		detailhdVue.getPdfOtherInfo();
 		$(".share-love .glyphicon-heart").click(function(){
 			console.log(detailhdVue.isCollect);
 			if(detailhdVue.isCollect){
@@ -845,6 +833,7 @@
 				success:function(res){
 					if(res.res){
                         $("[data-dismiss=modal]").trigger({ type: "click" });
+                        layer.msg('申请成功！', {time: 5000, icon:6});
 					}
 				}.bind(this)
 			})
@@ -854,16 +843,12 @@
 		
 	</script>
 	<script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>	
+	<script src="/js/layer/layer.js"></script>
 	<script type="text/javascript">
 		var myPlayer = videojs('my-video');
 		videojs("my-video").ready(function(){
 		var myPlayer = this;
 		});
-//		设置视频弹窗
-		var  windH = document.documentElement.clientHeight||document.body.clientHeight; 
-		var boxH = document.getElementById('#myvideoBox').offsetHeight;
-		console.log(windH);
-//		console.log(boxH);
 	</script>
 
 </html>
