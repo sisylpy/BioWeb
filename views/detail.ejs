@@ -227,7 +227,7 @@
 								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
 							</div>
 							<div class="row">
-								<a href='#' class="col-xs-6 col-md-3" v-for="(video,index) in Videos">
+								<a href='#' class="col-xs-6 col-md-3" v-for="(video,index) in Videos" data-toggle="modal" data-target="#myVideo">
 									<div class="thumbnail">
 										<img src="/img/iphone-img.jpg"alt="...">
 										<div class="caption">
@@ -520,6 +520,55 @@
   </div>
 </div>
 <!--end-->
+<!--视频弹窗-->
+<div class="modal fade" id="myVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document" id="videoBox">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">视频</h4>
+      </div>
+      <div class="modal-body">
+		<div class="row">
+			<div class="m">
+				<video id="my-video" class="video-js" controls preload="auto" style="width:100%;height:364px;"
+		            data-setup="{}">
+					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/webm">
+					<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/ogg">
+					<p class="vjs-no-js">
+					  To view this video please enable JavaScript, and consider upgrading to a web browser that
+					  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+					</p>
+				  </video>
+				  <script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>	
+				  <script type="text/javascript">
+					var myPlayer = videojs('my-video');
+					videojs("my-video").ready(function(){
+						var myPlayer = this;
+//											myPlayer.play();
+					});
+				</script>
+			</div>
+			<!--星级评价-->
+			<div class="container" style="height:100px;padding:3rem 0;">
+				<form>
+					<input id="comment" value="4" type="number" class="rating" data-min=0 data-max=5 data-step=1 data-size="md"
+					required title="">
+				 </form>
+		           <script type="text/javascript">
+			            $(document).ready(function(){
+			                $("#comment").rating();           
+			            });
+			        </script>
+			</div>
+			<!--end-->
+		</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-->
 	</body>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
@@ -779,6 +828,11 @@
 		videojs("my-video").ready(function(){
 		var myPlayer = this;
 		});
+//		设置视频弹窗
+		var  windH = document.documentElement.clientHeight||document.body.clientHeight; 
+		var boxH = document.getElementById('#myvideoBox').offsetHeight;
+		console.log(windH);
+//		console.log(boxH);
 	</script>
 
 </html>
