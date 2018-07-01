@@ -22,18 +22,17 @@
 	<style>
 	.pdfobject-container { height: 500px;}
 	.pdfobject { border: 1px solid #666; }
-	.m{ width:100%;  margin-left: auto; margin-right: auto; margin-top:50px; }
+	.m{ width:100%;  margin-left: auto; margin-right: auto; margin-top:35px; }
 	</style>
 </head>  
 
 <body>
-
 	<div class="container">
 		<!--视频-->
 		<div class="tab_con">
-			<div class="detai-tit-box">
+			<!--<div class="detai-tit-box">
 				<strong class="col-xs-10 detai-tit2">视频</strong>
-			</div>
+			</div>-->
 			<div class="row">
 				<div class="m">
 					<video id="my-video" class="video-js" controls preload="auto" style="width:100%;height:364px;"
@@ -51,7 +50,7 @@
 						var myPlayer = videojs('my-video');
 						videojs("my-video").ready(function(){
 							var myPlayer = this;
-//											myPlayer.play();
+							myPlayer.play();
 						});
 					</script>
 				</div>

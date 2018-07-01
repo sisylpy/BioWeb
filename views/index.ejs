@@ -50,14 +50,15 @@
 				<div class="row ">
 					<div class="col-sm-3 swsyp-txt">/ 生物试验品&nbsp;&nbsp;</div>
 					<div class="col-sm-7 form-group  has-feedback has-success">
-						<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+						<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>
 						<input type="text" id="search_text"  class="form-control" placeholder="查找货号"/>
+						<i class="search_hide"></i>
 					</div>
 <!-- 					<div class="col-sm-1">
 						<input type="button" id="search_btn"  class="form-control" value="搜索"/>
 					</div> -->
 				</div>
-				<div class="row result-box" id="search_list">
+				<div class="row result-box" id="search_list" v-cloak>
 					<!--<h5>搜索结果：</h5>-->
 					<div class="ov_f">
 						<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
@@ -81,7 +82,7 @@
 						</div>
 					</div>
 					<div class="prop-up"></div>
-					<button id="search_btn" type="button" class="btn btn-primary more-btn btn-lg">{{more}}</button>
+					<button id="loadMoreh_btn" type="button" class="btn btn-primary more-btn btn-lg" v-if="pdfs.length>0">{{more}}</button>
 				</div>
 			</div>			
 		</div>
@@ -130,7 +131,7 @@
 							dataType:'json',
 				  			success:function(res){
 				  				if(res.res){
-				  					this.pdfs=res.data;
+				  					this.pdfs=res.data;			  						
 				  				}
 				  			}.bind(this)
 						})
@@ -151,7 +152,9 @@
 				  							
 				  						})
 				  					}else{
-				  						this.more="没有更多"
+				  						this.more="没有更多";
+
+				  						
 				  					}
 				  				}
 				  			}.bind(this)
@@ -160,8 +163,8 @@
 				}
 			});
 			pdfVue.getPfd();
-			//搜索
-			$("#search_btn").click(function(){
+			//loadMore
+			$(document).on('click','#loadMoreh_btn',function(){
 				pdfVue.loadMore();
 			});
             $("#search_text").keypress(function(event){
@@ -169,8 +172,11 @@
                     pdfVue.searchPdf();
                 }
             });
-			
-			
+            $(document).on('click',".search_hide",function(){
+            	pdfVue.searchPdf();
+            })
+
+		
 			
 			
     	})

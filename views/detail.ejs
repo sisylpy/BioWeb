@@ -40,7 +40,7 @@
 	    				<a href="/" class="col-xs-3">生物试验品</a>
 	    				<a href="/collection" class="col-xs-3">我的收藏</a>
 	    				<a href="/operation" class="col-xs-3">我的操作</a>
-	    				<a class="col-xs-3">我的试用品</a>
+	    				<a href="/products" class="col-xs-3">我的试用品</a>
 	    			</nav>	 		    			
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 		</div>
 	</div>
 
-	<div id="detail_hd">
+	<div id="detail_hd" v-cloak>
 			<!-- 移动端显示 -->
 		<div class="container visible-xs-block iph-block">
 			<div class="result-box" >
@@ -72,8 +72,8 @@
 								<span>{{detail.item_name}}</span>
 							</div>
 							<div class="share-love">
-								<span class="glyphicon glyphicon-heart changRed" id="collectStar" v-if="isCollect === true"></span>
-								<span class="glyphicon glyphicon-heart" id="collectStar" v-else></span>
+								<span class="glyphicon glyphicon-heart changRed"  v-if="isCollect == true"></span>
+								<span class="glyphicon glyphicon-heart"  v-else></span>
 								<span class="glyphicon glyphicon-th-large" id="shareBtn"></span>
 							</div>
 						</div>
@@ -156,7 +156,7 @@
 						<div class="tab_con">
 							<div class="detai-tit-box">
 								<strong class="col-xs-10 detai-tit2">英文操作手册</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right visible-xs-block iph-arrow" onclick=""></span>
 							</div>
 							<div class="row">
 								<div>
@@ -174,7 +174,7 @@
 						<div class="tab_con dis_none">
 							<div class="detai-tit-box">
 								<strong class="col-xs-10 detai-tit2">中文操作手册</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
 							<div class="row">
 								<div>
@@ -196,6 +196,7 @@
 							        <a role="button" data-toggle="collapse" data-parent="#accordion" v-bind:href='"#collapse"+mindex' aria-expanded="true" v-bind:aria-controls='"collapse"+mindex'>
 							          文献标题：{{materials.experiment_name}}
 							        </a>
+							        <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							      </h4>
 							    </div>
 							    <div v-bind:id='"collapse"+mindex'  class="panel-collapse collapse in" role="tabpanel" v-bind:aria-labelledby='"heading"+mindex'>
@@ -225,10 +226,10 @@
 						<div class="tab_con dis_none">
 							<div class="detai-tit-box">
 								<strong class="col-xs-10 detai-tit2">视频</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
 							<div class="row">
-								<a href="javascript:;" target="_blank"  v-bind:data-url="video.video_url" class="col-xs-6 col-md-3 video_play" v-for="(video,index) in Videos">
+								<a href="javascript:;" target="_blank" v-bind:data-video_id="video.id"  v-bind:data-url="video.video_url" class="col-xs-6 col-md-3 video_play" v-for="(video,index) in Videos">
 									<div class="thumbnail">
 										<img src="/img/iphone-img.jpg"alt="...">
 										<div class="caption">
@@ -246,14 +247,14 @@
 						<div class="tab_con dis_none">
 							<div class="detai-tit-box">
 								<strong class="col-xs-10 detai-tit2">相关产品</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
 							<div class="row result-box">
 								<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="(rec,index) in Recs">
 									<a href="#" class="result-list">
 										<picture class="col-sm-1 col-xs-2 result-list-img">
-											<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-											<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
+											<source v-bind:srcset="'http://47.104.15.240:3005'+rec.thumb_img" media="(max-width:1199px)"> 
+											<source v-bind:srcset="'http://47.104.15.240:3005'+rec.thumb_img"  media="(min-width:1200px)"> 
 											<img v-bind:src="'http://47.104.15.240:3005'+rec.thumb_img" />
 										</picture>
 										<div class="col-sm-11 col-xs-10 ">
@@ -275,7 +276,7 @@
 						<div class="tab_con dis_none">
 							<div class="detai-tit-box">
 								<strong class="col-xs-10 detai-tit2">现货</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
 							<div class="row">
 								<div class="bs-example" data-example-id="striped-table">
@@ -319,7 +320,7 @@
 						<div class="tab_con dis_none" id="syp">
 							<div class="detai-tit-box">
 								<strong class="col-xs-10 detai-tit2">试用品</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
 							<div class="row">
 								<div class="bs-example" data-example-id="striped-table">
@@ -368,7 +369,7 @@
 						<div class="tab_con dis_none">
 							<div class="detai-tit-box">
 								<strong class="row detai-tit2">留言</strong>
-								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"></span>
+								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
 							<div class="want-com" data-toggle="modal" data-target="#exampleModal" id="issue-comment" data-whatever="@mdo">我要留言</div>
 							<div class="row comment" v-for="comment in Comments">
@@ -422,21 +423,18 @@
 	    	var Tindex=$(this).index();
 	    	$(this).addClass("active").siblings(".list-group-item").removeClass("active");
 	    	$(".col-sm-9 .tab_con").eq(Tindex).show().siblings(".tab_con").hide(); 
-	 		if(navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1){
+	 		if(navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1/* || ua.indexOf("iPad")>0*/){
 	   			$("#tel_left").removeClass('anima-right').addClass('anima-left');
 	   			$("#iph-tab").show().removeClass('iph-right').addClass("iph-left");
 	
-	    }else{
-	    		 	
-	    }   	
-	   })
+	    	}	
+	    })
 	    $(document).on("click",".iph-arrow",function(){
-	    	$("#iph-tab").removeClass('iph-left').addClass('iph-right');
-	    	$("#tel_left").removeClass('anima-left').addClass('anima-right');
-	    	//$(".iph-tab").removeClass("iph-left").removeClass('iph-right');
-	    	//$(".tel_left").removeClass("anima-left")
-	    	//$(".tel_left").removeClass('anima-right');
-	    	
+	    if(navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1 /*|| ua.indexOf("iPad")>0*/){
+		    	$("#iph-tab").removeClass('iph-left').addClass('iph-right');
+		    	$("#tel_left").removeClass('anima-left').addClass('anima-right');	
+		    	
+	    	}	
 	    })
 	
 	    </script>
@@ -668,7 +666,7 @@
 						},
 						success:function(res){
 							if(res.res){
-								this.OtherInfo = res.data;
+								this.isCollect = false;
 							}
 						}.bind(this)
 					})
@@ -765,20 +763,33 @@
                         success:function(res){
                             if(res.res){
                                 this.OtherInfo=res.data;
-                                console.log(this.OtherInfo);
                             }
                         }.bind(this)
                     })					
+				},
+				addPlayTimes:function(videoId){
+					$.ajax({
+						url:"http://47.104.15.240:3005/api/addPlayTimes",
+						type:"post",
+						dataType:"json",
+						data:{
+							video_id:videoId
+						},
+						success:function(res){}						
+					})
+
 				}
 			}
 		});
 		
 		$(document).on("click",".video_play",function(){
+			detailhdVue.addPlayTimes($(this).data("video_id"));
 			if(navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1){
 				location.href="/detail_detail?pdf_id=<%=pdf_id%>&video_url="+$(this).data('url');			
 			}else{
 				layer.open({
 					type:2,
+					title:"视频",
 					content: "/detail_detail?pdf_id=<%=pdf_id%>&video_url="+$(this).data('url'),
 					maxmin: true,
 					shadeClose: true, 
@@ -798,15 +809,22 @@
 		detailhdVue.getVideo();
 		detailhdVue.getComment();
 		detailhdVue.getPdfOtherInfo();
-		$(".share-love .glyphicon-heart").click(function(){
-			console.log(detailhdVue.isCollect);
+		$(document).on('click','.share-love .glyphicon-heart',function(){
 			if(detailhdVue.isCollect){
 				detailhdVue.getcancelCollect();
 			}else{	
 				detailhdVue.getcollectPdf();
-			}
-			
-		});
+			}			
+		})
+//		$(".share-love .glyphicon-heart").click(function(){
+//			console.log(detailhdVue.isCollect);
+//			if(detailhdVue.isCollect){
+//				detailhdVue.getcancelCollect();
+//			}else{	
+//				detailhdVue.getcollectPdf();
+//			}
+//			
+//		});
 		function applyTrailProduct(){
 			var data = {
 				item_name : item_name,
@@ -844,11 +862,5 @@
 	</script>
 	<script src="http://vjs.zencdn.net/5.18.4/video.min.js"></script>	
 	<script src="/js/layer/layer.js"></script>
-	<script type="text/javascript">
-		var myPlayer = videojs('my-video');
-		videojs("my-video").ready(function(){
-		var myPlayer = this;
-		});
-	</script>
 
 </html>
