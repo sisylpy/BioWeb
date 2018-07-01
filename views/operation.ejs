@@ -55,7 +55,7 @@
 						</select>
 					</div>
 					<div class="col-md-2 col-xs-12 col-md-offset-1 pull-left">
-						<input size="16" type="text" value="2012-06-15 14:45" readonly class="form-control form_datetime">
+						<input size="16" type="text" value="<%=current_time%>" readonly class="form-control form_datetime">
 					</div>
 				</div>
 				<div class="row border-bot" v-for="getMyOperation in getMyOperations">
@@ -84,10 +84,7 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
-	<script type="text/javascript">
-	    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-	</script>   
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript">
     	var myOperatVue=new Vue({
     		el:"#myOperat",
@@ -109,9 +106,9 @@
 						
 					})
 				},
-				searchOperation:function(type){
+				searchOperation:function(type,selectedTime){
                     $.ajax({
-                        url:"http://47.104.15.240:3005/api/getMyOperation?type="+type,
+                        url:"http://47.104.15.240:3005/api/getMyOperation?type="+type+"&selected_time="+selectedTime,
                         type:"get",
                         dataType:"json",
                         success:function(res){
@@ -127,9 +124,20 @@
 
     		
     	});
+    	var operationType = '';
 		$("#select_operation_type").change(function(){
-		   	myOperatVue.searchOperation($(this).val());
+		    operationType = $(this).val();
+		   	myOperatVue.searchOperation(operationType);
 		});
+        $(function(){
+            $(".form_datetime").datetimepicker({
+                format: 'yyyy-mm-dd hh:ii',
+				autoclose:true,
+				initialDate:new Date()
+            }).on('changeDate',function(event){
+                myOperatVue.searchOperation(operationType,$(".form_datetime").val());
+            });
+        })
     	myOperatVue.getMyOperation();
     </script>
 	</body>
