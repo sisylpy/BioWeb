@@ -46,11 +46,12 @@
 				</div>
 				<div class="row operat-botb">
 					<div class="col-md-3 col-xs-12 col-md-offset-6 pull-left">
-						<select class="form-control">
-						  <option>全部</option>
-						  <option>打印</option>
-						  <option>下载</option>
-						  <option>收藏</option>
+						<select class="form-control" id="select_operation_type">
+						  <option value="">全部</option>
+						  <option value="0">下载</option>
+						  <option value="1">打印</option>
+						  <option value="2">收藏</option>
+						  <option value="3">分享</option>
 						</select>
 					</div>
 					<div class="col-md-2 col-xs-12 col-md-offset-1 pull-left">
@@ -107,10 +108,28 @@
 	  					}.bind(this)
 						
 					})
+				},
+				searchOperation:function(type){
+                    $.ajax({
+                        url:"http://47.104.15.240:3005/api/getMyOperation?type="+type,
+                        type:"get",
+                        dataType:"json",
+                        success:function(res){
+                            console.log(res);
+                            if(res.res){
+                                this.getMyOperations=res.data;
+                            }
+                        }.bind(this)
+
+                    })
 				}
-    		}
+    		},
+
     		
-    	})
+    	});
+		$("#select_operation_type").change(function(){
+		   	myOperatVue.searchOperation($(this).val());
+		});
     	myOperatVue.getMyOperation();
     </script>
 	</body>
