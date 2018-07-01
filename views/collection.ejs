@@ -40,8 +40,10 @@
 				<div class="row collect">
 					<div class="col-md-3 swsyp-txt">/ 我的收藏</div>
 					<div class="col-md-1"></div>
-					<div class="col-md-8">
+					<div class="col-md-8 form-group has-feedback has-success">
+						<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>
 						<input type="text"  class="form-control" placeholder="货号/产品名称"/>
+						<i class="search_hide"></i>
 					</div>
 				</div>
 				<div class="row result-box" v-for="(collection,index) in collections" >
@@ -91,7 +93,7 @@
 			getCollect:function(){
 				$.ajax({
 					type:"get",
-					url:"http://47.104.15.240:3005/api/getCollect?pdf_id="+this.pdf_id,
+					url:"http://47.104.15.240:3005/api/getCollect",
 					dataType:'json',
 		  			success:function(res){
   						if(res.res){
@@ -100,11 +102,24 @@
   					}.bind(this)
 				});				
 			},
+            searchCollect:function(){
+                this.Tval = $("#search_text").val();
+                this.page=2;
+                $.ajax({
+                    url:'http://47.104.15.240:3005/api/getCollect?value='+this.Tval,
+                    type:'get',
+                    dataType:'json',
+                    success:function(res){
+                        if(res.res){
+                            this.collections=res.data;
+                        }
+                    }.bind(this)
+                })
+            },
 			getDelete:function(zindex){
         		this.collections.splice(zindex,1);
     		},
 			getcancelCollect:function(zindex,id){
-				console.log(id);
 				$.ajax({
 					url:"http://47.104.15.240:3005/api/cancelCollect",
 					type:"post",
@@ -122,8 +137,12 @@
 				})
 			}	
 		}
-    })
+    });
     collectVue.getCollect();
+    $(document).on('click',".search_hide",function(){
+        console.log(1234);
+        collectVue.searchCollect();
+    })
     </script>
 	</body>
 </html>
