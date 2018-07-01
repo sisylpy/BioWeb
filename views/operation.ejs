@@ -98,7 +98,6 @@
 						type:"get",
 						dataType:"json",
 						success:function(res){
-							console.log(res);
 	  						if(res.res){
 								this.getMyOperations=res.data;
 	  						}
@@ -107,12 +106,12 @@
 					})
 				},
 				searchOperation:function(type,selectedTime){
+				    if(selectedTime == undefined) selectedTime='';
                     $.ajax({
                         url:"http://47.104.15.240:3005/api/getMyOperation?type="+type+"&selected_time="+selectedTime,
                         type:"get",
                         dataType:"json",
                         success:function(res){
-                            console.log(res);
                             if(res.res){
                                 this.getMyOperations=res.data;
                             }
