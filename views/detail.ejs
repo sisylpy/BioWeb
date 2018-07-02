@@ -158,11 +158,11 @@
 								<strong class="col-xs-10 detai-tit2">英文操作手册</strong>
 								<span class="glyphicon glyphicon-arrow-left pull-right visible-xs-block iph-arrow" onclick=""></span>
 							</div>
-							<div class="row">
+							<div class="row" v-if="pdfSrcj.en!=''">
 								<div>
 									<div class="ctrlDiv">
 									    <div class="eleContainer elePaddingBtm" style="height:1190px;">
-									        <iframe v-bind:src='"http://47.104.15.240:3005/pdfjs/web/viewer.html?file=http://47.104.15.240:3005/"+pdfSrcj.pdf_url+"&pdf_id="+"<%=pdf_id%>"' width="100%" height="100%"></iframe>
+									        <iframe v-bind:src='"http://47.104.15.240:3005/pdfjs/web/viewer.html?file=http://47.104.15.240:3005/"+pdfSrcj.en+"&pdf_id="+"<%=pdf_id%>"' width="100%" height="100%"></iframe>
 									    </div>
 									</div>
 									
@@ -176,11 +176,11 @@
 								<strong class="col-xs-10 detai-tit2">中文操作手册</strong>
 								<span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
 							</div>
-							<div class="row">
+							<div class="row" v-if="pdfSrcj.zh!=''">
 								<div>
 									<div class="ctrlDiv">
 									    <div class="eleContainer elePaddingBtm" style="height:1190px;">
-									        <iframe  v-bind:src='"http://47.104.15.240:3005/pdfjs/web/viewer.html?file=http://47.104.15.240:3005/"+pdfSrcj.pdf_url+"&pdf_id="+"<%=pdf_id%>"' id="displayPdfIframe-zh" width="100%" height="100%"></iframe>
+									        <iframe  v-bind:src='"http://47.104.15.240:3005/pdfjs/web/viewer.html?file=http://47.104.15.240:3005/"+pdfSrcj.zh+"&pdf_id="+"<%=pdf_id%>"' id="displayPdfIframe-zh" width="100%" height="100%"></iframe>
 									    </div>
 									</div>
 								</div>
@@ -569,7 +569,7 @@
 			data:{
 				detail:{},
 				pdf_id:'<%=pdf_id%>',
-				pdfSrcj:{},			
+				pdfSrcj:{zh:'',en:''},
 				materials:[],
 				isCollect:false,
 				TrailProducts:[],
@@ -620,7 +620,12 @@
 						dataType:'json',
 						success:function(res){
 	  						if(res.res){
-	  							this.pdfSrcj=res.data;
+	  						    if(res.data.language == 1){
+	  						        this.pdfSrcj.zh = res.data.pdf_url;
+								}else{
+	  						        this.pdfSrcj.en = res.data.pdf_url;
+								}
+	  							// this.pdfSrcj=res.data;
 	  						}
 	  					}.bind(this)	
 						
