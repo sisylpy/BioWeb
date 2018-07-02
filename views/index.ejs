@@ -75,7 +75,11 @@
 									<div class="label-box">
 										<span class="zw" v-if="item.language === 1">中文</span>
 										<span class="zw" v-else>英文</span>
-										<span class="sp">视频</span>
+										<span class="sp" v-if="item.videoCount > 0">视频</span>
+										<span class="sp" v-if="item.materialCount > 0">文献</span>
+										<span class="sp" v-if="item.productCount > 0">现货</span>
+										<span class="sp" v-if="item.trailProductCount > 0">试用品</span>
+										<span class="sp" v-if="item.messageCount > 0">留言</span>
 									</div>
 								</div>
 							</a>
