@@ -67,7 +67,7 @@
 						<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
 							<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list" target="_blank" >
 								<picture class="col-sm-1 col-xs-2 result-list-img">
-									<img v-bind:src="'http://127.0.0.1:3005'+item.thumb_img" />
+									<img v-bind:src="'http://120.27.19.17:3005'+item.thumb_img" />
 								</picture>
 								<div class="col-sm-11 col-xs-10 ">
 									<strong>{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}} </strong>
@@ -118,7 +118,7 @@
 				  	getPfd:function(){
 				  		//.....
 				  		$.ajax({
-				  			url:'http://127.0.0.1:3005/api/getPdf',
+				  			url:'http://120.27.19.17:3005/api/getPdf',
 				  			type:'get',
 				  			dataType:'json',
 				  			success:function(res){
@@ -134,7 +134,7 @@
 				  		this.Tval = $("#search_text").val();
 				  		this.page=2;
 						$.ajax({
-							url:'http://127.0.0.1:3005/api/getPdf?value='+this.Tval,
+							url:'http://120.27.19.17:3005/api/getPdf?value='+this.Tval,
 							type:'get',
 							dataType:'json',
 				  			success:function(res){
@@ -146,7 +146,7 @@
 				  	},
 				  	loadMore:function(){
 				  		$.ajax({
-							url:'http://127.0.0.1:3005/api/getPdf?value='+this.Tval+'&page='+this.page,
+							url:'http://120.27.19.17:3005/api/getPdf?value='+this.Tval+'&page='+this.page,
 							type:'get',
 							dataType:'json',
 				  			success:function(res){
