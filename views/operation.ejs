@@ -94,7 +94,7 @@
     		methods:{
 				getMyOperation:function(){
 					$.ajax({
-						url:"http://120.27.19.17:3005/api/getMyOperation",
+						url:"http://127.0.0.2:3005/api/getMyOperation",
 						type:"get",
 						dataType:"json",
 						success:function(res){
@@ -108,7 +108,7 @@
 				searchOperation:function(type,selectedTime){
 				    if(selectedTime == undefined) selectedTime='';
                     $.ajax({
-                        url:"http://120.27.19.17:3005/api/getMyOperation?type="+type+"&selected_time="+selectedTime,
+                        url:"http://127.0.0.2:3005/api/getMyOperation?type="+type+"&selected_time="+selectedTime,
                         type:"get",
                         dataType:"json",
                         success:function(res){
