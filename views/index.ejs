@@ -6,16 +6,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 		<title>生物试验品</title>
 		<link href="css/bootstrap.css"  rel="stylesheet"/>
-		<!--<link rel="stylesheet" type="text/css" href="css/common.css"/>-->
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 		<!--[if lt IE 9]>
       	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     	<![endif]-->
+
+		<!--高亮背景色-->
+		<style> .highlight {background-color: #FFFF88;} </style>
+
+
 	</head>  
 
 	<body>
-		<!--导航-->
+
+	<!--导航-->
 		<div class="navbar navbar-inverse">
 			<div class="container">
 				<div class="row my-nav">
@@ -34,7 +40,7 @@
 			</div>
 		</div>
 		<!--end-->
-		<!--焦点图-->
+		<!--轮播图-->
 		<!--平板直大屏幕-->
 		<div class="pc-img-box">
 			<img src="/img/brand-1327.jpg" class="img-responsive"  style="width:100%;" />		
@@ -48,23 +54,20 @@
 		<div class="con-wrap">
 			<div class="container my-main">
 				<div class="row ">
-					<div class="col-sm-3 swsyp-txt">/ 生物试验品&nbsp;&nbsp;</div>
+					<div class="col-sm-3 swsyp-txt">/生物试验品&nbsp;&nbsp;</div>
 					<div class="col-sm-7 form-group  has-feedback has-success">
 						<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>
 						<input type="text" id="search_text"  class="form-control" placeholder="查找货号"/>
 						<i class="search_hide"></i>
 					</div>
-<!-- 					<div class="col-sm-1">
-						<input type="button" id="search_btn"  class="form-control" value="搜索"/>
-					</div> -->
 				</div>
 				<div class="row result-box" id="search_list" v-cloak>
-					<!--<h5>搜索结果：</h5>-->
+					<h5 id="ser-wrods" style="display: none">您查找 A3801 结果共</h5>
 					<div class="ov_f">
 						<div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
-							<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list">
+							<a v-bind:href='"/detail?pdf_id="+item.id' class="result-list" target="_blank" >
 								<picture class="col-sm-1 col-xs-2 result-list-img">
-									<img v-bind:src="'http://47.104.15.240:3005'+item.thumb_img" />
+									<img v-bind:src="'http://127.0.0.1:3005'+item.thumb_img" />
 								</picture>
 								<div class="col-sm-11 col-xs-10 ">
 									<strong>{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}} </strong>
@@ -99,10 +102,11 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/jquery.highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">
     	$(function(){
-    		var pdfVue = new Vue({
+          var pdfVue = new Vue({
 				el: '#search_list',
 				data: {
 				 	pdfs: [],
@@ -114,7 +118,7 @@
 				  	getPfd:function(){
 				  		//.....
 				  		$.ajax({
-				  			url:'http://47.104.15.240:3005/api/getPdf',
+				  			url:'http://127.0.0.1:3005/api/getPdf',
 				  			type:'get',
 				  			dataType:'json',
 				  			success:function(res){
@@ -130,19 +134,19 @@
 				  		this.Tval = $("#search_text").val();
 				  		this.page=2;
 						$.ajax({
-							url:'http://47.104.15.240:3005/api/getPdf?value='+this.Tval,
+							url:'http://127.0.0.1:3005/api/getPdf?value='+this.Tval,
 							type:'get',
 							dataType:'json',
 				  			success:function(res){
 				  				if(res.res){
-				  					this.pdfs=res.data;			  						
-				  				}
+                                  this.pdfs=res.data;
+                                }
 				  			}.bind(this)
 						})
 				  	},
 				  	loadMore:function(){
 				  		$.ajax({
-							url:'http://47.104.15.240:3005/api/getPdf?value='+this.Tval+'&page='+this.page,
+							url:'http://127.0.0.1:3005/api/getPdf?value='+this.Tval+'&page='+this.page,
 							type:'get',
 							dataType:'json',
 				  			success:function(res){
@@ -153,38 +157,58 @@
 				  						var that=this;
 				  						res.data.forEach(function(pdf){
 				  							that.pdfs.push(pdf);
-				  							
 				  						})
 				  					}else{
 				  						this.more="没有更多";
-
-				  						
-				  					}
+									}
 				  				}
 				  			}.bind(this)
 						})
 				  	}
 				}
 			});
-			pdfVue.getPfd();
-			//loadMore
-			$(document).on('click','#loadMoreh_btn',function(){
+
+    		pdfVue.getPfd();			  //loadMore
+
+		  $(document).on('click','#loadMoreh_btn',function(){
 				pdfVue.loadMore();
 			});
-            $("#search_text").keypress(function(event){
-                if(event.keyCode == 13){
-                    pdfVue.searchPdf();
-                }
-            });
-            $(document).on('click',".search_hide",function(){
-            	pdfVue.searchPdf();
-            })
 
-		
-			
-			
-    	})
-    	
+            $("#search_text").keypress(function(event){
+              if(event.keyCode == 13){
+                pdfVue.searchPdf();
+                searchResults();
+                highlightResults();
+              }
+            });
+
+            $(document).on('click',".search_hide",function(){
+              pdfVue.searchPdf();
+              searchResults();
+              highlightResults();
+
+            });
+
+
+          searchResults =  function () {
+              var Tval = $("#search_text").val();
+              if (Tval.length > 0) {
+                $('#ser-wrods').css('display','block');
+              }else {
+                $('#ser-wrods').css('display','none');
+                // $('.ov_f').unhighlight(Tval);
+              }
+            };
+
+
+           highlightResults = function () {
+             var Tval = $("#search_text").val();
+             $('.ov_f').unhighlight(Tval);
+             $('.ov_f').highlight($("#search_text").val());
+           }
+
+        });
+
     </script>
 	</body>
 </html>

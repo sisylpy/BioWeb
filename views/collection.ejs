@@ -93,7 +93,7 @@
 			getCollect:function(){
 				$.ajax({
 					type:"get",
-					url:"http://47.104.15.240:3005/api/getCollect",
+					url:"http://127.0.0.1:3005/api/getCollect",
 					dataType:'json',
 		  			success:function(res){
   						if(res.res){
@@ -106,7 +106,7 @@
                 this.Tval = $("#search_text").val();
                 this.page=2;
                 $.ajax({
-                    url:'http://47.104.15.240:3005/api/getCollect?value='+this.Tval,
+                    url:'http://127.0.0.1:3005/api/getCollect?value='+this.Tval,
                     type:'get',
                     dataType:'json',
                     success:function(res){
@@ -121,7 +121,7 @@
     		},
 			getcancelCollect:function(zindex,id){
 				$.ajax({
-					url:"http://47.104.15.240:3005/api/cancelCollect",
+					url:"http://127.0.0.1:3005/api/cancelCollect",
 					type:"post",
 					dataType:"json",
 					data:{
