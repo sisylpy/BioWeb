@@ -1,0 +1,596 @@
+@charset "utf-8";
+@media (min-width: 320px) {
+  html {
+    font-size: 4.48px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 5.04px;
+  }
+}
+@media (min-width: 375px) {
+  html {
+    font-size: 5.25px;
+  }
+}
+@media (min-width: 384px) {
+  html {
+    font-size: 5.376px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 5.6px;
+  }
+}
+@media (min-width: 414px) {
+  html {
+    font-size: 5.796px;
+  }
+}
+@media (min-width: 424px) {
+  html {
+    font-size: 5.936px;
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 6.72px;
+  }
+}
+@media (min-width: 540px) {
+  html {
+    font-size: 7.56px;
+  }
+}
+@media (min-width: 580px) {
+  html {
+    font-size: 8.12px;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 8.96px;
+  }
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 10.08px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+    font-size: 10.5px;
+  }
+}
+@media (min-width: 960px) {
+  html {
+    font-size: 13.44px;
+  }
+}
+@media (min-width: 1080px) {
+  html {
+    font-size: 15.12px;
+  }
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 17.92px;
+  }
+}
+@media (min-width: 1480px) {
+  html {
+    font-size: 20.72px;
+  }
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: none;
+}
+a {
+  color: #323232;
+}
+li {
+  list-style: none;
+}
+main {
+  width: 100%;
+  position: relative;
+  float: left;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 992px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    top: -4rem;
+  }
+}
+.Splash {
+  position: relative;
+  height: 20rem;
+}
+.Splash .Splash-content {
+  height: 100%;
+  background-color: #e3e3e3;
+}
+.Splash .Splash-content .Splash-title {
+  color: black;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+main .article-col {
+  height: 30rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main .article-col {
+    height: 28rem;
+  }
+}
+@media (min-width: 992px) {
+  main .article-col {
+    height: 28rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .article-col {
+    height: 22rem;
+  }
+}
+main .article-col .Splash-content {
+  width: 100%;
+  border-top: 1px solid gray;
+}
+.con-wrap {
+  padding: 0 5rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .con-wrap {
+    padding: 0 5rem;
+  }
+}
+@media (min-width: 992px) {
+  .con-wrap {
+    padding: 0 5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .con-wrap {
+    padding: 0 10rem;
+  }
+}
+.word {
+  height: 10rem;
+  line-height: 10rem;
+  color: #0076a3;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .word {
+    height: 8rem;
+    line-height: 8rem;
+  }
+}
+@media (min-width: 992px) {
+  .word {
+    height: 6rem;
+    line-height: 6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .word {
+    height: 6rem;
+    line-height: 6rem;
+  }
+}
+.word .word-content {
+  font-size: 2em;
+  font-weight: 500;
+  height: 10rem;
+  text-align: right;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .word .word-content {
+    font-size: 1.4em;
+    font-weight: 500;
+    height: 8rem;
+    text-align: right;
+    padding-top: 1.4rem;
+  }
+}
+@media (min-width: 992px) {
+  .word .word-content {
+    font-size: 1.2em;
+    font-weight: 500;
+    height: 6rem;
+    text-align: right;
+    padding-top: 1.2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .word .word-content {
+    font-size: 1.2em;
+    font-weight: 500;
+    height: 6rem;
+    text-align: right;
+    padding-top: 1.5rem;
+  }
+}
+.searchPart {
+  height: 10rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .searchPart {
+    height: 8rem;
+  }
+}
+@media (min-width: 992px) {
+  .searchPart {
+    height: 6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .searchPart {
+    height: 6rem;
+  }
+}
+.searchPart .search {
+  height: 10rem;
+  width: 90%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .searchPart .search {
+    height: 8rem;
+    width: 90%;
+  }
+}
+@media (min-width: 992px) {
+  .searchPart .search {
+    height: 6rem;
+    width: 90%;
+  }
+}
+@media (min-width: 1200px) {
+  .searchPart .search {
+    height: 6rem;
+    width: 90%;
+  }
+}
+.searchPart .search input {
+  height: 7rem;
+  position: relative;
+  float: left;
+  width: 100%;
+  padding-left: 1rem;
+  display: block;
+  padding-bottom: 0.5rem;
+  margin-left: 1rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .searchPart .search input {
+    height: 5rem;
+    top: 1.5rem;
+    font-size: 1.3em;
+  }
+}
+@media (min-width: 992px) {
+  .searchPart .search input {
+    height: 3rem;
+    line-height: 3rem;
+    top: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .searchPart .search input {
+    height: 3rem;
+    top: 1.5rem;
+    font-size: 1.5em;
+    padding: 1rem;
+  }
+}
+.searchPart .search .mySearch-btn {
+  height: 7rem;
+  line-height: 7rem;
+  text-align: center;
+  width: 7rem;
+  position: relative;
+  float: right;
+  bottom: 7rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .searchPart .search .mySearch-btn {
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    width: 5rem;
+    bottom: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .searchPart .search .mySearch-btn {
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    width: 3rem;
+    bottom: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .searchPart .search .mySearch-btn {
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    width: 3rem;
+    bottom: 1.5rem;
+  }
+}
+.searchPart .search .iconBtn {
+  height: 7rem;
+  line-height: 7rem;
+  text-align: center;
+  width: 7rem;
+  position: relative;
+  float: right;
+  border: 1px solid green;
+  bottom: 7rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .searchPart .search .iconBtn {
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    width: 5rem;
+    bottom: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .searchPart .search .iconBtn {
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    width: 3rem;
+    bottom: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .searchPart .search .iconBtn {
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    width: 3rem;
+    bottom: 1.5rem;
+  }
+}
+.searchPart .search .iconBtn span {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  padding: 0 0;
+  margin: 0 0;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .searchPart .search .iconBtn span {
+    line-height: 5rem;
+  }
+}
+@media (min-width: 992px) {
+  .searchPart .search .iconBtn span {
+    line-height: 5rem;
+  }
+}
+.form-control-feedback {
+  top: 0;
+}
+.mySearch-content {
+  position: relative;
+  float: left;
+  top: -6.5rem;
+  width: 100%;
+  background-color: purple;
+  padding-left: 1rem;
+  z-index: 2;
+  display: none;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .mySearch-content {
+    top: -1.5rem;
+    width: 100%;
+    background-color: purple;
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .mySearch-content {
+    top: -1.5rem;
+    width: 100%;
+    background-color: purple;
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .mySearch-content {
+    top: -1.5rem;
+    width: 100%;
+    background-color: purple;
+    padding-left: 1rem;
+  }
+}
+.mySearch-content span {
+  display: block;
+  background-color: red;
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: left;
+  line-height: 6rem;
+  height: 6rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .mySearch-content span {
+    line-height: 2rem;
+    height: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .mySearch-content span {
+    line-height: 1.5rem;
+    height: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .mySearch-content span {
+    line-height: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.mySearch-content .mySearchList {
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.mySearch-content .mySearchList .mySearch {
+  position: relative;
+  float: left;
+  width: 100%;
+  display: block;
+  text-align: left;
+  background-color: #3c3c3c;
+  color: red;
+  line-height: 6rem;
+  height: 6rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .mySearch-content .mySearchList .mySearch {
+    line-height: 2rem;
+    height: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .mySearch-content .mySearchList .mySearch {
+    line-height: 1.5rem;
+    height: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .mySearch-content .mySearchList .mySearch {
+    line-height: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.select {
+  height: 10rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .select {
+    height: 8rem;
+  }
+}
+@media (min-width: 992px) {
+  .select {
+    height: 6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .select {
+    height: 6rem;
+  }
+}
+.select select {
+  position: relative;
+  float: left;
+  width: 40%;
+  height: 7rem;
+  border: 1px solid gray;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .select select {
+    height: 5rem;
+    top: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .select select {
+    height: 3rem;
+    top: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .select select {
+    height: 3rem;
+    top: 1.5rem;
+  }
+}
+/* 小屏幕（平板，大于等于 768px） */
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
