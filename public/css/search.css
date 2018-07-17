@@ -192,8 +192,8 @@ main .article-col .Splash-content {
   }
 }
 .word {
-  height: 10rem;
-  line-height: 10rem;
+  height: 12rem;
+  line-height: 12rem;
   color: #0076a3;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
@@ -218,43 +218,56 @@ main .article-col .Splash-content {
   }
 }
 .word .word-content {
-  font-size: 2em;
+  font-size: 2.4em;
   font-weight: 500;
-  height: 10rem;
-  text-align: right;
+  height: 12rem;
+  text-align: left;
+  position: relative;
+  float: left;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
   .word .word-content {
-    font-size: 1.4em;
-    font-weight: 500;
-    height: 8rem;
+    font-size: 1.5em;
     text-align: right;
-    padding-top: 1.4rem;
+    font-weight: 600;
+    height: 5rem;
+    width: 30%;
   }
 }
 @media (min-width: 992px) {
   .word .word-content {
-    font-size: 1.2em;
-    font-weight: 500;
+    font-size: 1.5em;
     height: 6rem;
+    line-height: 3rem;
+    top: 1.5rem;
     text-align: right;
-    padding-top: 1.2rem;
+    font-weight: 600;
+    width: 30%;
   }
 }
 @media (min-width: 1200px) {
   .word .word-content {
-    font-size: 1.2em;
-    font-weight: 500;
+    font-size: 2em;
     height: 6rem;
+    line-height: 3rem;
+    top: 1.5rem;
     text-align: right;
-    padding-top: 1.5rem;
+    font-weight: 600;
+    width: 30%;
   }
+}
+.word .word-content span {
+  display: inline-block;
+  top: 1rem;
 }
 .searchPart {
-  height: 10rem;
+  height: 12rem;
+  position: relative;
+  float: left;
+  width: 100%;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -262,21 +275,26 @@ main .article-col .Splash-content {
 @media (min-width: 768px) {
   .searchPart {
     height: 8rem;
+    width: 60%;
   }
 }
 @media (min-width: 992px) {
   .searchPart {
     height: 6rem;
+    height: 8rem;
+    width: 60%;
   }
 }
 @media (min-width: 1200px) {
   .searchPart {
     height: 6rem;
+    height: 8rem;
+    width: 60%;
   }
 }
 .searchPart .search {
-  height: 10rem;
-  width: 90%;
+  height: 12rem;
+  width: 100%;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -300,7 +318,7 @@ main .article-col .Splash-content {
   }
 }
 .searchPart .search input {
-  height: 7rem;
+  height: 10rem;
   position: relative;
   float: left;
   width: 100%;
@@ -308,6 +326,7 @@ main .article-col .Splash-content {
   display: block;
   padding-bottom: 0.5rem;
   margin-left: 1rem;
+  font-size: 1.2em;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -335,13 +354,13 @@ main .article-col .Splash-content {
   }
 }
 .searchPart .search .mySearch-btn {
-  height: 7rem;
-  line-height: 7rem;
+  height: 10rem;
+  line-height: 10rem;
   text-align: center;
-  width: 7rem;
+  width: 10rem;
   position: relative;
   float: right;
-  bottom: 7rem;
+  bottom: 10rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -373,21 +392,20 @@ main .article-col .Splash-content {
     bottom: 1.5rem;
   }
 }
-.searchPart .search .iconBtn {
-  height: 7rem;
-  line-height: 7rem;
+.searchPart .search .search_button {
+  height: 10rem;
+  line-height: 10rem;
   text-align: center;
-  width: 7rem;
+  width: 10rem;
   position: relative;
   float: right;
-  border: 1px solid green;
-  bottom: 7rem;
+  bottom: 10rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
-  .searchPart .search .iconBtn {
+  .searchPart .search .search_button {
     height: 5rem;
     line-height: 5rem;
     text-align: center;
@@ -396,7 +414,7 @@ main .article-col .Splash-content {
   }
 }
 @media (min-width: 992px) {
-  .searchPart .search .iconBtn {
+  .searchPart .search .search_button {
     height: 3rem;
     line-height: 3rem;
     text-align: center;
@@ -405,7 +423,7 @@ main .article-col .Splash-content {
   }
 }
 @media (min-width: 1200px) {
-  .searchPart .search .iconBtn {
+  .searchPart .search .search_button {
     height: 3rem;
     line-height: 3rem;
     text-align: center;
@@ -413,24 +431,45 @@ main .article-col .Splash-content {
     bottom: 1.5rem;
   }
 }
-.searchPart .search .iconBtn span {
-  width: 100%;
-  height: 100%;
-  background-color: red;
+.searchPart .search .search_button:hover span {
+  color: blue;
+}
+.searchPart .search .search_button:active span {
+  color: #e3e3e3;
+}
+.searchPart .search .search_button span {
+  line-height: 10rem;
+  height: 10rem;
+  width: 10rem;
   padding: 0 0;
   margin: 0 0;
+  font-size: 1.4em;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
-  .searchPart .search .iconBtn span {
+  .searchPart .search .search_button span {
     line-height: 5rem;
+    height: 5rem;
+    width: 5rem;
+    font-size: 1.5em;
   }
 }
 @media (min-width: 992px) {
-  .searchPart .search .iconBtn span {
-    line-height: 5rem;
+  .searchPart .search .search_button span {
+    line-height: 3rem;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1200px) {
+  .searchPart .search .search_button span {
+    line-height: 3rem;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5em;
   }
 }
 .form-control-feedback {
@@ -439,7 +478,7 @@ main .article-col .Splash-content {
 .mySearch-content {
   position: relative;
   float: left;
-  top: -6.5rem;
+  top: -6rem;
   width: 100%;
   background-color: purple;
   padding-left: 1rem;
@@ -482,6 +521,7 @@ main .article-col .Splash-content {
   text-align: left;
   line-height: 6rem;
   height: 6rem;
+  font-size: 2em;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -543,7 +583,7 @@ main .article-col .Splash-content {
   }
 }
 .select {
-  height: 10rem;
+  height: 12rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -567,7 +607,7 @@ main .article-col .Splash-content {
   position: relative;
   float: left;
   width: 40%;
-  height: 7rem;
+  height: 10rem;
   border: 1px solid gray;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */

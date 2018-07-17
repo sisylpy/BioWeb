@@ -8,40 +8,29 @@
 		<link href="/css/bootstrap.css"  rel="stylesheet"/>
 		<link rel="stylesheet" type="text/css" href="/css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/userPage.css"/>
+
 		<!--时间控件-->
 		<link href="css/bootstrap-datetimepicker.min.css"  rel="stylesheet"/>
 		<!--[if lt IE 9]>
       	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     	<![endif]-->
+		<!--隐藏浏览器的地址栏-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 	</head>  
 
 	<body>
-		<!--导航-->
-		<div class="navbar navbar-inverse">
-			<div class="container">
-				<div class="row my-nav">
-						<div class="navbar-header col-md-3 col-xs-12 col-sm-4">
-		      				<a class="navbar-brand" href="#">
-		        				<img alt="Brand"  src="img/logo.png">
-		      				</a>
-		    			</div>		
-		    			<nav class="col-md-9 col-xs-12 col-sm-8">
-		    				<a href="/" class="col-xs-3">生物实验品</a>
-		    				<a href="/collection" class="col-xs-3">我的收藏</a>
-		    				<a href="/operation" class="col-xs-3">我的操作</a>
-		    				<a href="/products" class="col-xs-3">我的试用品</a>
-		    			</nav>	 		    			
-				</div>
-			</div>
-		</div>
-		<!--end-->
+	<!--//导航部分-->
+    <%- include nav %>
 
 		<!--主题部分-->
 		<div class="con-wrap">
 			<div class="container my-main ">
-				<div class="row collect operat">
-					<div class="col-md-3 swsyp-txt prod">我的试用品</div>
+				<div class="row collect operat user-top">
+					<div class="col-md-3 swsyp-txt prod user-menu">我的试用品</div>
 				</div>
 				<div class="row bs-example" data-example-id="striped-table">
 					<table class="table table-striped" id="product_list"  v-cloak>

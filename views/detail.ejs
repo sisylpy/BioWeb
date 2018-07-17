@@ -6,9 +6,13 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=0">
   <title>详情页面</title>
-  <link href="/css/bootstrap.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
   <!--<link rel="stylesheet" type="text/css" href="css/common.css"/>-->
   <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/pdf.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/detail.css"/>
+
+
   <link href="/css/video-js.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link href="/css/star-rating.css" media="all" rel="stylesheet">
@@ -20,54 +24,33 @@
   <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <style>
-    .pdfobject-container {
-      height: 500px;
-    }
 
-    .pdfobject {
-      border: 1px solid #666;
-    }
+  <!--隐藏浏览器的地址栏-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    .m {
-      width: 100%;
-      margin: 50px auto;
-    }
-  </style>
+
+
+  <!--<style>-->
+    <!--.pdfobject-container { height: 500px;}-->
+    <!--.pdfobject { border: 1px solid #666; }-->
+    <!--.m{ width:100%;margin:50px auto;}-->
+  <!--</style>-->
+
 </head>
 
 <body>
-<!--导航-->
-<div class="navbar navbar-inverse">
-  <div class="container">
-    <div class="row my-nav">
-      <div class="navbar-header col-md-3 col-xs-12 col-sm-4">
-        <a class="navbar-brand" href="#">
-          <img alt="Brand" src="/img/logo.png">
-        </a>
-      </div>
-      <nav class="col-md-9 col-xs-12 col-sm-8">
-        <a href="/" class="col-xs-3">生物试验品</a>
-        <a href="/collection" class="col-xs-3">我的收藏</a>
-        <a href="/operation" class="col-xs-3">我的操作</a>
-        <a href="/products" class="col-xs-3">我的试用品</a>
-      </nav>
-    </div>
-  </div>
-</div>
-<!--end-->
-
+<!--//导航部分-->
+<%- include nav %>
 <!--主题部分-->
 <div class="main-top">
-  <div class="container">
-    <div class="row collect ">
-      <div class="swsyp-txt prod">生物试验品 <span class="">/产品手册</span></div>
+    <div class="collect">
+      <div class="swsyp-txt prod my-mune">生物试验品 <span class="">/产品手册</span></div>
     </div>
-  </div>
 </div>
 
 <div id="detail_hd" v-cloak>
-  <!-- 移动端显示 -->
+  <!-- 移动端显示pdf标题-->
   <div class="container visible-xs-block iph-block">
     <div class="result-box">
       <div class="col-sm-12 col-xs-12 paddB15">
@@ -75,11 +58,11 @@
           <picture class="col-sm-1 col-xs-2">
             <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+detail.thumb_img"/>
           </picture>
-          <div class="col-sm-11 col-xs-10">
-            <strong>{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</strong>
+          <div class="col-sm-11 col-xs-10 item-detail">
+            <div class="item-name">{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</div>
             <div class="cata-numb">
-              <span class="cata">货物编号：</span>
-              <span>{{detail.item_name}}</span>
+              <span class="cata">aa货物编号：</span>
+              <span class="item-No">{{detail.item_name}}</span>
             </div>
             <div class="share-love">
               <span class="glyphicon glyphicon-heart changRed" v-if="isCollect == true"></span>
@@ -92,54 +75,51 @@
     </div>
   </div>
   <!-- end -->
-  <!--pc端显示-->
-  <div class="con-wrap">
+
+  <!--主要内容显示-->
+  <div class="pdf-control">
     <div class="container">
       <div class="row detail">
-        <!--left 菜单-->
-        <div class="col-sm-3 tel_left" id="tel_left">
-          <div class="list-group-item return-btn">
-            <a href="/">返回查找</a>
+        <!--选择子菜单-->
+        <div class="col-sm-3 tel_left  control-left" id="sub_mune">
+          <div class="return-btn">
+            <a href="/">返回搜索</a>
           </div>
-          <div class="list-group">
-            <div class="list-group-item active">
+          <div class=" control-list">
+            <div class="control-list-item active">
+              英文操作手册
               <span class="badge" v-if="detail.language == 1">0</span>
               <span class="badge" v-else>1</span>
-              英文操作手册
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">   中文操作手册
               <span class="badge" v-if="detail.language === 0">0</span>
               <span class="badge" v-else>1</span>
-              中文操作手册
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">文献
               <span class="badge">{{OtherInfo.materialCount}}</span>
-              文献
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">视频
               <span class="badge">{{OtherInfo.videoCount}}</span>
-              视频
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">相关产品
               <span class="badge">{{OtherInfo.recCount}}</span>
-              相关产品
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">现货
               <span class="badge">{{OtherInfo.productCount}}</span>
-              现货
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">试用品
               <span class="badge">{{OtherInfo.trailProductCount}}</span>
-              试用品
             </div>
-            <div class="list-group-item">
+            <div class="control-list-item">留言
               <span class="badge">{{OtherInfo.messageCount}}</span>
-              留言
             </div>
           </div>
         </div>
 
-        <div class="col-sm-9 padd015 pdfSrc iph-tab" id="iph-tab">
+        <!-- right 内容-->
+        <div class="col-sm-9 padd015 pdfSrc iph-tab" id="sub-mune-content">
+
+          <!--pc端显示pdf标题-->
           <div class="row hidden-xs">
             <div class="result-box">
               <div class="col-sm-12 col-xs-12 paddB15">
@@ -147,11 +127,11 @@
                   <picture class="col-sm-1 col-xs-2">
                     <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+detail.thumb_img"/>
                   </picture>
-                  <div class="col-sm-11 col-xs-10">
-                    <strong>{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</strong>
+                  <div class="col-sm-11 col-xs-10 item-detail">
+                    <div class="item-name">{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</div>
                     <div class="cata-numb">
                       <span class="cata">货物编号：</span>
-                      <span>{{detail.item_name}}</span>
+                      <span class="item-No">{{detail.item_name}}</span>
                     </div>
                     <div class="share-love">
                       <span class="glyphicon glyphicon-heart changRed" v-if="isCollect === true"></span>
@@ -163,11 +143,12 @@
               </div>
             </div>
           </div>
+
           <!--英文操作手册-->
           <div class="tab_con">
             <div class="detai-tit-box">
               <strong class="col-xs-10 detai-tit2">英文操作手册</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right visible-xs-block iph-arrow" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right visible-xs-block iph-back" onclick=""></span>
             </div>
             <div class="row" v-if="pdfSrcj.en!=''">
               <div>
@@ -186,7 +167,7 @@
           <div class="tab_con dis_none">
             <div class="detai-tit-box">
               <strong class="col-xs-10 detai-tit2">中文操作手册</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right  visible-xs-block iph-back" onclick=""></span>
             </div>
             <div class="row" v-if="pdfSrcj.zh!=''">
               <div>
@@ -210,7 +191,7 @@
                        aria-expanded="true" v-bind:aria-controls='"collapse"+mindex'>
                       文献标题：{{materials.experiment_name}}
                     </a>
-                    <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block"
+                    <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block"
                           onclick=""></span>
                   </h4>
                 </div>
@@ -243,7 +224,7 @@
           <div class="tab_con dis_none">
             <div class="detai-tit-box">
               <strong class="col-xs-10 detai-tit2">视频</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block" onclick=""></span>
             </div>
             <div class="row">
               <a href="javascript:;" target="_blank" v-bind:data-video_id="video.id" v-bind:data-url="video.video_url"
@@ -265,7 +246,7 @@
           <div class="tab_con dis_none">
             <div class="detai-tit-box">
               <strong class="col-xs-10 detai-tit2">相关产品</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block" onclick=""></span>
             </div>
             <div class="row result-box">
               <div class="col-sm-12 col-xs-12 result-list-wrap " v-for="(rec,index) in Recs">
@@ -294,7 +275,7 @@
           <div class="tab_con dis_none">
             <div class="detai-tit-box">
               <strong class="col-xs-10 detai-tit2">现货</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block" onclick=""></span>
             </div>
             <div class="row">
               <div class="bs-example" data-example-id="striped-table">
@@ -338,7 +319,7 @@
           <div class="tab_con dis_none" id="syp">
             <div class="detai-tit-box">
               <strong class="col-xs-10 detai-tit2">试用品</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block" onclick=""></span>
             </div>
             <div class="row">
               <div class="bs-example" data-example-id="striped-table">
@@ -387,7 +368,7 @@
           <div class="tab_con dis_none">
             <div class="detai-tit-box">
               <strong class="row detai-tit2">留言</strong>
-              <span class="glyphicon glyphicon-arrow-left pull-right iph-arrow visible-xs-block" onclick=""></span>
+              <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block" onclick=""></span>
             </div>
             <div class="want-com" data-toggle="modal" data-target="#exampleModal" id="issue-comment"
                  data-whatever="@mdo">我要留言
@@ -440,19 +421,26 @@
 
 <script type="text/javascript">
   // tab切换
-  $(document).on("click", ".list-group .list-group-item", function () {
+  // $(document).on("click", ".list-group .list-group-item", function () {
+  $(document).on("click", ".control-list .control-list-item", function () {
     var Tindex = $(this).index();
-    $(this).addClass("active").siblings(".list-group-item").removeClass("active");
+    $(this).addClass("active").siblings(".control-list-item").removeClass("active");
     $(".col-sm-9 .tab_con").eq(Tindex).show().siblings(".tab_con").hide();
     if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1/* || ua.indexOf("iPad")>0*/) {
-      $("#tel_left").removeClass('anima-right').addClass('anima-left');
-      $("#iph-tab").show().removeClass('iph-right').addClass("iph-left");
+        $("#sub_mune").removeClass('anima-right').addClass('anima-left');
+        $("#sub-mune-content").show().removeClass('iph-right').addClass("iph-left");
+        // $("#sub-mune-content").show().removeClass('iph-right').addClass("iph-left").css('display','block');
+
     }
   })
-  $(document).on("click", ".iph-arrow", function () {
+  $(document).on("click", ".iph-back", function () {
     if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1 /*|| ua.indexOf("iPad")>0*/) {
-      $("#iph-tab").removeClass('iph-left').addClass('iph-right');
-      $("#tel_left").removeClass('anima-left').addClass('anima-right');
+      $("#sub-mune-content").removeClass('iph-left').addClass('iph-right');
+      // $("#sub-mune-content").removeClass('iph-left').addClass('iph-right').css('display','none');
+      $("#sub_mune").removeClass('anima-left').addClass('anima-right');
+
+
+
     }
   })
 

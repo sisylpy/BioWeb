@@ -3,61 +3,30 @@
 
 
 
-//.my-main .swsyp-txt{
-//  //text-align:left;
-//  //padding-bottom:1rem;
-//  font-size:2em;
-//  background-color: yellow;
-//  //line-height: 6rem;
-//  height: 6rem;
-//  //text-align: center;
-//  float: left;
-//  //width: 100%;
-//
-//
-//  /* 小屏幕（平板，大于等于 768px） */
-//  @media (min-width: @screen-sm-min) {
-//    font-size:2em;
-//
-//  }
-//  /* 中等屏幕（桌面显示器，大于等于 992px） */
-//  @media (min-width: @screen-md-min) {
-//    font-size:2em;
-//  }
-//  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-//  @media (min-width: @screen-lg-min) {
-//    font-size:2em;
-//  }
-//
-//}
-//
-//.search-input{
-//  width: 80%;
-//  float: left;
-//  height: 4rem;
-//  margin-top: 1rem;
-//  line-height: 4rem;
-//  font-size: 1.6em;
-//  padding-bottom: 1rem;
-//  //background-color: red;
-//
-//}
+.con-wrap{
+  background-color: #eeeeee;
+  padding: 0;
+  margin: 0;
+  //border:1px solid red;
+}
 
-.ov_f {
-  //padding: 0 5rem;
-
+.result-box {
+  position: relative;
+  float: left;
+  padding-top: 5rem;
+//background-color: yellow;
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
-    //padding: 0 5rem;
+    padding-top: 0;
 
   }
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   @media (min-width: @screen-md-min) {
-    //padding: 0 5rem;
+    padding-top: 0;
   }
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
   @media (min-width: @screen-lg-min) {
-    //padding: 0 10rem;
+    padding-top: 0;
   }
 }
 
@@ -66,36 +35,37 @@
   padding:1rem 1rem;
   //background:#c7254e;
   overflow:hidden; //mobile??
+  &:nth-child(2n+1){
+    background-color: #ffffff;
+  }
 
 }
 
 .result-list-wrap .result-list{
 
-  background-color:palegoldenrod;
-  //height: 13rem;
   font-size: 1em;
-  border: 3px solid gold;
   width: 100%;
   display: block;
   height: 100%;
   float: left;
+  //border:1px solid red;
 
 
   @media (min-width: @screen-sm-min) {
 
-    background:darkblue;
+    //background:darkblue;
 
   }
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   @media (min-width: @screen-md-min) {
 
-    background:yellow;
+    //background:yellow;
 
   }
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
   @media (min-width: @screen-lg-min) {
 
-    background:gold;
+    //background:gold;
     //height: 3rem;
 
   }
@@ -103,16 +73,16 @@
 
 .result-list-img {
   img{
-    width: 6rem;
+    width: 8rem;
     height: 10rem;
-    border: 1px solid green;
+    //border: 1px solid green;
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
 
       width: 5rem;
       height: 6rem;
-      border: 1px solid goldenrod;
+      //border: 1px solid goldenrod;
 
     }
     /* 中等屏幕（桌面显示器，大于等于 992px） */
@@ -120,7 +90,7 @@
 
       width: 3rem;
       height: 4rem;
-      border: 1px solid blue;
+      //border: 1px solid blue;
 
     }
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -128,7 +98,7 @@
 
       width: 3rem;
       height: 4rem;
-      border: 1px solid green;
+      //border: 1px solid green;
 
     }
 
@@ -140,8 +110,10 @@
 }
 
 .item-detail {
-  border: 1px solid pink;
+  //border: 1px solid pink;
   padding-left: 1rem;
+  position: relative;
+  float: left;
 
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
@@ -162,40 +134,170 @@
   }
 
   .item-name {
+    position: relative;
+    float: left;
+    //border: 1px solid rebeccapurple;
 
     font-size: 1.1em;
+    line-height: 4rem;
+    padding-top: 2rem;
 
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
-
       font-size: 1.1em;
+      line-height: 2rem;
+      padding-top: 1rem;
+
 
     }
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
 
       font-size: 1.2em;
+      line-height: 1rem;
+      padding-top: 0.5rem;
 
     }
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
 
     font-size: 1.2em;
+      line-height: 1rem;
+      padding-top: 1rem;
     }
 
   }
   .cata-numb{
 
+    position: relative;
+    float: left;
+    line-height: 2em;
+    padding-top: 1rem;
+    width: 100%;
+    //border: 1px solid indigo;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+
+      line-height: 1rem;
+
+    }
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+
+      line-height: 1rem;
+
+    }
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+
+      line-height: 1rem;
+    }
+
 
 
     .cata {
+
 
     }
     .item-No{
       font-size: 1.3em;
       color: #1E9FFF;
+
     }
+  }
+
+  .label-box{
+    position: relative;
+    //border: 1px solid blue;
+    width: 100%;
+    height: 6rem;
+    float: right;
+    margin-bottom: 2rem;
+
+
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height:3rem ;
+      margin-bottom: 0;
+
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height:3rem ;
+      margin-bottom: 0;
+
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height:1.5rem ;
+      margin-bottom: 0;
+
+      //border: 2px solid chartreuse;
+
+
+    }
+
+
+      .tag{
+        padding: 1px 15px !important;
+        border-radius: 5px;
+        margin-right: 5px !important;
+        min-width: 0px !important;
+        font-size: 0.9em !important;
+        text-align: center;
+        color: #eeeeee;
+        position: relative;
+        float: right;
+        height:5rem ;
+        line-height: 5rem;
+        top:0.5rem;
+        width: 12rem;
+        padding-top: 2rem;
+        display: block;
+
+
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          height:2.5rem ;
+          line-height: 2.5rem;
+          width: 7rem;
+
+
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          height:2rem ;
+          line-height:2rem;
+          width: 5rem;
+
+
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          height:1.6rem ;
+          line-height: 1.6rem;
+          width: 4rem;
+          font-size: 1em;
+          margin-bottom: -1rem;
+
+        }
+        }
+
+
+
+
+    }
+    .zw{background-color:#D33682;}
+    .sp{background-color:#677A85;}
   }
 
 

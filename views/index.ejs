@@ -16,35 +16,22 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!--隐藏浏览器的地址栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <!--高亮背景色-->
     <style> .highlight {
             background-color: #FFFF88;
+
+        input::-ms-input-placeholder{text-align: center;}
+        input::-webkit-input-placeholder{text-align: center;}
         } </style>
-
-
 </head>
-
 <body>
 
-<!--导航-->
-<div class="navbar navbar-inverse">
-    <div class="container">
-        <div class="row my-nav">
-            <div class="navbar-header col-md-3 col-xs-12 col-sm-4">
-                <a class="navbar-brand" href="#">
-                    <img alt="Brand" src="/img/logo.png">
-                </a>
-            </div>
-            <nav class="col-md-9 col-xs-12 col-sm-8">
-                <a href="/" class="col-xs-3">生物实验品</a>
-                <a href="/collection" class="col-xs-3">我的收藏</a>
-                <a href="/operation" class="col-xs-3">我的操作</a>
-                <a href="/products" class="col-xs-3">我的试用品</a>
-            </nav>
-        </div>
-    </div>
-</div>
-<!--end-->
+<!--//导航部分-->
+<%- include nav %>
+
 <!--轮播图-->
 <!--平板直大屏幕-->
 <div class="pc-img-box">
@@ -58,21 +45,14 @@
 <!--主题部分-->
 <div class="con-wrap">
     <div class="container my-main">
-        <div class="row ">
-            <div class=" swsyp-txt word col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
-                <div class="word-content">
-                    /生物试验品
-                </div>
-            </div>
-            <div class="col-sm-7   has-success searchPart col-xs-12 col-sm-7 col-md-7  col-lg-7">
-                <!--<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon"-->
-                      <!--aria-hidden="false"></span>-->
-                <!--<input type="text" id="search_text" class=" search-input" placeholder="查找货号"/>-->
-
-
-                <div class="search ">
-                    <input type="text" id="search_text" class=" search-input"  placeholder="产品编码或名称">
-                    <a class="iconBtn"><span class="glyphicon glyphicon-search form-control-feedback" id="search_icon"--></a>
+        <div class="index-mune word">
+            <div class=" word-content "><span>/生物试验品</span></div>
+            <div class=" has-success searchPart ">
+                <div class="search">
+                    <input type="text" id="search_text" class=" search-input"  placeholder="查找货号">
+                    <a class="search_button">
+                        <span class="glyphicon glyphicon-search form-control-feedback " ></span>
+                    </a>
 
                     <!--<a href="#" class="mySearch-btn">my</a>-->
                     <div class="mySearch-content">
@@ -87,10 +67,8 @@
                     </div>
                 </div>
 
-                <i class="search_hide"></i>
-
+                <!--<i class="search_hide">mmm</i>-->
             </div>
-
 
         </div>
         <div class="row result-box" id="search_list" v-cloak>
@@ -99,7 +77,7 @@
                 <div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
                     <a v-bind:href='"/detail?pdf_id="+item.id' class="result-list" target="_blank">
                         <picture class="col-sm-1 col-xs-2 result-list-img">
-                            <img v-bind:src="'http://127.0.0.1:3005'+item.thumb_img"/>
+                            <img v-bind:src="'http://120.27.19.17:3005'+item.thumb_img"/>
                         </picture>
                         <div class="col-sm-11 col-xs-10 item-detail">
                             <div class="item-name">{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}}</div>
@@ -108,13 +86,13 @@
                                 <span class="item-No"> {{item.item_name}}</span>
                             </div>
                             <div class="label-box">
-                                <span class="zw" v-if="item.language === 1">中文</span>
-                                <span class="zw" v-else>英文</span>
-                                <span class="sp" v-if="item.videoCount > 0">视频</span>
-                                <span class="sp" v-if="item.materialCount > 0">文献</span>
-                                <span class="sp" v-if="item.productCount > 0">现货</span>
-                                <span class="sp" v-if="item.trailProductCount > 0">试用品</span>
-                                <span class="sp" v-if="item.messageCount > 0">留言</span>
+                                <div class="tag zw" v-if="item.language === 1">中文</div>
+                                <div class="tag zw" v-else>英文</div>
+                                <div class="tag sp" v-if="item.videoCount > 0">视频</div>
+                                <div class="tag sp" v-if="item.materialCount > 0">文献</div>
+                                <div class="tag sp" v-if="item.productCount > 0">现货</div>
+                                <div class="tag sp" v-if="item.trailProductCount > 0">试用品</div>
+                                <div class="tag sp" v-if="item.messageCount > 0">留言</div>
                             </div>
                         </div>
                     </a>
@@ -151,7 +129,7 @@
                 getPfd: function () {
                     //.....
                     $.ajax({
-                        url: 'http://127.0.0.1:3005/api/getPdf',
+                        url: 'http://120.27.19.17:3005/api/getPdf',
                         type: 'get',
                         dataType: 'json',
                         success: function (res) {
@@ -167,7 +145,7 @@
                     this.Tval = $("#search_text").val();
                     this.page = 2;
                     $.ajax({
-                        url: 'http://127.0.0.1:3005/api/getPdf?value=' + this.Tval,
+                        url: 'http://120.27.19.17:3005/api/getPdf?value=' + this.Tval,
                         type: 'get',
                         dataType: 'json',
                         success: function (res) {
@@ -179,7 +157,7 @@
                 },
                 loadMore: function () {
                     $.ajax({
-                        url: 'http://127.0.0.1:3005/api/getPdf?value=' + this.Tval + '&page=' + this.page,
+                        url: 'http://120.27.19.17:3005/api/getPdf?value=' + this.Tval + '&page=' + this.page,
                         type: 'get',
                         dataType: 'json',
                         success: function (res) {
@@ -215,7 +193,7 @@
             }
         });
 
-        $(document).on('click', ".search_hide", function () {
+        $(document).on('click', ".search_button", function () {
             pdfVue.searchPdf();
             searchResults();
             highlightResults();
@@ -243,29 +221,29 @@
 
         //------原来搜索框功能---------
         // 搜索按钮
-        $(".mySearch-btn").click(function () {
-            $('.mySearch-content').show();
-        });
-
-        //TODO：点击选择词汇进行查询
-        //关闭下拉搜索词汇
-        $(".mySearch").click(function () {
-            $(this).parent().parent().hide();
-        });
-
-//设置行颜色
-        $('.item:even').css('background','#fff');
-
-        //设置鼠标划过颜色
-        $('.item').mouseover(function(){
-            $(this).css("background-color","#e0e0e0");
-        });
-
-        //设置鼠标离开颜色
-        $('.item').mouseleave(function(){
-            $('.item:even').css('background','#fff');
-            $('.item:odd').css('background','none');
-        });
+//         $(".mySearch-btn").click(function () {
+//             $('.mySearch-content').show();
+//         });
+//
+//         //TODO：点击选择词汇进行查询
+//         //关闭下拉搜索词汇
+//         $(".mySearch").click(function () {
+//             $(this).parent().parent().hide();
+//         });
+//
+// //设置行颜色
+//         $('.item:even').css('background','#fff');
+//
+//         //设置鼠标划过颜色
+//         $('.item').mouseover(function(){
+//             $(this).css("background-color","#e0e0e0");
+//         });
+//
+//         //设置鼠标离开颜色
+//         $('.item').mouseleave(function(){
+//             $('.item:even').css('background','#fff');
+//             $('.item:odd').css('background','none');
+//         });
 
     });
 

@@ -7,63 +7,62 @@
 		<title>我的收藏</title>
 		<link href="/css/bootstrap.css"  rel="stylesheet"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/userPage.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/pdf.css">
+
+
 		<!--[if lt IE 9]>
       	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     	<![endif]-->
-	</head>  
+		<!--隐藏浏览器的地址栏-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	</head>
 
 	<body>
-		<!--导航-->
-		<div class="navbar navbar-inverse">
-			<div class="container">
-				<div class="row my-nav">
-						<div class="navbar-header col-md-3 col-xs-12 col-sm-4">
-		      				<a class="navbar-brand" href="#">
-		        				<img alt="Brand"  src="img/logo.png">
-		      				</a>
-		    			</div>		
-		    			<nav class="col-md-9 col-xs-12 col-sm-8">
-		    				<a href="/" class="col-xs-3">生物实验品</a>
-		    				<a href="/collection" class="col-xs-3">我的收藏</a>
-		    				<a href="/operation" class="col-xs-3">我的操作</a>
-		    				<a href="/products" class="col-xs-3">我的试用品</a>
-		    			</nav>	 		    			
-				</div>
-			</div>
-		</div>
-		<!--end-->
+	<!--//导航部分-->
+    <%- include nav %>
 
 		<!--主题部分-->
 		<div class="con-wrap" id="collection" v-cloak >
 			<div class="container my-main">
-				<div class="row collect">
-					<div class="col-md-3 swsyp-txt">/ 我的收藏</div>
+				<div class="row collect operat user-top">
+					<div class="col-md-3 swsyp-txt prod user-menu myCollection">/ 我的收藏</div>
+
 					<div class="col-md-1"></div>
-					<div class="col-md-8 form-group has-feedback has-success">
-						<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>
-						<input type="text" id="search_text" class="form-control" placeholder="货号/产品名称"/>
-						<i class="search_hide"></i>
-					</div>
+					<!--<div class="col-md-4 form-group has-feedback has-success">-->
+						<!--<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>-->
+						<!--<input type="text" id="search_text" class="form-control" placeholder="货号/产品名称"/>-->
+						<!--<i class="search_hide"></i>-->
+					<!--</div>-->
 				</div>
 				<div class="row result-box" v-for="(collection,index) in collections" >
-					<h5 class="hidden"></h5>
-					<div class="col-sm-12 col-xs-12 result-list-wrap ">
+					<!--<h5 class="hidden"></h5>-->
+					<div class="col-sm-12 col-xs-12 result-list-wrap col-md-offset-2">
 						<a href="#" class="result-list">
 							<picture class="col-sm-1 col-xs-2 result-list-img">
-								<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)"> 
-								<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)"> 
-								<img src="img/placeholder-54-3.png" />
+								<!--<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)">-->
+								<!--<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)">-->
+								<img v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img" />
 							</picture>
-							<div class="col-sm-11 col-xs-10 ">
-								<strong>{{collection.manuName}}.{{collection.manuSubName}} {{collection.pdf_name}}</strong>
+							<div class="col-sm-11 col-xs-10 item-detail">
+								<div class="item-name">{{collection.manuName}}.{{collection.manuSubName}} {{collection.pdf_name}}</div>
 								<div class="cata-numb">
 									<span class="cata">目录编号：</span>
-									<span> {{collection.item_name}}</span>
+									<span class="item-No"> {{collection.item_name}}</span>
 								</div>
 								<div class="label-box">
-									<span class="zw">中文</span>
-									<span class="sp">视频</span>
+									<!--<span class="zw">中文</span>-->
+									<!--<span class="sp">视频</span>-->
+									<!--<div class="tag zw" v-if="item.language === 1">中文</div>-->
+									<!--<div class="tag zw" v-else>英文</div>-->
+									<!--<div class="tag sp" v-if="item.videoCount > 0">视频</div>-->
+									<!--<div class="tag sp" v-if="item.materialCount > 0">文献</div>-->
+									<!--<div class="tag sp" v-if="item.productCount > 0">现货</div>-->
+									<!--<div class="tag sp" v-if="item.trailProductCount > 0">试用品</div>-->
+									<!--<div class="tag sp" v-if="item.messageCount > 0">留言</div>-->
 									<input class="btn btn-default" v-bind:data-pdf_id="collection.id" type="button" value="取消收藏" @click=getcancelCollect(index,collection.id)>
 								</div>
 							</div>

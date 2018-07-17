@@ -145,25 +145,43 @@ main {
   margin: 0;
   padding: 0;
 }
-.ov_f {
+.con-wrap {
+  background-color: #eeeeee;
+  padding: 0;
+  margin: 0;
+}
+.result-box {
+  position: relative;
+  float: left;
+  padding-top: 5rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
+  .result-box {
+    padding-top: 0;
+  }
 }
 @media (min-width: 992px) {
+  .result-box {
+    padding-top: 0;
+  }
 }
 @media (min-width: 1200px) {
+  .result-box {
+    padding-top: 0;
+  }
 }
 .ov_f .result-list-wrap {
   padding: 1rem 1rem;
   overflow: hidden;
 }
+.ov_f .result-list-wrap:nth-child(2n+1) {
+  background-color: #ffffff;
+}
 .result-list-wrap .result-list {
-  background-color: palegoldenrod;
   font-size: 1em;
-  border: 3px solid gold;
   width: 100%;
   display: block;
   height: 100%;
@@ -172,24 +190,14 @@ main {
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
-  .result-list-wrap .result-list {
-    background: darkblue;
-  }
 }
 @media (min-width: 992px) {
-  .result-list-wrap .result-list {
-    background: yellow;
-  }
 }
 @media (min-width: 1200px) {
-  .result-list-wrap .result-list {
-    background: gold;
-  }
 }
 .result-list-img img {
-  width: 6rem;
+  width: 8rem;
   height: 10rem;
-  border: 1px solid green;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -198,26 +206,24 @@ main {
   .result-list-img img {
     width: 5rem;
     height: 6rem;
-    border: 1px solid goldenrod;
   }
 }
 @media (min-width: 992px) {
   .result-list-img img {
     width: 3rem;
     height: 4rem;
-    border: 1px solid blue;
   }
 }
 @media (min-width: 1200px) {
   .result-list-img img {
     width: 3rem;
     height: 4rem;
-    border: 1px solid green;
   }
 }
 .item-detail {
-  border: 1px solid pink;
   padding-left: 1rem;
+  position: relative;
+  float: left;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -238,7 +244,11 @@ main {
   }
 }
 .item-detail .item-name {
+  position: relative;
+  float: left;
   font-size: 1.1em;
+  line-height: 4rem;
+  padding-top: 2rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -246,19 +256,127 @@ main {
 @media (min-width: 768px) {
   .item-detail .item-name {
     font-size: 1.1em;
+    line-height: 2rem;
+    padding-top: 1rem;
   }
 }
 @media (min-width: 992px) {
   .item-detail .item-name {
     font-size: 1.2em;
+    line-height: 1rem;
+    padding-top: 0.5rem;
   }
 }
 @media (min-width: 1200px) {
   .item-detail .item-name {
     font-size: 1.2em;
+    line-height: 1rem;
+    padding-top: 1rem;
+  }
+}
+.item-detail .cata-numb {
+  position: relative;
+  float: left;
+  line-height: 2em;
+  padding-top: 1rem;
+  width: 100%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .item-detail .cata-numb {
+    line-height: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .item-detail .cata-numb {
+    line-height: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .item-detail .cata-numb {
+    line-height: 1rem;
   }
 }
 .item-detail .cata-numb .item-No {
   font-size: 1.3em;
   color: #1E9FFF;
+}
+.item-detail .label-box {
+  position: relative;
+  width: 100%;
+  height: 6rem;
+  float: right;
+  margin-bottom: 2rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .item-detail .label-box {
+    height: 3rem ;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 992px) {
+  .item-detail .label-box {
+    height: 3rem ;
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .item-detail .label-box {
+    height: 1.5rem ;
+    margin-bottom: 0;
+  }
+}
+.item-detail .label-box .tag {
+  padding: 1px 15px !important;
+  border-radius: 5px;
+  margin-right: 5px !important;
+  min-width: 0px !important;
+  font-size: 0.9em !important;
+  text-align: center;
+  color: #eeeeee;
+  position: relative;
+  float: right;
+  height: 5rem ;
+  line-height: 5rem;
+  top: 0.5rem;
+  width: 12rem;
+  padding-top: 2rem;
+  display: block;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+}
+@media (min-width: 768px) {
+  .item-detail .label-box .tag {
+    height: 2.5rem ;
+    line-height: 2.5rem;
+    width: 7rem;
+  }
+}
+@media (min-width: 992px) {
+  .item-detail .label-box .tag {
+    height: 2rem ;
+    line-height: 2rem;
+    width: 5rem;
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  }
+}
+@media (min-width: 992px) and (min-width: 1200px) {
+  .item-detail .label-box .tag {
+    height: 1.6rem ;
+    line-height: 1.6rem;
+    width: 4rem;
+    font-size: 1em;
+    margin-bottom: -1rem;
+  }
+}
+.item-detail .label-box .zw {
+  background-color: #D33682;
+}
+.item-detail .label-box .sp {
+  background-color: #677A85;
 }
