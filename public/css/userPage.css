@@ -1,0 +1,19 @@
+@charset "utf-8";
+.user-top {
+  border: 1px solid red;
+  position: relative;
+}
+.user-top .user-menu {
+  border: 1px solid blue;
+  color: #0076a3;
+  font-size: 1.5em;
+  text-align: right;
+  line-height: 45px;
+  font-weight: 600;
+}
+.result-list-wrap .result-list {
+  border: 1px solid yellowgreen;
+}
+.myoperate-right {
+  border: 1px solid black;
+}
