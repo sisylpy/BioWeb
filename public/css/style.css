@@ -62,9 +62,9 @@ a:hover {
 .my-main .prod{text-align:left;}
 .dayin{color:rgb(42,161,152);font-weight:600;}
 .shoucang{color:#F05D50;font-weight:600;}
-.xiazai{color:#505FF0;font-weight:600;}
-.detai-tit-box .detai-tit2{font-size:2rem;font-weight:500;;}
-.detai-tit-box{overflow:hidden;padding-bottom:1.5rem;}
+/*.xiazai{color:#505FF0;font-weight:600;}*/
+/*.detai-tit-box .detai-tit2{font-size:2rem;font-weight:500;;}*/
+/*.detai-tit-box{overflow:hidden;padding-bottom:1.5rem;}*/
 .syp{background:#fff;border-shadow:0 2px 4px rgba(0,0,0,0.8);border-radius:5px;;}
 .syp .pl_con{width:96%;margin:0 auto;border-bottom:1px solid #bbb;padding-bottom:3%;overflow:hidden;}
 .syp .huifu{width:96%;margin:0 auto;padding-top:2%;overflow:hidden;}
@@ -80,11 +80,13 @@ a:hover {
 /*.swsyp-txt{padding:0 15px;}*/
 .share-love span{float:right;font-size:20px;padding-left:15px;cursor:pointer;}
 .caption h3{font-size:18px;margin-top:0;margin-bottom:10px;word-break:break-all;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical}
-.comment{padding:15px 10px;border-radius:4px;background:#fff}
+.want-com{margin-bottom: 1rem;}
+.comment{padding:15px 10px;border-radius:4px;background:#e3e3e3;margin-bottom: 2rem;}
 .comment .com-tit{font-weight:500;font-size:16px;padding:0 0 10px 10px;margin:0;border-bottom:1px solid #bbb;}
-.comment .com-con{padding:10px;line-height:24px;font-size:14px;}
-.com-hf{margin:10px 20px;}
-.com-hf li{padding:15px;background:#bfbfbf;border-radius:5px;margin-bottom:15px;}
+.comment .com-con{padding:10px;line-height:24px;font-size:14px;text-align: left;}
+.com-hf{margin:10px 20px;border:1px solid gray;border-radius: 5px;}
+/*.com-hf li{padding:15px;background:#bfbfbf;border-radius:5px;margin-bottom:15px;}*/
+.reply-con{display: block;}
 .hf-btn{margin:0 20px;text-align:right;font-size:14px;color:#0099ff;cursor:pointer;}
 .hf-text{margin:0 20px;}
 .hf-text textarea{padding:10px;line-height:24px;resize:none;border-radius:5px;}

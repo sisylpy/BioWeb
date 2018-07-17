@@ -371,22 +371,23 @@
           <!--留言-->
           <div class="tab_con dis_none">
             <div class="detai-tit-box">
-              <strong class="row detai-tit2">留言</strong>
+              <strong class="detai-tit2">留言</strong>
               <span class="glyphicon glyphicon-arrow-left pull-right iph-back visible-xs-block" onclick=""></span>
             </div>
             <div class="want-com" data-toggle="modal" data-target="#exampleModal" id="issue-comment"
                  data-whatever="@mdo">我要留言
             </div>
-            <div class="row comment" v-for="comment in Comments">
-              <h3 class="com-tit">评论时间：{{comment.create_time}}</h3>
+            <div class="comment" v-for="comment in Comments">
+              <h3 class="com-tit">留言时间：{{comment.create_time}}</h3>
               <p class="com-con">{{comment.message_content}}</p>
               <ul class="com-hf">
                 <li v-for="(reply,rindex) in comment.reply">
-                  <div class="ov_f">
+                  <div class="huifu">
                     <span class="pull-left">回复时间：{{reply.create_time}}</span>
                     <span class="pull-right">热心用户{{rindex+1}}</span>
                   </div>
-                  <p class="com-con">{{reply.message_content}}</p>
+                  <p class="reply-con">{{reply.message_content}}aaa</p>
+
                 </li>
               </ul>
               <div class="hf-btn issue-reply" data-toggle="modal" data-target="#exampleModal"
@@ -437,6 +438,8 @@
         $(this).addClass('click').siblings().removeClass('click');
     }
   })
+
+
   $(document).on("click", ".iph-back", function () {
     if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1 /*|| ua.indexOf("iPad")>0*/) {
       // $("#sub-mune-content").removeClass('iph-left').addClass('iph-right');

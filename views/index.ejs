@@ -200,7 +200,6 @@
 
         });
 
-
         searchResults = function () {
             var Tval = $("#search_text").val();
             if (Tval.length > 0) {
@@ -210,7 +209,6 @@
                 // $('.ov_f').unhighlight(Tval);
             }
         };
-
 
         highlightResults = function () {
             var Tval = $("#search_text").val();
@@ -231,19 +229,25 @@
 //             $(this).parent().parent().hide();
 //         });
 //
-// //设置行颜色
-//         $('.item:even').css('background','#fff');
+
 //
 //         //设置鼠标划过颜色
-//         $('.item').mouseover(function(){
-//             $(this).css("background-color","#e0e0e0");
-//         });
+
+        $(document).on('mouseover', ".result-list", function () {
+            $(this).parent().css("background-color","#e0e0e0");
+        });
+
 //
 //         //设置鼠标离开颜色
-//         $('.item').mouseleave(function(){
-//             $('.item:even').css('background','#fff');
-//             $('.item:odd').css('background','none');
-//         });
+
+        $(document).on('mouseleave', ".result-list", function () {
+            $('.result-list:even').parent().css('background','#fff');
+            $('.result-list:odd').parent().css('background','none');
+        });
+        // $('.result-list').mouseleave(function(){
+        //     $('.item:even').css('background','#fff');
+        //     $('.item:odd').css('background','none');
+        // });
 
     });
 

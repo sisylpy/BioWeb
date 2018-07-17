@@ -390,7 +390,7 @@ main {
 #detail_hd .iph-tab {
   display: none;
   left: 1000px;
-  margin: -100rem 5rem 0 5rem;
+  margin: -90rem 5rem 0 5rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -443,5 +443,5 @@ main {
   text-align: center;
   font-size: 1em;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
