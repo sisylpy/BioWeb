@@ -52,8 +52,8 @@
 <div id="detail_hd" v-cloak>
   <!-- 移动端显示pdf标题-->
   <div class="container visible-xs-block iph-block">
-    <div class="result-box">
-      <div class="col-sm-12 col-xs-12 paddB15">
+    <div class="row result-box">
+      <div class="col-sm-12 col-xs-12 pdf-title-ip">
         <a class="result-list media result-list-img">
           <picture class="col-sm-1 col-xs-2">
             <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+detail.thumb_img"/>
@@ -61,7 +61,7 @@
           <div class="col-sm-11 col-xs-10 item-detail">
             <div class="item-name">{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</div>
             <div class="cata-numb">
-              <span class="cata">aa货物编号：</span>
+              <span class="cata">货物编号：</span>
               <span class="item-No">{{detail.item_name}}</span>
             </div>
             <div class="share-love">
@@ -72,7 +72,11 @@
           </div>
         </a>
       </div>
+        <div class="col-sm-12 col-xs-12 return-btn-ip">
+            <a href="javascript:void(0);" onclick="window.close();">返回搜索</a>
+        </div>
     </div>
+
   </div>
   <!-- end -->
 
@@ -82,10 +86,10 @@
       <div class="row detail">
         <!--选择子菜单-->
         <div class="col-sm-3 tel_left  control-left" id="sub_mune">
-          <div class="return-btn">
-            <a href="/">返回搜索</a>
+          <div class="hidden-xs return-btn">
+            <a href="javascript:void(0);" onclick="window.close();"> 返回搜索</a>
           </div>
-          <div class=" control-list">
+          <div class="control-list">
             <div class="control-list-item active">
               英文操作手册
               <span class="badge" v-if="detail.language == 1">0</span>
@@ -428,18 +432,16 @@
     $(".col-sm-9 .tab_con").eq(Tindex).show().siblings(".tab_con").hide();
     if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1/* || ua.indexOf("iPad")>0*/) {
         $("#sub_mune").removeClass('anima-right').addClass('anima-left');
-        $("#sub-mune-content").show().removeClass('iph-right').addClass("iph-left");
-        // $("#sub-mune-content").show().removeClass('iph-right').addClass("iph-left").css('display','block');
-
+        // $("#sub-mune-content").show().removeClass('iph-right').addClass("iph-left");
+        $("#sub-mune-content").show().removeClass('iph-right').addClass("iph-left").css('display','block');
+        $(this).addClass('click').siblings().removeClass('click');
     }
   })
   $(document).on("click", ".iph-back", function () {
     if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('Android') > -1 /*|| ua.indexOf("iPad")>0*/) {
-      $("#sub-mune-content").removeClass('iph-left').addClass('iph-right');
-      // $("#sub-mune-content").removeClass('iph-left').addClass('iph-right').css('display','none');
+      // $("#sub-mune-content").removeClass('iph-left').addClass('iph-right');
+      $("#sub-mune-content").removeClass('iph-left').addClass('iph-right').css('display','none');
       $("#sub_mune").removeClass('anima-left').addClass('anima-right');
-
-
 
     }
   })

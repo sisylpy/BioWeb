@@ -2,20 +2,8 @@
 @charset "utf-8";
 @import "../../myless/main";
 
-//
-//.pdfobject-container {
-//  height: 500px;
-//}
-//
-//.pdfobject {
-//  border: 1px solid #666;
-//}
-//
-//.m {
-//  width: 100%;
-//  margin: 50px auto;
-//}
 
+//生物试验品/产品收藏
 .main-top .collect .my-mune{
   //border: 1px solid red;
   font-size: 1.4em;
@@ -23,306 +11,391 @@
   color: #3b6caa;
 }
 
-.pdf-control {
 
-  //border: 1px solid red;
+//手机端特殊设置
+#detail_hd {
+  .visible-xs-block{
+    .result-box {
+      padding: 0 5rem 0 5rem;
+      //border:1px solid red;
 
-  //margin: 0 2rem 0  2rem;
 
-  /* 小屏幕（平板，大于等于 768px） */
-  @media (min-width: @screen-sm-min) {
+      .pdf-title-ip{
 
-    padding: 0 2rem 0  2rem;
+
+    }
+      .return-btn-ip{
+        height: 10rem;
+        line-height: 10rem; /* IE7支持 */
+        //margin: 3rem 6rem 3rem 6rem; // 手机特殊设置
+        padding: 3rem 5rem 3rem 5rem;
+
+        //返回按钮点击
+        a{
+          color: #fff;
+          text-align: center;
+          display: block;
+          background:#F18516;
+          line-height: 10rem;
+          height: 10rem;
+
+          &:active{
+            background: #3b6caa;
+          }
+        }
+      }
+
+    .share-love{
+      color: #3b6caa;
+      padding: 0 5rem 0 5rem;
+      //width: 2rem;
+      .glyphicon-heart{
+        padding-left: 10rem;
+      }
+    }
   }
-
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  @media (min-width: @screen-md-min) {
-    padding: 0 2rem 0  2rem;
-  }
-
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-  @media (min-width: @screen-lg-min) {
-    padding: 0 2rem 0  2rem;
-
-  }
-
-
-
 
 }
 
 
-//left 菜单
-.control-left{
+  .pdf-control {
+    padding:5rem 0 0 0;
+    //border:1px solid blue;
+    //margin: 10rem 0 0 0;
 
-  //返回按钮div
-  .return-btn {
-    height: 8rem;
-    line-height: 8rem; /* IE7支持 */
-    background:#F18516;
-    margin: 10rem 10rem 4rem 10rem; // 手机特殊设置
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
-      height: 3rem;
-      margin: 0 0 1rem 0; // pc特殊设置
+
+      padding: 0 2rem 0  2rem;
     }
 
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
-      height: 3rem;
-      margin: 0 0 1rem 0; // pc特殊设置
+      padding: 0 2rem 0  2rem;
     }
 
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
-      height: 3rem;
-      margin: 0 0 1rem 0; // pc特殊设
+      padding: 0 2rem 0  2rem;
+
     }
 
-    //返回按钮点击
-    a{
-      color: #fff;
-      text-align: center;
-      display: block;
-      //background-color: red;
 
-      line-height: 8rem;
-      height: 8rem;
 
-      /* 小屏幕（平板，大于等于 768px） */
-      @media (min-width: @screen-sm-min) {
-        line-height: 3rem;
-        height: 3rem;
-      }
 
-      /* 中等屏幕（桌面显示器，大于等于 992px） */
-      @media (min-width: @screen-md-min) {
-        line-height: 3rem;
-        height: 3rem;
-
-      }
-
-      /* 大屏幕（大桌面显示器，大于等于 1200px） */
-      @media (min-width: @screen-lg-min) {
-        line-height: 3rem;
-        height: 3rem;
-
-      }
-    }
   }
 
-  //左侧选择列表
-  .control-list {
-    line-height:5rem;
-    height: 5rem;
-    font-size: 1.5em;
-    font-weight: 500;
-    color: rgba(31, 33, 75, 0.78);
 
-    .active{
-      background-color: #3b6caa;
-      color: #fff;
-    }
-    .control-list-item{
-      cursor:pointer;
-      //border: 1px solid red;
-      height: 10rem;
-      line-height: 10rem;
-      font-size: 1em;
-      margin: 0 10rem 0 10rem; // 手机特殊设置
+  //left 菜单
+  .control-left{
+
+    //返回按钮div-pc端！
+    .return-btn {
+      //height: 10rem;
+      //line-height: 10rem; /* IE7支持 */
+      //margin: 5rem 10rem 4rem 10rem; // 手机特殊设置
+
       /* 小屏幕（平板，大于等于 768px） */
       @media (min-width: @screen-sm-min) {
-        height: 4rem;
-        line-height: 4rem;
-        font-size: 0.8em;
-        margin: 0 0 0 0; // pc特殊设置
-
+        height: 3rem;
+        margin: 0 0 1rem 0; // pc特殊设置
       }
 
       /* 中等屏幕（桌面显示器，大于等于 992px） */
       @media (min-width: @screen-md-min) {
         height: 3rem;
-        line-height: 3rem;
-        margin: 0 0 0 0; // pc特殊设置
+        margin: 0 0 1rem 0; // pc特殊设置
       }
 
       /* 大屏幕（大桌面显示器，大于等于 1200px） */
       @media (min-width: @screen-lg-min) {
         height: 3rem;
-        line-height: 3rem;
-        margin: 0 0 0 0; // pc特殊设置
-
+        margin: 0 0 1rem 0; // pc特殊设
       }
 
-
-      span {
-        vertical-align: middle;
-        background: gray none repeat scroll 0 0 !important;
-        border-color: gray;
-        position: relative;
-        float: right;
+      //返回按钮点击
+      a{
+        color: #fff;
         text-align: center;
-
-        padding: 3px 7px !important;
-        border-radius: 9px !important;
-        margin-right: 10px !important;
-        min-width: 0px !important;
-        font-size: 0.7em !important;
-        height: 5rem;
-        margin-top:2.5rem;
-        width: 8rem;
-        line-height: 5rem;
-
-
-
+        display: block;
+        background:#F18516;
+        //line-height: 10rem;
+        //height: 10rem;
 
         /* 小屏幕（平板，大于等于 768px） */
         @media (min-width: @screen-sm-min) {
-          padding: 3px 7px !important;
-          border-radius: 9px !important;
-          margin-right: 10px !important;
-          min-width: 0px !important;
-          font-size: 0.7em !important;
-          height: 2rem;
-          line-height: 2rem;
-          margin-top:1rem;
-          width: 3rem;
-
+          line-height: 3rem;
+          height: 3rem;
         }
 
         /* 中等屏幕（桌面显示器，大于等于 992px） */
         @media (min-width: @screen-md-min) {
-          padding: 3px 7px !important;
-          border-radius: 9px !important;
-          margin-right: 10px !important;
-          min-width: 0px !important;
-          font-size: 0.7em !important;
-          height: 1.5rem;
-          line-height: 1.5rem;
-          margin-top:0.75rem;
-          width: 2rem;
+          line-height: 3rem;
+          height: 3rem;
 
         }
 
         /* 大屏幕（大桌面显示器，大于等于 1200px） */
         @media (min-width: @screen-lg-min) {
-          padding: 3px 7px !important;
-          border-radius: 9px !important;
-          margin-right: 10px !important;
-          min-width: 0px !important;
-          font-size: 0.7em !important;
-          height: 1.5rem;
-          line-height: 1.5rem;
-          margin-top:0.75rem;
-          width: 2rem;
+          line-height: 3rem;
+          height: 3rem;
 
+        }
 
+        &:active{
+          background: #3b6caa;
         }
 
 
       }
     }
+
+    //左侧选择列表
+    .control-list {
+      //line-height:8rem;
+      //height: 8rem;
+      font-size: 1.5em;
+      font-weight: 500;
+      color: black;
+      //border: 1px solid red;
+      //background-color: yellow;
+      margin: 0;
+      padding: 0;
+
+      .active{
+        background-color:#fff;
+        color: black;
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          background-color: #3b6caa;
+          color: #fff;
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          background-color: #3b6caa;
+          color: #fff;
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          background-color: #3b6caa;
+          color: #fff;
+        }
+
+      }
+
+      .click{
+        background-color: #3b6caa;
+        color: #fff;
+      }
+      .control-list-item{
+        cursor:pointer;
+        border-bottom: 1px solid gainsboro;
+        height: 12rem;
+        line-height: 12rem;
+        font-size: 1em;
+        margin: 0 5rem 0 5rem; // 手机特殊设置
+        padding: 0 2rem 0 2rem;
+        //background-color: red;
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          height: 4rem;
+          line-height: 4rem;
+          font-size: 0.8em;
+          margin: 0 0 0 0; // pc特殊设置
+          padding: 0 2rem 0 2rem;
+
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          height: 3rem;
+          line-height: 3rem;
+          margin: 0 0 0 0; // pc特殊设置
+          padding: 0 2rem 0 2rem;
+
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          height: 3rem;
+          line-height: 3rem;
+          margin: 0 0 0 0; // pc特殊设置
+        }
+        span {
+          vertical-align: middle;
+          background: gray none repeat scroll 0 0 !important;
+          border-color: gray;
+          position: relative;
+          float: right;
+          text-align: center;
+
+          padding: 3px 7px !important;
+          border-radius: 9px !important;
+          margin-right: 10px !important;
+          min-width: 0px !important;
+          font-size: 0.7em !important;
+          height: 5rem;
+          margin-top:3.5rem;
+          width: 8rem;
+          line-height: 5rem;
+
+
+
+
+          /* 小屏幕（平板，大于等于 768px） */
+          @media (min-width: @screen-sm-min) {
+            padding: 3px 7px !important;
+            border-radius: 9px !important;
+            margin-right: 10px !important;
+            min-width: 0px !important;
+            font-size: 0.7em !important;
+            height: 2rem;
+            line-height: 2rem;
+            margin-top:1rem;
+            width: 3rem;
+
+          }
+
+          /* 中等屏幕（桌面显示器，大于等于 992px） */
+          @media (min-width: @screen-md-min) {
+            padding: 3px 7px !important;
+            border-radius: 9px !important;
+            margin-right: 10px !important;
+            min-width: 0px !important;
+            font-size: 0.7em !important;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            margin-top:0.75rem;
+            width: 2rem;
+
+          }
+
+          /* 大屏幕（大桌面显示器，大于等于 1200px） */
+          @media (min-width: @screen-lg-min) {
+            padding: 3px 7px !important;
+            border-radius: 9px !important;
+            margin-right: 10px !important;
+            min-width: 0px !important;
+            font-size: 0.7em !important;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            margin-top:0.75rem;
+            width: 2rem;
+
+
+          }
+
+
+        }
+      }
+    }
+
   }
 
-}
 
 
-
-//.detail{
+  //.detail{
   //
   //.move2left{
   //  left:-500px;
   //
   //}
-//}
-
-//手机端pdf标题
-.iph-block{
-  border: 1px solid blue;
-}
+  //}
 
 
-// right 内容
-.iph-tab{
+
+  // right 内容
+  .iph-tab{
 
 
-  display: none;
-  left:1000px;
+    display: none;
+    left:1000px;
 
-  margin: -20rem 5rem 0 5rem;
+    margin: -100rem 5rem 0 5rem;
 
-  border: 1px solid red;
-  /* 小屏幕（平板，大于等于 768px） */
-  @media (min-width: @screen-sm-min) {
-    margin: 0 0 0 0;
-    display: block;
-    left:0;
-  }
+    //border: 1px solid red;
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      margin: 0 0 0 0;
+      display: block;
+      left:0;
+    }
 
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  @media (min-width: @screen-md-min) {
-    margin: 0 0 0 0;
-    display: block;
-    left:0;
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      margin: 0 0 0 0;
+      display: block;
+      left:0;
 
-  }
+    }
 
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-  @media (min-width: @screen-lg-min) {
-    margin: 0 0 0 0;
-    display: block;
-    left:0;
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      margin: 0 0 0 0;
+      display: block;
+      left:0;
 
-  }
+    }
 
-  .tab_con {
-    border: 1px solid purple;
-    .detai-tit-box{
-      .detai-tit2 {
+    .tab_con {
+      .detai-tit-box{
 
 
-        font-size: 5rem;
-        /* 小屏幕（平板，大于等于 768px） */
-        @media (min-width: @screen-sm-min) {
-          font-size: 2rem;
+        .detai-tit2 {
 
+          font-size: 5rem;
+          /* 小屏幕（平板，大于等于 768px） */
+          @media (min-width: @screen-sm-min) {
+            font-size: 2rem;
+          }
+
+          /* 中等屏幕（桌面显示器，大于等于 992px） */
+          @media (min-width: @screen-md-min) {
+            font-size: 2rem;
+          }
+
+          /* 大屏幕（大桌面显示器，大于等于 1200px） */
+          @media (min-width: @screen-lg-min) {
+            font-size: 2rem;
+          }
         }
+        .iph-back {
 
-        /* 中等屏幕（桌面显示器，大于等于 992px） */
-        @media (min-width: @screen-md-min) {
-          font-size: 2rem;
-
-
-        }
-
-        /* 大屏幕（大桌面显示器，大于等于 1200px） */
-        @media (min-width: @screen-lg-min) {
-
-          font-size: 2rem;
+          //height: 5rem;
+          line-height: 3rem;
+          width: 10rem;
+          text-align: center;
+          font-size: 1em;
+          margin-top: 1rem;
+          margin-bottom: 2rem;
 
         }
       }
     }
   }
-}
 
 
 
 
-/* 小屏幕（平板，大于等于 768px） */
-@media (min-width: @screen-sm-min) {
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
 
-}
+  }
 
-/* 中等屏幕（桌面显示器，大于等于 992px） */
-@media (min-width: @screen-md-min) {
-
-
-}
-
-/* 大屏幕（大桌面显示器，大于等于 1200px） */
-@media (min-width: @screen-lg-min) {
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
 
 
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+
+
+  }
 }
