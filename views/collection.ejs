@@ -1,147 +1,189 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=0">
-		<title>我的收藏</title>
-		<link href="/css/bootstrap.css"  rel="stylesheet"/>
-		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="/css/userPage.css"/>
-		<link rel="stylesheet" type="text/css" href="/css/pdf.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <title>我的收藏</title>
+    <link href="/css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/userPage.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/pdf.css">
 
 
-		<!--[if lt IE 9]>
-      	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    	<![endif]-->
-		<!--隐藏浏览器的地址栏-->
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--隐藏浏览器的地址栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-	</head>
+</head>
 
-	<body>
-	<!--//导航部分-->
-    <%- include nav %>
+<body>
+<!--//导航部分-->
+<%- include nav %>
 
-		<!--主题部分-->
-		<div class="con-wrap" id="collection" v-cloak >
-			<div class="container my-main">
-				<div class="row collect operat user-top">
-					<div class="col-md-3 swsyp-txt prod user-menu myCollection">/ 我的收藏</div>
+<!--主题部分-->
+<div class="con-wrap" id="collection" v-cloak>
+    <div class="container my-main">
+        <div class="row collect operat user-top">
+            <div class="col-xs-12 col-md-3 swsyp-txt prod user-menu myCollection">/我的收藏</div>
 
-					<div class="col-md-1"></div>
-					<!--<div class="col-md-4 form-group has-feedback has-success">-->
-						<!--<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>-->
-						<!--<input type="text" id="search_text" class="form-control" placeholder="货号/产品名称"/>-->
-						<!--<i class="search_hide"></i>-->
-					<!--</div>-->
-				</div>
-				<div class="row result-box" v-for="(collection,index) in collections" >
-					<!--<h5 class="hidden"></h5>-->
-					<div class="col-sm-12 col-xs-12 result-list-wrap col-md-offset-2">
-						<a href="#" class="result-list">
-							<picture class="col-sm-1 col-xs-2 result-list-img">
-								<!--<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)">-->
-								<!--<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)">-->
-								<img v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img" />
-							</picture>
-							<div class="col-sm-11 col-xs-10 item-detail">
-								<div class="item-name">{{collection.manuName}}.{{collection.manuSubName}} {{collection.pdf_name}}</div>
-								<div class="cata-numb">
-									<span class="cata">目录编号：</span>
-									<span class="item-No"> {{collection.item_name}}</span>
-								</div>
-								<div class="label-box">
-									<!--<span class="zw">中文</span>-->
-									<!--<span class="sp">视频</span>-->
-									<!--<div class="tag zw" v-if="item.language === 1">中文</div>-->
-									<!--<div class="tag zw" v-else>英文</div>-->
-									<!--<div class="tag sp" v-if="item.videoCount > 0">视频</div>-->
-									<!--<div class="tag sp" v-if="item.materialCount > 0">文献</div>-->
-									<!--<div class="tag sp" v-if="item.productCount > 0">现货</div>-->
-									<!--<div class="tag sp" v-if="item.trailProductCount > 0">试用品</div>-->
-									<!--<div class="tag sp" v-if="item.messageCount > 0">留言</div>-->
-									<input class="btn btn-default" v-bind:data-pdf_id="collection.id" type="button" value="取消收藏" @click=getcancelCollect(index,collection.id)>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>			
-		</div>
+            <div class="col-md-1"></div>
+            <!--<div class="col-md-4 form-group has-feedback has-success">-->
+            <!--<span class="glyphicon glyphicon-search form-control-feedback" id="search_icon" aria-hidden="false"></span>-->
+            <!--<input type="text" id="search_text" class="form-control" placeholder="货号/产品名称"/>-->
+            <!--<i class="search_hide"></i>-->
+            <!--</div>-->
+        </div>
+        <!--pc-->
+        <div class="result-box" v-for="(collection,index) in collections">
+            <!--<h5 class="hidden"></h5>-->
+            <div class="row result-list-wrap  hidden-xs">
+                <div class="col-sm-11 col-xs-12 pdf-part ">
+                    <a href="#" class="result-list row">
+                        <picture class="col-sm-1 col-xs-1 result-list-img">
+                            <!--<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)">-->
+                            <!--<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)">-->
+                            <img v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
+                        </picture>
+                        <div class="col-sm-11 col-xs-11 item-detail">
+                            <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}}
+                                {{collection.pdf_name}}
+                            </div>
+                            <div class="cata-numb">
+                                <span class="cata">目录编号：</span>
+                                <span class="item-No"> {{collection.item_name}}</span>
+                            </div>
+                            <div class="label-box">
+                                <!--<span class="zw">中文</span>-->
+                                <!--<span class="sp">视频</span>-->
+                                <!--<div class="tag zw" v-if="item.language === 1">中文</div>-->
+                                <!--<div class="tag zw" v-else>英文</div>-->
+                                <!--<div class="tag sp" v-if="item.videoCount > 0">视频</div>-->
+                                <!--<div class="tag sp" v-if="item.materialCount > 0">文献</div>-->
+                                <!--<div class="tag sp" v-if="item.productCount > 0">现货</div>-->
+                                <!--<div class="tag sp" v-if="item.trailProductCount > 0">试用品</div>-->
+                                <!--<div class="tag sp" v-if="item.messageCount > 0">留言</div>-->
+                            </div>
 
-		<!--end-->
-		
-		
-		
-		
-	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-    var collectVue=new Vue({
-    	el:"#collection",
-    	data:{	
-			collections:[]
-			},
-		methods:{
-			getCollect:function(){
-				$.ajax({
-					type:"get",
-					url:"http://120.27.19.17:3005/api/getCollect",
-					dataType:'json',
-		  			success:function(res){
-  						if(res.res){
-  							this.collections=res.data;
-  						}
-  					}.bind(this)
-				});				
-			},
-            searchCollect:function(){
-                this.Tval = $("#search_text").val();
-                this.page=2;
+                        </div>
+
+                    </a>
+
+                </div>
+                <div class="col-sm-1 col-xs-12" id="cancelBtn">
+                    <a  v-bind:data-pdf_id="collection.id" type="button" value="取消收藏"
+                       @click=getcancelCollect(index,collection.id)>取消收藏</a>
+                </div>
+            </div>
+
+            <!-- 移动端显示pdf标题-->
+            <div class="container visible-xs-block iph-block">
+                <div class="row result-box">
+                    <div class="col-sm-12 col-xs-12 pdf-title-ip">
+                        <a class="result-list media result-list-img">
+                            <picture class="col-sm-1 col-xs-2">
+                                <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
+                            </picture>
+                            <div class="col-sm-11 col-xs-10 item-detail">
+                                <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}} {{collection.pdf_name}}</div>
+                                <div class="cata-numb">
+                                    <span class="cata">货物编号：</span>
+                                    <span class="item-No">{{collection.item_name}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-1 col-xs-12" id="cancelBtn">
+                        <a  v-bind:data-pdf_id="collection.id" type="button" value="取消收藏"
+                           @click=getcancelCollect(index,collection.id)>取消收藏</a>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- end -->
+        </div>
+
+
+
+    </div>
+    <div class="bottom-row"></div>
+
+</div>
+
+<!--end-->
+
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var collectVue = new Vue({
+        el: "#collection",
+        data: {
+            collections: []
+        },
+        methods: {
+            getCollect: function () {
                 $.ajax({
-                    url:'http://120.27.19.17:3005/api/getCollect?value='+this.Tval,
-                    type:'get',
-                    dataType:'json',
-                    success:function(res){
-                        if(res.res){
-                            this.collections=res.data;
+                    type: "get",
+                    url: "http://120.27.19.17:3005/api/getCollect",
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.res) {
+                            this.collections = res.data;
+                        }
+                    }.bind(this)
+                });
+            },
+            searchCollect: function () {
+                this.Tval = $("#search_text").val();
+                this.page = 2;
+                $.ajax({
+                    url: 'http://120.27.19.17:3005/api/getCollect?value=' + this.Tval,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.res) {
+                            this.collections = res.data;
                         }
                     }.bind(this)
                 })
             },
-			getDelete:function(zindex){
-        		this.collections.splice(zindex,1);
-    		},
-			getcancelCollect:function(zindex,id){
-				$.ajax({
-					url:"http://120.27.19.17:3005/api/cancelCollect",
-					type:"post",
-					dataType:"json",
-					data:{
-						pdf_id:id
-					},
-					success:function(res){
-						if(res.res){
-							this.getDelete(zindex);
-							console.log("删除");
-							console.log(this.collections);
-						}
-					}.bind(this)
-				})
-			}	
-		}
+            getDelete: function (zindex) {
+                this.collections.splice(zindex, 1);
+            },
+            getcancelCollect: function (zindex, id) {
+                $.ajax({
+                    url: "http://120.27.19.17:3005/api/cancelCollect",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        pdf_id: id
+                    },
+                    success: function (res) {
+                        if (res.res) {
+                            this.getDelete(zindex);
+                            console.log("删除");
+                            console.log(this.collections);
+                        }
+                    }.bind(this)
+                })
+            }
+        }
     });
     collectVue.getCollect();
-    $(document).on('click',".search_hide",function(){
+    $(document).on('click', ".search_hide", function () {
         console.log(1234);
         collectVue.searchCollect();
     })
-    </script>
-	</body>
+</script>
+</body>
 </html>

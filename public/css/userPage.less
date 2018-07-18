@@ -1,33 +1,282 @@
 @charset "utf-8";
-//@import "../../myless/main";
+@import "../../myless/main";
 
-.user-top{
+.user-top {
 
-  border: 1px solid red;
+
+  .user-menu {
+    color: rgb(0, 118, 163);
+    font-size: 1.5em;
+    text-align:left;
+    line-height: 5rem;
+    font-weight: 600;
+    padding-left: 5rem;
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      text-align: left;
+      line-height: 45px;
+      font-weight: 600;
+      padding-left: 0;
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      color: rgb(0, 118, 163);
+      font-size: 1.5em;
+      text-align: right;
+      line-height: 45px;
+      font-weight: 600;
+      padding-left: 0;
+
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      color: rgb(0, 118, 163);
+      font-size: 1.5em;
+      text-align: right;
+      line-height: 45px;
+      font-weight: 600;
+      padding-left: 0;
+
+
+    }
+  }
+
+}
+
+//我的收藏
+
+.result-box {
+
+  width: 100%;
+  margin: 0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    background-color: #e3e3e3;
+    margin: 1rem 2rem 0 2rem;
+    padding: 0 1rem 0 5rem;
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    background-color: #e3e3e3;
+    margin: 1rem 2rem 0 2rem;
+    padding: 0 5rem 0 5rem;
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    background-color: #e3e3e3;
+
+    margin: 1rem 2rem 0 2rem;
+    padding: 0 5rem 0 5rem;
+  }
+
+}
+
+.result-list-wrap {
+  //border: 1px solid blue;
+  //padding: 0 2rem 0 ;
+
+  .pdf-part {
+    width: 90%;
+    //border:10px solid green;
+    position: relative;
+    float: left;
+
+  }
+
+  .result-list {
+
+    .label-box {
+
+    }
+  }
+}
+
+#cancelBtn {
   position: relative;
-  //float: left;
+  float: right;
+  //border: 1px solid blue;
+  height: 3rem;
+  margin-top: 2rem;
+  //width: 10%;
+  a {
+    width: 100%;
+    //height: 100%;
+    line-height: 2rem;
+    text-align: center;
+    color: #3b6caa;
 
-  .user-menu{
-    border:1px solid blue;
-    color:rgb(0, 118, 163);
-    font-size:1.5em;
-    text-align:right;
-    line-height:45px;
-    font-weight:600;
+    &:hover{
+      color: #3b6caa;
+      cursor:pointer
+
+    }
   }
 }
 
 
-//我的收藏
 
-.result-list-wrap{
-  //border: 1px solid blue;
-  //padding: 0 2rem 0 ;
+.container{
 
-  .result-list {
-    border:1px solid yellowgreen;
+  .visible-xs-block {
+
+
+    .result-box {
+      //background-color: yellow;
+      width: 100%;
+      margin: 0;
+
+
+      #cancelBtn{
+        text-align: right;
+        padding-right: 4rem;
+        margin-bottom: 3rem;
+
+      }
+      a {
+        width: 100%;
+        //height: 100%;
+        line-height: 2rem;
+        text-align: center;
+        color: #3b6caa;
+
+        &:hover{
+          color: #3b6caa;
+          cursor:pointer
+
+        }
+      }
+    }
+
   }
- }
-.myoperate-right{
-  border:1px solid black;
+
+
+}
+
+.bottom-row {
+  height: 10rem;
+  //background-color: red;
+}
+
+//我的操作
+
+.operat {
+
+  margin: 0 2rem 0 2rem;
+
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    margin: 0 2rem 0 2rem;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    margin: 0 2rem 0 2rem;
+
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    margin: 0 2rem 0 2rem;
+
+
+  }
+  .myoperate-right {
+    //border: 1px solid black;
+
+    padding-top: 1rem;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      padding-top: 1rem;
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      padding-top: 1rem;
+
+
+    }
+
+
+    .date-row {
+      padding-left: 1rem;
+      position: relative;
+      float: right;
+
+    }
+
+  }
+
+
+
+}
+
+.border-bot{
+  //background-color: red;
+  margin: 0 2rem 0 2rem;
+
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    margin: 0 2rem 0 2rem;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    margin: 0 2rem 0 2rem;
+
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    margin: 0 2rem 0 2rem;
+
+
+  }
+}
+
+
+//我的试用品
+.bs-example{
+  margin: 0 2rem 0 2rem;
+
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    margin: 0 2rem 0 2rem;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    margin: 0 2rem 0 2rem;
+
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    margin: 0 2rem 0 2rem;
+
+
+  }
 }
