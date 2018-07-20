@@ -12,6 +12,9 @@ ul,li{padding:0;margin:0;list-style:none;}
 [v-cloak] {
     display: none !important;
 }
+
+/*input:-ms-input-placeholder{text-align: center;}*/
+/*input::-webkit-input-placeholder{text-align: center;}*/
 /* 谷歌 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

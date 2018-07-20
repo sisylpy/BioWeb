@@ -61,7 +61,7 @@
       <div class="col-sm-12 col-xs-12 pdf-title-ip">
         <a class="result-list media result-list-img">
           <picture class="col-sm-1 col-xs-2">
-            <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+detail.thumb_img"/>
+            <img class="media-object" v-bind:src="'http://47.104.10.19:3005'+detail.thumb_img"/>
           </picture>
           <div class="col-sm-11 col-xs-10 item-detail">
             <div class="item-name">{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</div>
@@ -133,7 +133,7 @@
               <div class="col-sm-12 col-xs-12 paddB15">
                 <a class="result-list media result-list-img">
                   <picture class="col-sm-1 col-xs-2">
-                    <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+detail.thumb_img"/>
+                    <img class="media-object" v-bind:src="'http://47.104.10.19:3005'+detail.thumb_img"/>
                   </picture>
                   <div class="col-sm-11 col-xs-10 item-detail">
                     <div class="item-name">{{detail.manuName}}.{{detail.manuSubName}} {{detail.pdf_name}}</div>
@@ -162,7 +162,7 @@
               <div>
                 <div class="ctrlDiv">
                   <div class="eleContainer elePaddingBtm" style="height:1190px;">
-                    <iframe v-bind:src='"http://120.27.19.17:3005/pdfjs/web/viewer.html?file=http://120.27.19.17:3005/"+pdfSrcj.en+"&pdf_id="+"<%= pdf_id %>"'
+                    <iframe v-bind:src='"http://47.104.10.19:3005/pdfjs/web/viewer.html?file=http://47.104.10.19:3005/"+pdfSrcj.en+"&pdf_id="+"<%= pdf_id %>"'
                             width="100%" height="100%"></iframe>
                   </div>
                 </div>
@@ -181,7 +181,7 @@
               <div>
                 <div class="ctrlDiv">
                   <div class="eleContainer elePaddingBtm" style="height:1190px;">
-                    <iframe v-bind:src='"http://120.27.19.17:3005/pdfjs/web/viewer.html?file=http://120.27.19.17:3005/"+pdfSrcj.zh+"&pdf_id="+"<%= pdf_id %>"'
+                    <iframe v-bind:src='"http://47.104.10.19:3005/pdfjs/web/viewer.html?file=http://47.104.10.19:3005/"+pdfSrcj.zh+"&pdf_id="+"<%= pdf_id %>"'
                             id="displayPdfIframe-zh" width="100%" height="100%"></iframe>
                   </div>
                 </div>
@@ -260,9 +260,9 @@
               <div class="col-sm-12 col-xs-12 result-list-wrap " v-for="(rec,index) in Recs">
                 <a href="#" class="result-list">
                   <picture class="col-sm-1 col-xs-2 result-list-img">
-                    <source v-bind:srcset="'http://120.27.19.17:3005'+rec.thumb_img" media="(max-width:1199px)">
-                    <source v-bind:srcset="'http://120.27.19.17:3005'+rec.thumb_img" media="(min-width:1200px)">
-                    <img v-bind:src="'http://120.27.19.17:3005'+rec.thumb_img"/>
+                    <source v-bind:srcset="'http://47.104.10.19:3005'+rec.thumb_img" media="(max-width:1199px)">
+                    <source v-bind:srcset="'http://47.104.10.19:3005'+rec.thumb_img" media="(min-width:1200px)">
+                    <img v-bind:src="'http://47.104.10.19:3005'+rec.thumb_img"/>
                   </picture>
                   <div class="col-sm-11 col-xs-10 ">
                     <strong>{{rec.manuName}}.{{rec.manuSubName}} {{rec.pdf_name}}</strong>
@@ -610,7 +610,7 @@
       checkIsCollect: function () {
         $.ajax({
           type: "get",
-          url: "http://120.27.19.17:3005/api/checkIsCollect?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/checkIsCollect?pdf_id=" + this.pdf_id,
           dataType: 'json',
           success: function (res) {
             if (res.res) {
@@ -627,7 +627,7 @@
       getDetailhd: function () {
         $.ajax({
           type: "get",
-          url: "http://120.27.19.17:3005/api/getOnePdf?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getOnePdf?pdf_id=" + this.pdf_id,
           dataType: 'json',
           success: function (res) {
             if (res.res) {
@@ -639,7 +639,7 @@
       getPdfSrc: function () {
         $.ajax({
           type: "get",
-          url: "http://120.27.19.17:3005/api/getPdfNodeBook?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getPdfNodeBook?pdf_id=" + this.pdf_id,
           dataType: 'json',
           success: function (res) {
             if (res.res) {
@@ -657,7 +657,7 @@
       getmaterials: function () {
         $.ajax({
           type: "get",
-          url: "http://120.27.19.17:3005/api/getMaterials?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getMaterials?pdf_id=" + this.pdf_id,
           dataType: 'json',
           success: function (res) {
             if (res.res) {
@@ -669,7 +669,7 @@
       },
       getcollectPdf: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/collectPdf",
+          url: "http://47.104.10.19:3005/api/collectPdf",
           type: "post",
           dataType: "json",
           data: {
@@ -686,7 +686,7 @@
       },
       getcancelCollect: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/cancelCollect",
+          url: "http://47.104.10.19:3005/api/cancelCollect",
           type: "post",
           dataType: "json",
           data: {
@@ -701,7 +701,7 @@
       },
       getTrailProduct: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/getTrailProduct?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getTrailProduct?pdf_id=" + this.pdf_id,
           type: "get",
           dataType: "json",
           success: function (res) {
@@ -714,7 +714,7 @@
       },
       getProduct: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/getProduct?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getProduct?pdf_id=" + this.pdf_id,
           type: "get",
           dataType: "json",
           success: function (res) {
@@ -727,7 +727,7 @@
       },
       getRec: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/getRec?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getRec?pdf_id=" + this.pdf_id,
           type: "get",
           dataType: "json",
           success: function (res) {
@@ -740,7 +740,7 @@
       },
       getVideo: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/getVideo?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getVideo?pdf_id=" + this.pdf_id,
           type: "get",
           dataType: "json",
           success: function (res) {
@@ -753,7 +753,7 @@
       },
       getComment: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/getComment?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getComment?pdf_id=" + this.pdf_id,
           type: "get",
           dataType: "json",
           success: function (res) {
@@ -765,7 +765,7 @@
       },
       issueComment: function (messageText) {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/issueComment",
+          url: "http://47.104.10.19:3005/api/issueComment",
           type: "post",
           dataType: "json",
           data: {
@@ -785,7 +785,7 @@
       },
       getPdfOtherInfo: function () {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/getPdfOtherInfo?pdf_id=" + this.pdf_id,
+          url: "http://47.104.10.19:3005/api/getPdfOtherInfo?pdf_id=" + this.pdf_id,
           type: "get",
           dataType: "json",
           success: function (res) {
@@ -797,7 +797,7 @@
       },
       addPlayTimes: function (videoId) {
         $.ajax({
-          url: "http://120.27.19.17:3005/api/addPlayTimes",
+          url: "http://47.104.10.19:3005/api/addPlayTimes",
           type: "post",
           dataType: "json",
           data: {
@@ -873,7 +873,7 @@
       user_email: $("input[name='user_email']").val(),
     };
     $.ajax({
-      url: "http://120.27.19.17:3005/api/applyTrailProduct",
+      url: "http://47.104.10.19:3005/api/applyTrailProduct",
       type: "post",
       dataType: "json",
       data: data,

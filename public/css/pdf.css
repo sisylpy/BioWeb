@@ -193,14 +193,6 @@ main {
   display: block;
   height: 100%;
   float: left;
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-}
-@media (min-width: 768px) {
-}
-@media (min-width: 992px) {
-}
-@media (min-width: 1200px) {
 }
 .result-list-img img {
   width: 5rem;
@@ -399,7 +391,7 @@ main {
     padding: 1px 15px !important;
     height: 5rem ;
     line-height: 5rem;
-    width: 11rem;
+    width: 12rem;
   }
 }
 @media (min-width: 768px) {

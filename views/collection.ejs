@@ -48,7 +48,7 @@
                         <picture class="col-sm-1 col-xs-1 result-list-img">
                             <!--<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)">-->
                             <!--<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)">-->
-                            <img v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
+                            <img v-bind:src="'http://47.104.10.19:3005'+collection.thumb_img"/>
                         </picture>
                         <div class="col-sm-11 col-xs-11 item-detail">
                             <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}}
@@ -87,7 +87,7 @@
                     <div class="col-sm-12 col-xs-12 pdf-title-ip">
                         <a class="result-list media result-list-img">
                             <picture class="col-sm-1 col-xs-2">
-                                <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
+                                <img class="media-object" v-bind:src="'http://47.104.10.19:3005'+collection.thumb_img"/>
                             </picture>
                             <div class="col-sm-11 col-xs-10 item-detail">
                                 <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}}
@@ -135,7 +135,7 @@
             getCollect: function () {
                 $.ajax({
                     type: "get",
-                    url: "http://120.27.19.17:3005/api/getCollect",
+                    url: "http://47.104.10.19:3005/api/getCollect",
                     dataType: 'json',
                     success: function (res) {
                         if (res.res) {
@@ -148,7 +148,7 @@
                 this.Tval = $("#search_text").val();
                 this.page = 2;
                 $.ajax({
-                    url: 'http://120.27.19.17:3005/api/getCollect?value=' + this.Tval,
+                    url: 'http://47.104.10.19:3005/api/getCollect?value=' + this.Tval,
                     type: 'get',
                     dataType: 'json',
                     success: function (res) {
@@ -163,7 +163,7 @@
             },
             getcancelCollect: function (zindex, id) {
                 $.ajax({
-                    url: "http://120.27.19.17:3005/api/cancelCollect",
+                    url: "http://47.104.10.19:3005/api/cancelCollect",
                     type: "post",
                     dataType: "json",
                     data: {
