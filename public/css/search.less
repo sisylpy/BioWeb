@@ -1,9 +1,19 @@
 @charset "utf-8";
 @import "../../myless/main";
 
+
+
+/* 大屏幕（手机，大于等于 320px） */
+@media (min-width: @screen-xs-min) {
+
+}
+
+
 main .article-col {
 
   height: 30rem;
+
+
 
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
@@ -43,11 +53,25 @@ main .article-col {
 //  }
 //}
 
+
+
 .con-wrap{
-  padding: 0 5rem;
+  //border: 1px solid red;
+  padding: 0 2rem;
+
+  /* 手机屏幕（平板，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    padding: 0 5rem;
+    //border: 1px solid green;
+
+
+  }
+
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
     padding: 0 5rem;
+    //border: 1px solid blue;
+
 
   }
   /* 中等屏幕（桌面显示器，大于等于 992px） */
@@ -57,6 +81,8 @@ main .article-col {
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
   @media (min-width: @screen-lg-min) {
     padding: 0 10rem;
+    //border: 1px solid green;
+
   }
 }
 
@@ -64,10 +90,19 @@ main .article-col {
 //1，搜索左侧"/生物实验"部分
 .word {
 
-  height: @searchHeight-mob;
-  line-height: @searchHeight-mob;
+  height: @searchHeight-mob-xs;
+  line-height: @searchHeight-mob-xs;
   color: #0076a3;
   //background-color: #00B7FF;
+  font-size: 0.9em;
+
+
+  /* 大屏幕（手机，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    height: @searchHeight-mob;
+    line-height: @searchHeight-mob;
+  }
+
 
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
@@ -88,14 +123,21 @@ main .article-col {
   }
 
   .word-content {
-    font-size: 2.4em;
-    font-weight: 500;
-    height: @searchHeight-mob;
-    //line-height: @searchHeight-mob;
+
     text-align: left;
-    //border: 1px solid purple;
     position: relative;
     float: left;
+    font-size: 2em;
+    font-weight: 500;
+    height: @searchHeight-mob-xs;
+
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      font-size: 2.4em;
+      font-weight: 500;
+      height: @searchHeight-mob;
+    }
+
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
@@ -157,7 +199,6 @@ main .article-col {
   width: 100%;
 
 
-  //border: 1px solid red;
 
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
@@ -185,11 +226,17 @@ main .article-col {
   }
 
   .search {
-    height: @searchHeight-mob;
+    height: @searchHeight-mob-xs;
     width: 100%;
 
     //border:1px solid black;
 
+
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      height: @searchHeight-mob;
+
+    }
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
@@ -212,7 +259,6 @@ main .article-col {
     }
 
     input {
-      height: @searchInputHeight-mob;
       position: relative;
       float: left;
       width: 100%;
@@ -221,8 +267,15 @@ main .article-col {
       padding-bottom: 0.5rem;
       margin-left: 1rem;
       font-size: 1.2em;
-      //border-radius: 5px;
 
+      height: @searchInputHeight-mob-xs;
+
+
+      /* 大屏幕（手机，大于等于 320px） */
+      @media (min-width: @screen-xs-min) {
+        height: @searchHeight-mob;
+
+      }
       /* 小屏幕（平板，大于等于 768px） */
       @media (min-width: @screen-sm-min) {
         height: @searchInputHeight-pc;
@@ -293,21 +346,28 @@ main .article-col {
 
 
     .search_button {
-
-      height: @searchInputHeight-mob;
-      line-height: @searchInputHeight-mob;
       text-align: center;
-      width: @searchInputHeight-mob;
       position: relative;
       float: right;
-      //border: 1px solid green;
-      bottom: @searchInputHeight-mob;
+
+      width: @searchInputHeight-mob-xs;
+      height: @searchInputHeight-mob-xs;
+      line-height: @searchInputHeight-mob-xs;
+      bottom: @searchInputHeight-mob-xs;
+
+      /* 大屏幕（手机，大于等于 320px） */
+      @media (min-width: @screen-xs-min) {
+        width: @searchInputHeight-mob;
+        height: @searchInputHeight-mob;
+        line-height: @searchInputHeight-mob;
+        bottom: @searchInputHeight-mob;
+
+      }
 
       /* 小屏幕（平板，大于等于 768px） */
       @media (min-width: @screen-sm-min) {
         height: @searchInputHeight-pc;
         line-height: @searchInputHeight-pc;
-        text-align: center;
         width: @searchInputHeight-pc;
         bottom: @searchHeight-pc - @searchInputHeight-pc;
       }
@@ -316,7 +376,6 @@ main .article-col {
       @media (min-width: @screen-md-min) {
         height: @searchInputHeight-pc-lg;
         line-height: @searchInputHeight-pc-lg;
-        text-align: center;
         width: @searchInputHeight-pc-lg;
         bottom: (@searchHeight-pc-lg - @searchInputHeight-pc-lg)/2;
 
@@ -348,13 +407,24 @@ main .article-col {
       span{
         //width: 100%;
         //height: 100%;
-        line-height: @searchInputHeight-mob;
-        height: @searchInputHeight-mob;
-        width: @searchInputHeight-mob;
+        line-height: @searchInputHeight-mob-xs;
+        height: @searchInputHeight-mob-xs;
+        width: @searchInputHeight-mob-xs;
         //background-color: yellow;
         padding: 0 0;
         margin: 0 0;
         font-size: 1.4em;
+
+
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          width: @searchInputHeight-mob;
+          height: @searchInputHeight-mob;
+          line-height: @searchInputHeight-mob;
+          bottom: @searchInputHeight-mob;
+
+        }
+
 
         /* 小屏幕（平板，大于等于 768px） */
         @media (min-width: @screen-sm-min) {

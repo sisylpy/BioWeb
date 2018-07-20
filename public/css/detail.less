@@ -3,6 +3,10 @@
 @import "../../myless/main";
 
 
+/* 大屏幕（手机，大于等于 320px） */
+@media (min-width: @screen-xs-min) {
+
+}
 //生物试验品/产品收藏
 .main-top .collect .my-mune{
   //border: 1px solid red;
@@ -16,8 +20,15 @@
 #detail_hd {
   .visible-xs-block{
     .result-box {
-      padding: 0 5rem 0 5rem;
-      //border:1px solid red;
+
+      //border: 1px solid red;
+      padding: 0 2rem 0 2rem;
+      /* 大屏幕（手机，大于等于 320px） */
+      @media (min-width: @screen-xs-min) {
+        padding: 0 5rem 0 5rem;
+        border: 1px solid blue;
+
+      }
 
 
       .pdf-title-ip{
@@ -25,10 +36,20 @@
 
     }
       .return-btn-ip{
-        height: 10rem;
-        line-height: 10rem; /* IE7支持 */
-        //margin: 3rem 6rem 3rem 6rem; // 手机特殊设置
-        padding: 3rem 5rem 3rem 5rem;
+        height: 5rem;
+        line-height: 5rem; /* IE7支持 */
+        padding: 3rem 2rem 3rem 2rem;
+
+
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          height: 10rem;
+          line-height: 10rem; /* IE7支持 */
+          padding: 3rem 5rem 3rem 5rem;
+
+        }
+
+
 
         //返回按钮点击
         a{
@@ -36,8 +57,15 @@
           text-align: center;
           display: block;
           background:#F18516;
-          line-height: 10rem;
-          height: 10rem;
+          line-height: 5rem;
+          height: 5rem;
+
+          /* 大屏幕（手机，大于等于 320px） */
+          @media (min-width: @screen-xs-min) {
+            line-height: 10rem;
+            height: 10rem;
+          }
+
 
           &:active{
             background: #3b6caa;
@@ -47,10 +75,26 @@
 
     .share-love{
       color: #3b6caa;
-      padding: 0 5rem 0 5rem;
+      padding: 0 2rem 0 2rem;
+      font-size: 1.1em;
+      /* 大屏幕（手机，大于等于 320px） */
+      @media (min-width: @screen-xs-min) {
+        padding: 0 5rem 0 5rem;
+
+      }
+
+
       //width: 2rem;
       .glyphicon-heart{
-        padding-left: 10rem;
+        padding-left: 5rem;
+
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          padding-left: 10rem;
+
+        }
+
+
       }
     }
   }
@@ -59,11 +103,20 @@
 
 
   .pdf-control {
-    padding:5rem 0 0 0;
+    padding:2rem 0 0 0;
     //border:1px solid blue;
     //margin: 10rem 0 0 0;
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      padding:3rem 0 0 0;
 
+    }
 
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      padding:5rem 0 0 0;
+
+    }
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
 
@@ -95,6 +148,8 @@
       //height: 10rem;
       //line-height: 10rem; /* IE7支持 */
       //margin: 5rem 10rem 4rem 10rem; // 手机特殊设置
+
+
 
       /* 小屏幕（平板，大于等于 768px） */
       @media (min-width: @screen-sm-min) {
@@ -194,12 +249,24 @@
       .control-list-item{
         cursor:pointer;
         border-bottom: 1px solid gainsboro;
-        height: 12rem;
-        line-height: 12rem;
+        height: 8rem;
+        line-height: 8rem;
         font-size: 1em;
-        margin: 0 5rem 0 5rem; // 手机特殊设置
-        padding: 0 2rem 0 2rem;
+        margin: 0 2rem 0 2rem; // 手机特殊设置
+        padding: 0 1rem 0 1rem;
         //background-color: red;
+
+
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          height: 12rem;
+          line-height: 12rem;
+          font-size: 1em;
+          margin: 0 5rem 0 5rem; // 手机特殊设置
+          padding: 0 2rem 0 2rem;
+        }
+
+
 
         /* 小屏幕（平板，大于等于 768px） */
         @media (min-width: @screen-sm-min) {
@@ -239,13 +306,25 @@
           margin-right: 10px !important;
           min-width: 0px !important;
           font-size: 0.7em !important;
-          height: 5rem;
-          margin-top:3.5rem;
-          width: 8rem;
-          line-height: 5rem;
+          height: 3rem;
+          margin-top:2.5rem;
+          width: 4rem;
+          line-height: 3rem;
 
 
 
+          /* 大屏幕（手机，大于等于 320px） */
+          @media (min-width: @screen-xs-min) {
+            padding: 3px 7px !important;
+            border-radius: 9px !important;
+            margin-right: 10px !important;
+            min-width: 0px !important;
+            font-size: 0.7em !important;
+            height: 5rem;
+            margin-top:3.5rem;
+            width: 8rem;
+            line-height: 5rem;
+          }
 
           /* 小屏幕（平板，大于等于 768px） */
           @media (min-width: @screen-sm-min) {
@@ -299,14 +378,6 @@
 
 
 
-  //.detail{
-  //
-  //.move2left{
-  //  left:-500px;
-  //
-  //}
-  //}
-
 
 
   // right 内容
@@ -316,7 +387,15 @@
     display: none;
     left:1000px;
 
-    margin: -90rem 5rem 0 5rem;
+    margin: -60rem 1rem 0 1rem;
+
+
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      margin: -90rem 5rem 0 5rem;
+
+    }
+
 
     //border: 1px solid red;
     /* 小屏幕（平板，大于等于 768px） */
@@ -343,12 +422,43 @@
     }
 
     .tab_con {
+
+
+
+
       .detai-tit-box{
+
+        padding: 0;
+        margin: 0;
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+
+
+        }
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+        }
 
 
         .detai-tit2 {
 
-          font-size: 5rem;
+          font-size: 3rem;
+          //color: red;
+
+
+          /* 大屏幕（手机，大于等于 320px） */
+          @media (min-width: @screen-xs-min) {
+            font-size: 5rem;
+
+          }
           /* 小屏幕（平板，大于等于 768px） */
           @media (min-width: @screen-sm-min) {
             font-size: 2rem;
@@ -367,12 +477,24 @@
         .iph-back {
 
           //height: 5rem;
-          line-height: 3rem;
-          width: 10rem;
+          line-height: 1rem;
+          width: 5rem;
           text-align: center;
           font-size: 1em;
           margin-top: 1rem;
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
+
+
+          /* 大屏幕（手机，大于等于 320px） */
+          @media (min-width: @screen-xs-min) {
+            line-height: 3rem;
+            width: 10rem;
+            text-align: center;
+            font-size: 1em;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+          }
+
 
         }
       }
@@ -389,10 +511,6 @@
 
       //border:1px solid black;
     }
-
-
-
-
 
   }
 

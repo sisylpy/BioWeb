@@ -145,6 +145,7 @@ main {
   margin: 0;
   padding: 0;
 }
+/* 大屏幕（手机，大于等于 320px） */
 main .article-col {
   height: 30rem;
   /* 小屏幕（平板，大于等于 768px） */
@@ -171,10 +172,16 @@ main .article-col .Splash-content {
   border-top: 1px solid gray;
 }
 .con-wrap {
-  padding: 0 5rem;
+  padding: 0 2rem;
+  /* 手机屏幕（平板，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .con-wrap {
+    padding: 0 5rem;
+  }
 }
 @media (min-width: 768px) {
   .con-wrap {
@@ -192,12 +199,20 @@ main .article-col .Splash-content {
   }
 }
 .word {
-  height: 12rem;
-  line-height: 12rem;
+  height: 6rem;
+  line-height: 6rem;
   color: #0076a3;
+  font-size: 0.9em;
+  /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .word {
+    height: 12rem;
+    line-height: 12rem;
+  }
 }
 @media (min-width: 768px) {
   .word {
@@ -218,15 +233,23 @@ main .article-col .Splash-content {
   }
 }
 .word .word-content {
-  font-size: 2.4em;
-  font-weight: 500;
-  height: 12rem;
   text-align: left;
   position: relative;
   float: left;
+  font-size: 2em;
+  font-weight: 500;
+  height: 6rem;
+  /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .word .word-content {
+    font-size: 2.4em;
+    font-weight: 500;
+    height: 12rem;
+  }
 }
 @media (min-width: 768px) {
   .word .word-content {
@@ -293,11 +316,17 @@ main .article-col .Splash-content {
   }
 }
 .searchPart .search {
-  height: 12rem;
+  height: 6rem;
   width: 100%;
+  /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .searchPart .search {
+    height: 12rem;
+  }
 }
 @media (min-width: 768px) {
   .searchPart .search {
@@ -318,7 +347,6 @@ main .article-col .Splash-content {
   }
 }
 .searchPart .search input {
-  height: 10rem;
   position: relative;
   float: left;
   width: 100%;
@@ -327,9 +355,16 @@ main .article-col .Splash-content {
   padding-bottom: 0.5rem;
   margin-left: 1rem;
   font-size: 1.2em;
+  height: 4rem;
+  /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .searchPart .search input {
+    height: 12rem;
+  }
 }
 @media (min-width: 768px) {
   .searchPart .search input {
@@ -393,22 +428,30 @@ main .article-col .Splash-content {
   }
 }
 .searchPart .search .search_button {
-  height: 10rem;
-  line-height: 10rem;
   text-align: center;
-  width: 10rem;
   position: relative;
   float: right;
-  bottom: 10rem;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  bottom: 4rem;
+  /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .searchPart .search .search_button {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    bottom: 10rem;
+  }
 }
 @media (min-width: 768px) {
   .searchPart .search .search_button {
     height: 5rem;
     line-height: 5rem;
-    text-align: center;
     width: 5rem;
     bottom: 3rem;
   }
@@ -417,7 +460,6 @@ main .article-col .Splash-content {
   .searchPart .search .search_button {
     height: 3rem;
     line-height: 3rem;
-    text-align: center;
     width: 3rem;
     bottom: 1.5rem;
   }
@@ -438,15 +480,24 @@ main .article-col .Splash-content {
   color: #e3e3e3;
 }
 .searchPart .search .search_button span {
-  line-height: 10rem;
-  height: 10rem;
-  width: 10rem;
+  line-height: 4rem;
+  height: 4rem;
+  width: 4rem;
   padding: 0 0;
   margin: 0 0;
   font-size: 1.4em;
+  /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  .searchPart .search .search_button span {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    bottom: 10rem;
+  }
 }
 @media (min-width: 768px) {
   .searchPart .search .search_button span {

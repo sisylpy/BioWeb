@@ -91,7 +91,7 @@ a:hover {
 .hf-text{margin:0 20px;}
 .hf-text textarea{padding:10px;line-height:24px;resize:none;border-radius:5px;}
 .want-com{font-size:16px;line-height:30px;text-align:right;color:#0099ff;cursor:pointer;}
-.iph-block{background:#fff;}
+/*.iph-block{background:#fff;}*/
 .share-love span{cursor:pointer;}
 .share-love span.changRed{color:red;}
 .anima-left{animation:moveleft 1s alternate forwards ;-webkit-animation:moveleft 1s alternate forwards;-moz-animation:moveleft 1s alternate forwards;-o-animation:moveleft 1s alternate forwards;}
@@ -140,7 +140,7 @@ a:hover {
 .my-nav .col-xs-3{font-size:1em;}
 .pc-img-box{display:none;}
 .iph-img-box{display:block;}
-.con-wrap{width:96%;margin:20px auto;position:relative; }
+.con-wrap{margin:20px auto;position:relative; }
 .con-wrap div.my-main{padding-top:20px;}
 /*.my-main .swsyp-txt{text-align:left;padding-bottom:1rem;font-size:3rem;}*/
 .result-list-img img{width:50px;height:50px;margin:20px auto 20px 0;}

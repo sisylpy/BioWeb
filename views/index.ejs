@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
     <title>生物试验品</title>
@@ -10,6 +12,23 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/css/pdf.css">
     <link rel="stylesheet" type="text/css" href="/css/search.css">
+
+    <link rel="apple-touch-icon" href="/custom_icon.png"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/addtohomescreen.css">
+
+    <link rel="shortcut icon" sizes="16x16" href="/img/icon.png">
+    <link rel="shortcut icon" sizes="196x196" href="/img/icon-196x196.png">
+    <script src="js/addtohomescreen.js"></script>
+
+    <script>
+        addToHomescreen(function () {
+            startDelay: 5 //开始的间隔
+            alert('abc');
+            maxDisplayCount: 10 //最多出现次数
+
+        });
+    </script>
 
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -26,6 +45,9 @@
         input::-ms-input-placeholder{text-align: center;}
         input::-webkit-input-placeholder{text-align: center;}
         } </style>
+
+
+
 </head>
 <body>
 
@@ -43,7 +65,7 @@
 </div>
 <!--end-->
 <!--主题部分-->
-<div class="con-wrap">
+<div class="con-wrap pdf-con-wrap">
     <div class="container my-main">
         <div class="index-mune word">
             <div class=" word-content "><span>/生物试验品</span></div>
@@ -114,9 +136,18 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/jquery.highlight.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script type="text/javascript">
+    addToHomescreen();
+</script>
+
 <script type="text/javascript">
     $(function () {
+
+
+
         var pdfVue = new Vue({
             el: '#search_list',
             data: {
@@ -248,8 +279,9 @@
         //     $('.item:even').css('background','#fff');
         //     $('.item:odd').css('background','none');
         // });
-
     });
+
+
 
 </script>
 </body>

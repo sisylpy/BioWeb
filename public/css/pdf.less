@@ -2,8 +2,12 @@
 @import "../../myless/main";
 
 
+/* 大屏幕（手机，大于等于 320px） */
+@media (min-width: @screen-xs-min) {
 
-.con-wrap{
+}
+
+.pdf-con-wrap{
   background-color: #eeeeee;
   padding: 0;
   margin: 0;
@@ -13,8 +17,14 @@
 .result-box {
   position: relative;
   float: left;
-  padding-top: 5rem;
-//background-color: yellow;
+  padding-top: 1rem;
+
+
+  /* 大屏幕（手机，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    padding-top: 5rem;
+
+  }
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
     padding-top: 0;
@@ -73,10 +83,15 @@
 
 .result-list-img {
   img{
-    width: 8rem;
-    height: 10rem;
+    width: 5rem;
+    height: 8rem;
     //border: 1px solid green;
 
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      width: 8rem;
+      height: 10rem;
+    }
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
 
@@ -111,9 +126,16 @@
 
 .item-detail {
   //border: 1px solid pink;
-  padding-left: 1rem;
+  padding-left: 2rem;
   position: relative;
   float: left;
+
+
+  /* 大屏幕（手机，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    padding-left: 1rem;
+
+  }
 
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
@@ -139,10 +161,16 @@
     //border: 1px solid rebeccapurple;
 
     font-size: 1.1em;
-    line-height: 4rem;
-    padding-top: 2rem;
+    line-height: 3rem;
+    padding-top: 1rem;
 
 
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      font-size: 1.1em;
+      line-height: 4rem;
+      padding-top: 2rem;
+    }
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
       font-size: 1.1em;
@@ -172,10 +200,17 @@
 
     position: relative;
     float: left;
-    line-height: 2em;
-    padding-top: 1rem;
+    line-height: 1.5em;
+    padding-top: 0.5rem;
     width: 100%;
+    text-align: left;
     //border: 1px solid indigo;
+
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      line-height: 2em;
+      padding-top: 1rem;
+    }
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
@@ -211,11 +246,18 @@
     position: relative;
     //border: 1px solid blue;
     width: 100%;
-    height: 5rem;
     float: right;
-    margin-bottom: 2rem;
 
-    /* 小屏幕（平板，大于等于 768px） */
+    height: 3rem;
+    margin-bottom: 1rem;
+
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      height: 5rem;
+      margin-bottom: 2rem;
+    }
+
+      /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
       height:3rem ;
       margin-bottom: 0;
@@ -241,7 +283,7 @@
 
 
       .tag{
-        padding: 1px 15px !important;
+        padding: 1px 10px !important;
         border-radius: 5px;
         margin-right: 5px !important;
         min-width: 0px !important;
@@ -250,17 +292,29 @@
         color: #eeeeee;
         position: relative;
         float: right;
-        height:5rem ;
-        line-height: 5rem;
         top:0.5rem;
-        width: 11rem;
         padding-top: 2rem;
         display: block;
+        height:2rem ;
+        line-height: 2rem;
+        width: 5rem;
 
+
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          padding: 1px 15px !important;
+
+          height:5rem ;
+          line-height: 5rem;
+          width: 11rem;
+
+        }
 
 
         /* 小屏幕（平板，大于等于 768px） */
         @media (min-width: @screen-sm-min) {
+          padding: 1px 15px !important;
+
           height:2.5rem ;
           line-height: 2.5rem;
           width: 7rem;
@@ -270,6 +324,8 @@
 
         /* 中等屏幕（桌面显示器，大于等于 992px） */
         @media (min-width: @screen-md-min) {
+          padding: 1px 15px !important;
+
           height:2rem ;
           line-height:2rem;
           width: 5rem;

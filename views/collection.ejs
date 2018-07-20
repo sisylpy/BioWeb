@@ -76,7 +76,7 @@
 
                 </div>
                 <div class="col-sm-1 col-xs-12" id="cancelBtn">
-                    <a  v-bind:data-pdf_id="collection.id" type="button" value="取消收藏"
+                    <a v-bind:data-pdf_id="collection.id" type="button" value="取消收藏"
                        @click=getcancelCollect(index,collection.id)>取消收藏</a>
                 </div>
             </div>
@@ -90,7 +90,9 @@
                                 <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
                             </picture>
                             <div class="col-sm-11 col-xs-10 item-detail">
-                                <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}} {{collection.pdf_name}}</div>
+                                <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}}
+                                    {{collection.pdf_name}}
+                                </div>
                                 <div class="cata-numb">
                                     <span class="cata">货物编号：</span>
                                     <span class="item-No">{{collection.item_name}}</span>
@@ -99,7 +101,7 @@
                         </a>
                     </div>
                     <div class="col-sm-1 col-xs-12" id="cancelBtn">
-                        <a  v-bind:data-pdf_id="collection.id" type="button" value="取消收藏"
+                        <a v-bind:data-pdf_id="collection.id" type="button" value="取消收藏"
                            @click=getcancelCollect(index,collection.id)>取消收藏</a>
                     </div>
 
@@ -108,7 +110,6 @@
             </div>
             <!-- end -->
         </div>
-
 
 
     </div>

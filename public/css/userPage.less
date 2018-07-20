@@ -1,6 +1,16 @@
 @charset "utf-8";
 @import "../../myless/main";
 
+
+/* 大屏幕（手机，大于等于 320px） */
+@media (min-width: @screen-xs-min) {
+
+}
+
+
+.con-wrap {
+  background-color: #fff;
+}
 .user-top {
 
 
@@ -8,9 +18,19 @@
     color: rgb(0, 118, 163);
     font-size: 1.5em;
     text-align:left;
-    line-height: 5rem;
+    line-height: 2rem;
     font-weight: 600;
-    padding-left: 5rem;
+    padding-left: 1rem;
+
+
+    /* 大屏幕（手机，大于等于 320px） */
+    @media (min-width: @screen-xs-min) {
+      font-size: 1.5em;
+      text-align:left;
+      line-height: 5rem;
+      font-weight: 600;
+      padding-left: 5rem;
+    }
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
       text-align: left;
@@ -49,40 +69,53 @@
 
 //我的收藏
 
-.result-box {
+#collection .container .result-box {
 
   width: 100%;
-  margin: 0 1rem 0 1rem;
+  background-color: #e3e3e3;
+  //border-bottom: 1px solid red;
+  //margin: 0 0 2rem 0;
   padding: 0 1rem 0 1rem;
 
+  margin-bottom: 2rem;
+
+
+  /* 大屏幕（手机，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    margin: 0 5rem 0 1rem;
+    padding: 0 2rem 0 1rem;
+    width: 100%;
+
+  }
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
-    background-color: #e3e3e3;
     margin: 1rem 2rem 0 2rem;
     padding: 0 1rem 0 5rem;
+    width: 95%;
+
   }
 
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   @media (min-width: @screen-md-min) {
-    background-color: #e3e3e3;
     margin: 1rem 2rem 0 2rem;
     padding: 0 5rem 0 5rem;
+    width: 95%;
+
 
   }
 
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
   @media (min-width: @screen-lg-min) {
-    background-color: #e3e3e3;
-
     margin: 1rem 2rem 0 2rem;
     padding: 0 5rem 0 5rem;
   }
-
 }
 
 .result-list-wrap {
   //border: 1px solid blue;
   //padding: 0 2rem 0 ;
+  //margin-right: 2rem;
+
 
   .pdf-part {
     width: 90%;
@@ -94,11 +127,24 @@
 
   .result-list {
 
+
+
     .label-box {
 
     }
   }
 }
+
+
+.iph-block{
+  .item-detail{
+    .item-name {
+      text-align: left;
+      //color: red;
+    }
+  }
+}
+
 
 #cancelBtn {
   position: relative;
@@ -173,6 +219,11 @@
   margin: 0 2rem 0 2rem;
 
 
+  /* 大屏幕（手机，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    margin: 0 2rem 0 2rem;
+
+  }
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
     margin: 0 2rem 0 2rem;
