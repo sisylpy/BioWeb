@@ -151,11 +151,6 @@ main {
   padding-left: 2rem;
   color: #3b6caa;
 }
-#detail_hd {
-  /* 小屏幕（平板，大于等于 768px） */
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-}
 #detail_hd .visible-xs-block .result-box {
   padding: 0 2rem 0 2rem;
   /* 大屏幕（手机，大于等于 320px） */
@@ -163,60 +158,75 @@ main {
 @media (min-width: 320px) {
   #detail_hd .visible-xs-block .result-box {
     padding: 0 5rem 0 5rem;
-    border: 1px solid blue;
   }
 }
-#detail_hd .visible-xs-block .result-box .return-btn-ip {
-  height: 5rem;
-  line-height: 5rem;
-  /* IE7支持 */
-  padding: 3rem 2rem 3rem 2rem;
+#detail_hd .visible-xs-block .result-box .pdf-title-ip {
+  margin: 1rem 0 1rem 0;
   /* 大屏幕（手机，大于等于 320px） */
 }
 @media (min-width: 320px) {
-  #detail_hd .visible-xs-block .result-box .return-btn-ip {
-    height: 10rem;
-    line-height: 10rem;
-    /* IE7支持 */
-    padding: 3rem 5rem 3rem 5rem;
+  #detail_hd .visible-xs-block .result-box .pdf-title-ip {
+    margin: 3rem 0 2rem 0;
   }
 }
-#detail_hd .visible-xs-block .result-box .return-btn-ip a {
-  color: #fff;
-  text-align: center;
-  display: block;
-  background: #F18516;
-  line-height: 5rem;
-  height: 5rem;
-  /* 大屏幕（手机，大于等于 320px） */
-}
-@media (min-width: 320px) {
-  #detail_hd .visible-xs-block .result-box .return-btn-ip a {
-    line-height: 10rem;
-    height: 10rem;
-  }
-}
-#detail_hd .visible-xs-block .result-box .return-btn-ip a:active {
-  background: #3b6caa;
-}
-#detail_hd .visible-xs-block .result-box .share-love {
+#detail_hd .visible-xs-block .result-box .pdf-title-ip .share-love {
   color: #3b6caa;
   padding: 0 2rem 0 2rem;
   font-size: 1.1em;
+  height: 6rem;
+  line-height: 6rem;
   /* 大屏幕（手机，大于等于 320px） */
 }
 @media (min-width: 320px) {
-  #detail_hd .visible-xs-block .result-box .share-love {
+  #detail_hd .visible-xs-block .result-box .pdf-title-ip .share-love {
     padding: 0 5rem 0 5rem;
+    height: 12rem;
+    line-height: 12rem;
   }
 }
-#detail_hd .visible-xs-block .result-box .share-love .glyphicon-heart {
-  padding-left: 5rem;
+#detail_hd .visible-xs-block .result-box .pdf-title-ip .share-love .glyphicon-heart {
+  height: 6rem;
+  line-height: 6rem;
+  font-size: 1.6em;
   /* 大屏幕（手机，大于等于 320px） */
 }
 @media (min-width: 320px) {
-  #detail_hd .visible-xs-block .result-box .share-love .glyphicon-heart {
-    padding-left: 10rem;
+  #detail_hd .visible-xs-block .result-box .pdf-title-ip .share-love .glyphicon-heart {
+    height: 12rem;
+    line-height: 12rem;
+    font-size: 1.8em;
+  }
+}
+#detail_hd .visible-xs-block .result-box .pdf-title-ip .share-love .back-search {
+  color: #3b6caa;
+  height: 6rem;
+  line-height: 6rem;
+  font-size: 1em;
+  /* 大屏幕（手机，大于等于 320px） */
+}
+@media (min-width: 320px) {
+  #detail_hd .visible-xs-block .result-box .pdf-title-ip .share-love .back-search {
+    height: 12rem;
+    line-height: 12rem;
+    font-size: 1.3em;
+  }
+}
+#detail_hd .visible-xs-block .result-box .copy-ip {
+  height: 5rem;
+  line-height: 5rem;
+  /* IE7支持 */
+  margin: 3rem 0 2rem 0;
+  color: #fff;
+  text-align: center;
+  background: #F18516;
+  /* 大屏幕（手机，大于等于 320px） */
+}
+@media (min-width: 320px) {
+  #detail_hd .visible-xs-block .result-box .copy-ip {
+    height: 10rem;
+    line-height: 10rem;
+    /* IE7支持 */
+    font-size: 1.2em;
   }
 }
 #detail_hd .pdf-control {
@@ -239,71 +249,48 @@ main {
 }
 @media (min-width: 768px) {
   #detail_hd .pdf-control {
-    padding: 0 2rem 0  2rem;
+    padding: 0 2rem 0 2rem;
   }
 }
 @media (min-width: 992px) {
   #detail_hd .pdf-control {
-    padding: 0 2rem 0  2rem;
+    padding: 0 2rem 0 2rem;
   }
 }
 @media (min-width: 1200px) {
   #detail_hd .pdf-control {
-    padding: 0 2rem 0  2rem;
+    padding: 0 2rem 0 2rem;
   }
 }
-#detail_hd .control-left .return-btn {
-  /* 小屏幕（平板，大于等于 768px） */
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-}
-@media (min-width: 768px) {
-  #detail_hd .control-left .return-btn {
-    height: 3rem;
-    margin: 0 0 1rem 0;
-  }
-}
-@media (min-width: 992px) {
-  #detail_hd .control-left .return-btn {
-    height: 3rem;
-    margin: 0 0 1rem 0;
-  }
-}
-@media (min-width: 1200px) {
-  #detail_hd .control-left .return-btn {
-    height: 3rem;
-    margin: 0 0 1rem 0;
-  }
-}
-#detail_hd .control-left .return-btn a {
+#detail_hd .control-left .copy-ip {
   color: #fff;
   text-align: center;
-  display: block;
   background: #F18516;
+  font-size: 1.1em;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
-  #detail_hd .control-left .return-btn a {
-    line-height: 3rem;
+  #detail_hd .control-left .copy-ip {
     height: 3rem;
+    line-height: 3rem;
+    margin: 0 0 1rem 0;
   }
 }
 @media (min-width: 992px) {
-  #detail_hd .control-left .return-btn a {
-    line-height: 3rem;
+  #detail_hd .control-left .copy-ip {
     height: 3rem;
+    line-height: 3rem;
+    margin: 0 0 1rem 0;
   }
 }
 @media (min-width: 1200px) {
-  #detail_hd .control-left .return-btn a {
-    line-height: 3rem;
+  #detail_hd .control-left .copy-ip {
     height: 3rem;
+    line-height: 3rem;
+    margin: 0 0 1rem 0;
   }
-}
-#detail_hd .control-left .return-btn a:active {
-  background: #3b6caa;
 }
 #detail_hd .control-left .control-list {
   font-size: 1.5em;
@@ -498,10 +485,6 @@ main {
 #detail_hd .iph-tab .tab_con .detai-tit-box {
   padding: 0;
   margin: 0;
-  /* 大屏幕（手机，大于等于 320px） */
-  /* 小屏幕（平板，大于等于 768px） */
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 #detail_hd .iph-tab .tab_con .detai-tit-box .detai-tit2 {
   font-size: 3rem;
@@ -549,3 +532,46 @@ main {
     margin-bottom: 3rem;
   }
 }
+.hidden-xs .result-box {
+  width: 100%;
+}
+.hidden-xs .result-box .paddB15 .share-love {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .hidden-xs .result-box .paddB15 .share-love {
+    height: 3rem;
+    line-height: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .hidden-xs .result-box .paddB15 .share-love {
+    height: 3rem;
+    line-height: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden-xs .result-box .paddB15 .share-love {
+    height: 3rem;
+    line-height: 3rem;
+  }
+}
+.hidden-xs .result-box .paddB15 .share-love .glyphicon-heart {
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 2em;
+  color: #3b6caa;
+}
+.hidden-xs .result-box .paddB15 .share-love .back-search {
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1.3em;
+  color: #3b6caa;
+}
+/* 小屏幕（平板，大于等于 768px） */
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+/* 大屏幕（大桌面显示器，大于等于 1200px） */

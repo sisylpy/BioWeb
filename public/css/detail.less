@@ -1,24 +1,24 @@
-
 @charset "utf-8";
 @import "../../myless/main";
-
 
 /* 大屏幕（手机，大于等于 320px） */
 @media (min-width: @screen-xs-min) {
 
 }
+
 //生物试验品/产品收藏
-.main-top .collect .my-mune{
+.main-top .collect .my-mune {
   //border: 1px solid red;
   font-size: 1.4em;
   padding-left: 2rem;
   color: #3b6caa;
 }
 
-
-//手机端特殊设置
 #detail_hd {
-  .visible-xs-block{
+
+  //手机端特殊设置
+  .visible-xs-block {
+
     .result-box {
 
       //border: 1px solid red;
@@ -26,183 +26,164 @@
       /* 大屏幕（手机，大于等于 320px） */
       @media (min-width: @screen-xs-min) {
         padding: 0 5rem 0 5rem;
-        border: 1px solid blue;
+        //border: 1px solid blue;
 
       }
 
+      .pdf-title-ip {
 
-      .pdf-title-ip{
+        //border: 1px solid pink;
+        margin: 1rem 0 1rem 0;
 
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          margin: 3rem 0 2rem 0;
 
-    }
-      .return-btn-ip{
+        }
+
+        .share-love {
+          color: #3b6caa;
+          padding: 0 2rem 0 2rem;
+          font-size: 1.1em;
+          height: 6rem;
+          line-height: 6rem;
+          //background-color: beige;
+
+          /* 大屏幕（手机，大于等于 320px） */
+          @media (min-width: @screen-xs-min) {
+            padding: 0 5rem 0 5rem;
+            height: 12rem;
+            line-height: 12rem;
+            //background-color: yellow;
+
+          }
+
+          //width: 2rem;
+          .glyphicon-heart {
+            //padding-left: 5rem;
+            height: 6rem;
+            line-height: 6rem;
+            font-size: 1.6em;
+
+            /* 大屏幕（手机，大于等于 320px） */
+            @media (min-width: @screen-xs-min) {
+              //padding-left: 10rem;
+              height: 12rem;
+              line-height: 12rem;
+              font-size: 1.8em;
+
+            }
+
+          }
+
+          .back-search {
+            //padding-left: 5rem;
+
+            color: #3b6caa;
+            height: 6rem;
+            line-height: 6rem;
+            font-size: 1em;
+
+            /* 大屏幕（手机，大于等于 320px） */
+            @media (min-width: @screen-xs-min) {
+              //padding-left: 10rem;
+              height: 12rem;
+              line-height: 12rem;
+              font-size: 1.3em;
+
+            }
+
+          }
+        }
+
+      }
+      .copy-ip {
         height: 5rem;
         line-height: 5rem; /* IE7支持 */
-        padding: 3rem 2rem 3rem 2rem;
-
+        margin: 3rem 0 2rem 0;
+        color: #fff;
+        text-align: center;
+        background: #F18516;
 
         /* 大屏幕（手机，大于等于 320px） */
         @media (min-width: @screen-xs-min) {
           height: 10rem;
           line-height: 10rem; /* IE7支持 */
-          padding: 3rem 5rem 3rem 5rem;
+          //padding: 3rem 5rem 3rem 5rem;
+          font-size: 1.2em;
 
         }
-
-
-
-        //返回按钮点击
-        a{
-          color: #fff;
-          text-align: center;
-          display: block;
-          background:#F18516;
-          line-height: 5rem;
-          height: 5rem;
-
-          /* 大屏幕（手机，大于等于 320px） */
-          @media (min-width: @screen-xs-min) {
-            line-height: 10rem;
-            height: 10rem;
-          }
-
-
-          &:active{
-            background: #3b6caa;
-          }
-        }
-      }
-
-    .share-love{
-      color: #3b6caa;
-      padding: 0 2rem 0 2rem;
-      font-size: 1.1em;
-      /* 大屏幕（手机，大于等于 320px） */
-      @media (min-width: @screen-xs-min) {
-        padding: 0 5rem 0 5rem;
-
-      }
-
-
-      //width: 2rem;
-      .glyphicon-heart{
-        padding-left: 5rem;
-
-        /* 大屏幕（手机，大于等于 320px） */
-        @media (min-width: @screen-xs-min) {
-          padding-left: 10rem;
-
-        }
-
 
       }
     }
+
   }
 
-}
-
-
+  //pdf部分
   .pdf-control {
-    padding:2rem 0 0 0;
+    padding: 2rem 0 0 0;
     //border:1px solid blue;
     //margin: 10rem 0 0 0;
     /* 大屏幕（手机，大于等于 320px） */
     @media (min-width: @screen-xs-min) {
-      padding:3rem 0 0 0;
+      padding: 3rem 0 0 0;
 
     }
 
     /* 大屏幕（手机，大于等于 320px） */
     @media (min-width: @screen-xs-min) {
-      padding:5rem 0 0 0;
+      padding: 5rem 0 0 0;
 
     }
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
 
-      padding: 0 2rem 0  2rem;
+      padding: 0 2rem 0 2rem;
     }
 
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
-      padding: 0 2rem 0  2rem;
+      padding: 0 2rem 0 2rem;
     }
 
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
-      padding: 0 2rem 0  2rem;
+      padding: 0 2rem 0 2rem;
 
     }
 
-
-
-
   }
 
-
   //left 菜单
-  .control-left{
+  .control-left {
 
-    //返回按钮div-pc端！
-    .return-btn {
-      //height: 10rem;
-      //line-height: 10rem; /* IE7支持 */
-      //margin: 5rem 10rem 4rem 10rem; // 手机特殊设置
+    //复制链接-pc端！
+    .copy-ip {
 
-
+      color: #fff;
+      text-align: center;
+      background: #F18516;
+      font-size: 1.1em;
 
       /* 小屏幕（平板，大于等于 768px） */
       @media (min-width: @screen-sm-min) {
         height: 3rem;
+        line-height: 3rem;
         margin: 0 0 1rem 0; // pc特殊设置
       }
 
       /* 中等屏幕（桌面显示器，大于等于 992px） */
       @media (min-width: @screen-md-min) {
         height: 3rem;
+        line-height: 3rem;
         margin: 0 0 1rem 0; // pc特殊设置
       }
 
       /* 大屏幕（大桌面显示器，大于等于 1200px） */
       @media (min-width: @screen-lg-min) {
         height: 3rem;
+        line-height: 3rem;
         margin: 0 0 1rem 0; // pc特殊设
-      }
-
-      //返回按钮点击
-      a{
-        color: #fff;
-        text-align: center;
-        display: block;
-        background:#F18516;
-        //line-height: 10rem;
-        //height: 10rem;
-
-        /* 小屏幕（平板，大于等于 768px） */
-        @media (min-width: @screen-sm-min) {
-          line-height: 3rem;
-          height: 3rem;
-        }
-
-        /* 中等屏幕（桌面显示器，大于等于 992px） */
-        @media (min-width: @screen-md-min) {
-          line-height: 3rem;
-          height: 3rem;
-
-        }
-
-        /* 大屏幕（大桌面显示器，大于等于 1200px） */
-        @media (min-width: @screen-lg-min) {
-          line-height: 3rem;
-          height: 3rem;
-
-        }
-
-        &:active{
-          background: #3b6caa;
-        }
-
-
       }
     }
 
@@ -218,8 +199,8 @@
       margin: 0;
       padding: 0;
 
-      .active{
-        background-color:#fff;
+      .active {
+        background-color: #fff;
         color: black;
 
         /* 小屏幕（平板，大于等于 768px） */
@@ -242,12 +223,12 @@
 
       }
 
-      .click{
+      .click {
         background-color: #3b6caa;
         color: #fff;
       }
-      .control-list-item{
-        cursor:pointer;
+      .control-list-item {
+        cursor: pointer;
         border-bottom: 1px solid gainsboro;
         height: 8rem;
         line-height: 8rem;
@@ -255,7 +236,6 @@
         margin: 0 2rem 0 2rem; // 手机特殊设置
         padding: 0 1rem 0 1rem;
         //background-color: red;
-
 
         /* 大屏幕（手机，大于等于 320px） */
         @media (min-width: @screen-xs-min) {
@@ -265,8 +245,6 @@
           margin: 0 5rem 0 5rem; // 手机特殊设置
           padding: 0 2rem 0 2rem;
         }
-
-
 
         /* 小屏幕（平板，大于等于 768px） */
         @media (min-width: @screen-sm-min) {
@@ -307,11 +285,9 @@
           min-width: 0px !important;
           font-size: 0.7em !important;
           height: 3rem;
-          margin-top:2.5rem;
+          margin-top: 2.5rem;
           width: 4rem;
           line-height: 3rem;
-
-
 
           /* 大屏幕（手机，大于等于 320px） */
           @media (min-width: @screen-xs-min) {
@@ -321,7 +297,7 @@
             min-width: 0px !important;
             font-size: 0.7em !important;
             height: 5rem;
-            margin-top:3.5rem;
+            margin-top: 3.5rem;
             width: 8rem;
             line-height: 5rem;
           }
@@ -335,7 +311,7 @@
             font-size: 0.7em !important;
             height: 2rem;
             line-height: 2rem;
-            margin-top:1rem;
+            margin-top: 1rem;
             width: 3rem;
 
           }
@@ -349,7 +325,7 @@
             font-size: 0.7em !important;
             height: 1.5rem;
             line-height: 1.5rem;
-            margin-top:0.75rem;
+            margin-top: 0.75rem;
             width: 2rem;
 
           }
@@ -363,12 +339,10 @@
             font-size: 0.7em !important;
             height: 1.5rem;
             line-height: 1.5rem;
-            margin-top:0.75rem;
+            margin-top: 0.75rem;
             width: 2rem;
 
-
           }
-
 
         }
       }
@@ -376,83 +350,55 @@
 
   }
 
-
-
-
-
   // right 内容
-  .iph-tab{
-
+  .iph-tab {
 
     display: none;
-    left:1000px;
+    left: 1000px;
 
     margin: -60rem 1rem 0 1rem;
-
+    //border: 1px solid red;
 
     /* 大屏幕（手机，大于等于 320px） */
     @media (min-width: @screen-xs-min) {
       margin: -90rem 5rem 0 5rem;
-
     }
-
 
     //border: 1px solid red;
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
       margin: 0 0 0 0;
       display: block;
-      left:0;
+      left: 0;
     }
 
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
       margin: 0 0 0 0;
       display: block;
-      left:0;
-
+      left: 0;
     }
-
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
       margin: 0 0 0 0;
       display: block;
-      left:0;
-
+      left: 0;
     }
 
+
+
+    //左侧列表点击后对应内容部分
     .tab_con {
 
-
-
-
-      .detai-tit-box{
+      .detai-tit-box {
 
         padding: 0;
         margin: 0;
-        /* 大屏幕（手机，大于等于 320px） */
-        @media (min-width: @screen-xs-min) {
-
-
-        }
-        /* 小屏幕（平板，大于等于 768px） */
-        @media (min-width: @screen-sm-min) {
-        }
-
-        /* 中等屏幕（桌面显示器，大于等于 992px） */
-        @media (min-width: @screen-md-min) {
-        }
-
-        /* 大屏幕（大桌面显示器，大于等于 1200px） */
-        @media (min-width: @screen-lg-min) {
-        }
-
 
         .detai-tit2 {
 
           font-size: 3rem;
           //color: red;
-
 
           /* 大屏幕（手机，大于等于 320px） */
           @media (min-width: @screen-xs-min) {
@@ -474,6 +420,7 @@
             font-size: 2rem;
           }
         }
+        //手机返回按钮
         .iph-back {
 
           //height: 5rem;
@@ -484,7 +431,6 @@
           margin-top: 1rem;
           margin-bottom: 2rem;
 
-
           /* 大屏幕（手机，大于等于 320px） */
           @media (min-width: @screen-xs-min) {
             line-height: 3rem;
@@ -494,42 +440,82 @@
             margin-top: 1rem;
             margin-bottom: 3rem;
           }
-
-
         }
       }
     }
   }
+}
 
+//pc端pdf标题部分
+.hidden-xs {
 
+  .result-box {
 
-//留言
-  .tab_con{
-    //border:1px solid red;
+    width: 100%;
 
-    .detai-tit-box {
+    .paddB15 {
 
-      //border:1px solid black;
+      .share-love {
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        //margin-left: 4rem;
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          height: 3rem;
+          line-height: 3rem;
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          height: 3rem;
+          line-height: 3rem;
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          height: 3rem;
+          line-height: 3rem;
+        }
+
+        //width: 2rem;
+        .glyphicon-heart {
+          //padding-left: 5rem;
+          height: 3rem;
+          line-height: 3rem;
+          font-size: 2em;
+          color: #3b6caa;
+
+        }
+
+        .back-search {
+          height: 3rem;
+          line-height: 3rem;
+          font-size: 1.3em;
+          color: #3b6caa;
+
+        }
+
+      }
     }
-
   }
+}
 
 
 
-  /* 小屏幕（平板，大于等于 768px） */
-  @media (min-width: @screen-sm-min) {
 
-  }
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) {
 
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  @media (min-width: @screen-md-min) {
+}
 
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) {
 
-  }
+}
 
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-  @media (min-width: @screen-lg-min) {
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) {
 
-
-  }
 }

@@ -100,7 +100,7 @@
                 <div class="col-sm-12 col-xs-12 result-list-wrap " v-for="item in pdfs">
                     <a v-bind:href='"/detail?pdf_id="+item.id' class="result-list" target="_blank">
                         <picture class="col-sm-1 col-xs-2 result-list-img">
-                            <img v-bind:src="'http://47.104.10.19:3005'+item.thumb_img"/>
+                            <img v-bind:src="'http://120.27.19.17:3005'+item.thumb_img"/>
                         </picture>
                         <div class="col-sm-11 col-xs-10 item-detail">
                             <div class="item-name">{{item.manuName}}.{{item.manuSubName}} {{item.pdf_name}}</div>
@@ -161,7 +161,7 @@
                 getPfd: function () {
                     //.....
                     $.ajax({
-                        url: 'http://47.104.10.19:3005/api/getPdf',
+                        url: 'http://120.27.19.17:3005/api/getPdf',
                         type: 'get',
                         dataType: 'json',
                         success: function (res) {
@@ -177,7 +177,7 @@
                     this.Tval = $("#search_text").val();
                     this.page = 2;
                     $.ajax({
-                        url: 'http://47.104.10.19:3005/api/getPdf?value=' + this.Tval,
+                        url: 'http://120.27.19.17:3005/api/getPdf?value=' + this.Tval,
                         type: 'get',
                         dataType: 'json',
                         success: function (res) {
@@ -189,7 +189,7 @@
                 },
                 loadMore: function () {
                     $.ajax({
-                        url: 'http://47.104.10.19:3005/api/getPdf?value=' + this.Tval + '&page=' + this.page,
+                        url: 'http://120.27.19.17:3005/api/getPdf?value=' + this.Tval + '&page=' + this.page,
                         type: 'get',
                         dataType: 'json',
                         success: function (res) {
@@ -262,24 +262,21 @@
 //         });
 //
 
-//
-//         //设置鼠标划过颜色
 
+         //设置鼠标划过颜色
         $(document).on('mouseover', ".result-list", function () {
             $(this).parent().css("background-color","#e0e0e0");
         });
 
-//
-//         //设置鼠标离开颜色
-
+         //设置鼠标离开颜色
         $(document).on('mouseleave', ".result-list", function () {
             $('.result-list:even').parent().css('background','#fff');
             $('.result-list:odd').parent().css('background','none');
         });
-        // $('.result-list').mouseleave(function(){
-        //     $('.item:even').css('background','#fff');
-        //     $('.item:odd').css('background','none');
-        // });
+
+
+
+
     });
 
 
