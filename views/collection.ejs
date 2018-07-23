@@ -48,7 +48,7 @@
                         <picture class="col-sm-1 col-xs-1 result-list-img">
                             <!--<source srcset="img/placeholder-54-3.png 1x, img/placeholder-108-3.png 2x" media="(max-width:1199px)">-->
                             <!--<source srcset="img/placeholder-68-1.png 1x, img/placeholder-136-1.png 2x" media="(min-width:1200px)">-->
-                            <img v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
+                            <img v-bind:src="'http://127.0.0.1:3005'+collection.thumb_img"/>
                         </picture>
                         <div class="col-sm-11 col-xs-11 item-detail">
                             <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}}
@@ -87,7 +87,7 @@
                     <div class="col-sm-12 col-xs-12 pdf-title-ip">
                         <a class="result-list media result-list-img">
                             <picture class="col-sm-1 col-xs-2">
-                                <img class="media-object" v-bind:src="'http://120.27.19.17:3005'+collection.thumb_img"/>
+                                <img class="media-object" v-bind:src="'http://127.0.0.1:3005'+collection.thumb_img"/>
                             </picture>
                             <div class="col-sm-11 col-xs-10 item-detail">
                                 <div class="item-name">{{collection.manuName}}.{{collection.manuSubName}}
@@ -115,7 +115,39 @@
     </div>
     <div class="bottom-row"></div>
 
+
+    <!--<input type="text" id="dd" style="text-align: center"value="">-->
+
 </div>
+
+<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="test">-->
+    <!--Launch demo modal-->
+<!--</button>-->
+
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog">-->
+    <!--<div class="modal-dialog" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+                <!--<h4 class="modal-title">手动复制浏览器地址</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<p id="loaction-href" style="font-size: 1.2em; text-align: center;"></p>-->
+                <!--&lt;!&ndash;<input id="loaction-href" type="text" style="font-size: 1.2em;text-align: center;" value="aaa">&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                <!--&lt;!&ndash;<button type="button" class="btn btn-primary">关闭</button>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+
+
+
+<!--<input type="text" value="544664454"/>-->
 
 <!--end-->
 
@@ -125,6 +157,7 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 <script>
     var collectVue = new Vue({
         el: "#collection",
@@ -135,7 +168,7 @@
             getCollect: function () {
                 $.ajax({
                     type: "get",
-                    url: "http://120.27.19.17:3005/api/getCollect",
+                    url: "http://127.0.0.1:3005/api/getCollect",
                     dataType: 'json',
                     success: function (res) {
                         if (res.res) {
@@ -148,7 +181,7 @@
                 this.Tval = $("#search_text").val();
                 this.page = 2;
                 $.ajax({
-                    url: 'http://120.27.19.17:3005/api/getCollect?value=' + this.Tval,
+                    url: 'http://127.0.0.1:3005/api/getCollect?value=' + this.Tval,
                     type: 'get',
                     dataType: 'json',
                     success: function (res) {
@@ -163,7 +196,7 @@
             },
             getcancelCollect: function (zindex, id) {
                 $.ajax({
-                    url: "http://120.27.19.17:3005/api/cancelCollect",
+                    url: "http://127.0.0.1:3005/api/cancelCollect",
                     type: "post",
                     dataType: "json",
                     data: {
@@ -184,7 +217,73 @@
     $(document).on('click', ".search_hide", function () {
         console.log(1234);
         collectVue.searchCollect();
-    })
+    });
+
+
+
+
+    //    ???
+
+
+    // var o = document.getElementById('copy_appear');
+    // var win = o.contentWindow;
+    // var doc = o.contentDocument||o.contentWindow.document;
+
+    // 以上写法在第一篇博文有介绍过，主要是为了兼容什么来着 ？_-_? IFrame 系列4 ---- document.selection 全方位兼容解析以及TextRange[createTextRange,createRange]对象的深入解析 - Anikin - 眷恋天空的驴
+
+    // function getSelectedText() {
+    //     var txt = "";
+    //     if ( document.selection ) {
+    //         txt = doc.selection.createRange().text;
+    //     }else{
+    //         txt = win.getSelection()|| doc.getSelection();
+    //     }
+    //     return txt;
+    // }
+
+
+
+    // function selectText(textbox, startIndex, stopIndex) {
+    //         if (textbox.setSelectionRange) {
+    //             textbox.setSelectionRange(startIndex, stopIndex);
+    //         } else if (textbox.createTextRange) {
+    //             var range = textbox.createTextRange();
+    //             range.collapse(true);
+    //             range.moveStart('character', startIndex);
+    //             range.moveEnd('character', stopIndex - startIndex);
+    //             range.select();
+    //         }
+    //     textbox.focus();
+    //     }
+
+        // var obj = document.getElementsByTagName("input")[1];
+        // obj.select();
+        // var obj = document.getElementById("loaction-href");
+        // console.log(obj);
+        // selectText(obj, 0, 2);
+
+
+//    ???
+
+
+    // var o = document.getElementById('copy_appear');
+    // var win = o.contentWindow;
+    // var doc = o.contentDocument||o.contentWindow.document;
+    //
+    // // 以上写法在第一篇博文有介绍过，主要是为了兼容什么来着 ？_-_? IFrame 系列4 ---- document.selection 全方位兼容解析以及TextRange[createTextRange,createRange]对象的深入解析 - Anikin - 眷恋天空的驴
+    //
+    // function getSelectedText() {
+    //     var txt = "";
+    //     if ( document.selection ) {
+    //         txt = doc.selection.createRange().text;
+    //     }else{
+    //         txt = win.getSelection()|| doc.getSelection();
+    //     }
+    //     return txt;
+    // }
+
+
+
 </script>
 </body>
 </html>

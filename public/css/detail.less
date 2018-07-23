@@ -97,13 +97,35 @@
         }
 
       }
-      .copy-ip {
+      input{
+
+        width: 100%;
         height: 5rem;
         line-height: 5rem; /* IE7支持 */
+        //margin: 3rem 0 2rem 0;
+        text-align: left;
+        padding: 0;
+        vertical-align: middle;
+        /* 大屏幕（手机，大于等于 320px） */
+        @media (min-width: @screen-xs-min) {
+          width: 100%;
+
+          height: 10rem;
+          line-height: 10rem; /* IE7支持 */
+          //padding: 3rem 5rem 3rem 5rem;
+          font-size: 1.2em;
+
+        }
+      }
+      button {
+        height: 5rem;
+        line-height: 4rem; /* IE7支持 */
         margin: 3rem 0 2rem 0;
         color: #fff;
         text-align: center;
         background: #F18516;
+        padding: 0;
+        vertical-align: middle;
 
         /* 大屏幕（手机，大于等于 320px） */
         @media (min-width: @screen-xs-min) {
@@ -164,6 +186,11 @@
       text-align: center;
       background: #F18516;
       font-size: 1.1em;
+      vertical-align:middle;
+
+      padding: 0;
+      width: 100%;
+      border-radius: 0;
 
       /* 小屏幕（平板，大于等于 768px） */
       @media (min-width: @screen-sm-min) {
@@ -175,8 +202,11 @@
       /* 中等屏幕（桌面显示器，大于等于 992px） */
       @media (min-width: @screen-md-min) {
         height: 3rem;
-        line-height: 3rem;
-        margin: 0 0 1rem 0; // pc特殊设置
+        line-height: 2rem;
+        text-align: center;
+        margin-top:0.5rem;
+        //background-color: yellow;
+        //margin: 0 0 1rem 0; // pc特殊设置
       }
 
       /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -189,15 +219,12 @@
 
     //左侧选择列表
     .control-list {
-      //line-height:8rem;
-      //height: 8rem;
+
       font-size: 1.5em;
       font-weight: 500;
       color: black;
-      //border: 1px solid red;
-      //background-color: yellow;
-      margin: 0;
-      padding: 0;
+      //margin: 0;
+      //padding: 0;
 
       .active {
         background-color: #fff;
@@ -227,12 +254,13 @@
         background-color: #3b6caa;
         color: #fff;
       }
+
       .control-list-item {
         cursor: pointer;
         border-bottom: 1px solid gainsboro;
-        height: 8rem;
-        line-height: 8rem;
-        font-size: 1em;
+        height: 6rem;
+        line-height: 6rem;
+        font-size: 0.8em;
         margin: 0 2rem 0 2rem; // 手机特殊设置
         padding: 0 1rem 0 1rem;
         //background-color: red;
@@ -241,18 +269,21 @@
         @media (min-width: @screen-xs-min) {
           height: 12rem;
           line-height: 12rem;
-          font-size: 1em;
+          font-size: 0.8em;
           margin: 0 5rem 0 5rem; // 手机特殊设置
           padding: 0 2rem 0 2rem;
+          //background-color: yellow;
+
         }
 
         /* 小屏幕（平板，大于等于 768px） */
         @media (min-width: @screen-sm-min) {
           height: 4rem;
           line-height: 4rem;
-          font-size: 0.8em;
+          font-weight: 600;
           margin: 0 0 0 0; // pc特殊设置
-          padding: 0 2rem 0 2rem;
+          padding: 0 0 0 1rem;
+
 
         }
 
@@ -271,7 +302,13 @@
           line-height: 3rem;
           margin: 0 0 0 0; // pc特殊设置
         }
-        span {
+
+
+
+
+
+
+        .badge {
           vertical-align: middle;
           background: gray none repeat scroll 0 0 !important;
           border-color: gray;
@@ -279,15 +316,15 @@
           float: right;
           text-align: center;
 
-          padding: 3px 7px !important;
+          padding: 2px 7px !important;
           border-radius: 9px !important;
           margin-right: 10px !important;
           min-width: 0px !important;
           font-size: 0.7em !important;
-          height: 3rem;
-          margin-top: 2.5rem;
+          height: 2.4rem;
+          margin-top: 2rem;
           width: 4rem;
-          line-height: 3rem;
+          line-height: 2.4rem;
 
           /* 大屏幕（手机，大于等于 320px） */
           @media (min-width: @screen-xs-min) {
@@ -311,6 +348,7 @@
             font-size: 0.7em !important;
             height: 2rem;
             line-height: 2rem;
+            text-align: center;
             margin-top: 1rem;
             width: 3rem;
 
@@ -322,7 +360,7 @@
             border-radius: 9px !important;
             margin-right: 10px !important;
             min-width: 0px !important;
-            font-size: 0.7em !important;
+            font-size: 0.9em !important;
             height: 1.5rem;
             line-height: 1.5rem;
             margin-top: 0.75rem;
@@ -336,7 +374,7 @@
             border-radius: 9px !important;
             margin-right: 10px !important;
             min-width: 0px !important;
-            font-size: 0.7em !important;
+            font-size: 0.8em !important;
             height: 1.5rem;
             line-height: 1.5rem;
             margin-top: 0.75rem;
@@ -356,12 +394,12 @@
     display: none;
     left: 1000px;
 
-    margin: -60rem 1rem 0 1rem;
+    margin: -50rem 1rem 0 1rem;
     //border: 1px solid red;
 
     /* 大屏幕（手机，大于等于 320px） */
     @media (min-width: @screen-xs-min) {
-      margin: -90rem 5rem 0 5rem;
+      margin: -100rem 5rem 0 5rem;
     }
 
     //border: 1px solid red;
@@ -390,6 +428,8 @@
     //左侧列表点击后对应内容部分
     .tab_con {
 
+      margin-bottom: 5rem;
+
       .detai-tit-box {
 
         padding: 0;
@@ -397,27 +437,27 @@
 
         .detai-tit2 {
 
-          font-size: 3rem;
+          font-size: 1.4em;
           //color: red;
 
           /* 大屏幕（手机，大于等于 320px） */
           @media (min-width: @screen-xs-min) {
-            font-size: 5rem;
+            font-size: 1.4em;
 
           }
           /* 小屏幕（平板，大于等于 768px） */
           @media (min-width: @screen-sm-min) {
-            font-size: 2rem;
+            font-size: 1.4em;
           }
 
           /* 中等屏幕（桌面显示器，大于等于 992px） */
           @media (min-width: @screen-md-min) {
-            font-size: 2rem;
+            font-size: 1.4em;
           }
 
           /* 大屏幕（大桌面显示器，大于等于 1200px） */
           @media (min-width: @screen-lg-min) {
-            font-size: 2rem;
+            font-size: 1.4em;
           }
         }
         //手机返回按钮
@@ -441,6 +481,29 @@
             margin-bottom: 3rem;
           }
         }
+      }
+
+      .want-com{
+        padding: 3rem 0 0 0;
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          padding: 0 0 0 0;
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          padding: 0 0 0 0;
+
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          padding: 0 0 0 0;
+
+        }
+
+
       }
     }
   }
@@ -488,6 +551,9 @@
           color: #3b6caa;
 
         }
+        .changRed{
+          color:red;
+        }
 
         .back-search {
           height: 3rem;
@@ -500,6 +566,87 @@
       }
     }
   }
+}
+
+//试用品申请modal
+#applyModal {
+
+  .modal-dialog{
+
+    .modal-content{
+      padding: 0 5rem 0 5rem;
+
+      /* 大屏幕（手机，大于等于 320px） */
+      @media (min-width: @screen-xs-min) {
+        padding: 0 5rem 0 5rem;
+
+      }
+    }
+  }
+}
+
+
+#issue-comment{
+  padding: 5rem 0 0 0;
+
+  /* 大屏幕（手机，大于等于 320px） */
+  @media (min-width: @screen-xs-min) {
+    padding: 1rem 0 0 0;
+
+  }
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    padding: 0 0 0 0;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    padding: 0 0 0 0;
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    padding: 0 0 0 0;
+
+  }
+}
+
+
+
+
+
+
+//ceshi
+
+.ttt{
+
+
+  .container{
+
+    .row{
+
+      .left{
+
+        button{
+
+        }
+        .control-list1{
+          .control-list-item{
+
+            font-size: 1.5em;
+            font-weight: 600;
+            height: 3rem;
+            line-height: 3rem;
+            border: 1px solid red;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 

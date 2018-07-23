@@ -211,18 +211,39 @@ main {
     font-size: 1.3em;
   }
 }
-#detail_hd .visible-xs-block .result-box .copy-ip {
+#detail_hd .visible-xs-block .result-box input {
+  width: 100%;
   height: 5rem;
   line-height: 5rem;
+  /* IE7支持 */
+  text-align: left;
+  padding: 0;
+  vertical-align: middle;
+  /* 大屏幕（手机，大于等于 320px） */
+}
+@media (min-width: 320px) {
+  #detail_hd .visible-xs-block .result-box input {
+    width: 100%;
+    height: 10rem;
+    line-height: 10rem;
+    /* IE7支持 */
+    font-size: 1.2em;
+  }
+}
+#detail_hd .visible-xs-block .result-box button {
+  height: 5rem;
+  line-height: 4rem;
   /* IE7支持 */
   margin: 3rem 0 2rem 0;
   color: #fff;
   text-align: center;
   background: #F18516;
+  padding: 0;
+  vertical-align: middle;
   /* 大屏幕（手机，大于等于 320px） */
 }
 @media (min-width: 320px) {
-  #detail_hd .visible-xs-block .result-box .copy-ip {
+  #detail_hd .visible-xs-block .result-box button {
     height: 10rem;
     line-height: 10rem;
     /* IE7支持 */
@@ -267,6 +288,10 @@ main {
   text-align: center;
   background: #F18516;
   font-size: 1.1em;
+  vertical-align: middle;
+  padding: 0;
+  width: 100%;
+  border-radius: 0;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -281,8 +306,9 @@ main {
 @media (min-width: 992px) {
   #detail_hd .control-left .copy-ip {
     height: 3rem;
-    line-height: 3rem;
-    margin: 0 0 1rem 0;
+    line-height: 2rem;
+    text-align: center;
+    margin-top: 0.5rem;
   }
 }
 @media (min-width: 1200px) {
@@ -296,8 +322,6 @@ main {
   font-size: 1.5em;
   font-weight: 500;
   color: black;
-  margin: 0;
-  padding: 0;
 }
 #detail_hd .control-left .control-list .active {
   background-color: #fff;
@@ -331,9 +355,9 @@ main {
 #detail_hd .control-left .control-list .control-list-item {
   cursor: pointer;
   border-bottom: 1px solid gainsboro;
-  height: 8rem;
-  line-height: 8rem;
-  font-size: 1em;
+  height: 6rem;
+  line-height: 6rem;
+  font-size: 0.8em;
   margin: 0 2rem 0 2rem;
   padding: 0 1rem 0 1rem;
   /* 大屏幕（手机，大于等于 320px） */
@@ -345,7 +369,7 @@ main {
   #detail_hd .control-left .control-list .control-list-item {
     height: 12rem;
     line-height: 12rem;
-    font-size: 1em;
+    font-size: 0.8em;
     margin: 0 5rem 0 5rem;
     padding: 0 2rem 0 2rem;
   }
@@ -354,9 +378,9 @@ main {
   #detail_hd .control-left .control-list .control-list-item {
     height: 4rem;
     line-height: 4rem;
-    font-size: 0.8em;
+    font-weight: 600;
     margin: 0 0 0 0;
-    padding: 0 2rem 0 2rem;
+    padding: 0 0 0 1rem;
   }
 }
 @media (min-width: 992px) {
@@ -374,29 +398,29 @@ main {
     margin: 0 0 0 0;
   }
 }
-#detail_hd .control-left .control-list .control-list-item span {
+#detail_hd .control-left .control-list .control-list-item .badge {
   vertical-align: middle;
   background: gray none repeat scroll 0 0 !important;
   border-color: gray;
   position: relative;
   float: right;
   text-align: center;
-  padding: 3px 7px !important;
+  padding: 2px 7px !important;
   border-radius: 9px !important;
   margin-right: 10px !important;
   min-width: 0px !important;
   font-size: 0.7em !important;
-  height: 3rem;
-  margin-top: 2.5rem;
+  height: 2.4rem;
+  margin-top: 2rem;
   width: 4rem;
-  line-height: 3rem;
+  line-height: 2.4rem;
   /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 320px) {
-  #detail_hd .control-left .control-list .control-list-item span {
+  #detail_hd .control-left .control-list .control-list-item .badge {
     padding: 3px 7px !important;
     border-radius: 9px !important;
     margin-right: 10px !important;
@@ -409,7 +433,7 @@ main {
   }
 }
 @media (min-width: 768px) {
-  #detail_hd .control-left .control-list .control-list-item span {
+  #detail_hd .control-left .control-list .control-list-item .badge {
     padding: 3px 7px !important;
     border-radius: 9px !important;
     margin-right: 10px !important;
@@ -417,17 +441,18 @@ main {
     font-size: 0.7em !important;
     height: 2rem;
     line-height: 2rem;
+    text-align: center;
     margin-top: 1rem;
     width: 3rem;
   }
 }
 @media (min-width: 992px) {
-  #detail_hd .control-left .control-list .control-list-item span {
+  #detail_hd .control-left .control-list .control-list-item .badge {
     padding: 3px 7px !important;
     border-radius: 9px !important;
     margin-right: 10px !important;
     min-width: 0px !important;
-    font-size: 0.7em !important;
+    font-size: 0.9em !important;
     height: 1.5rem;
     line-height: 1.5rem;
     margin-top: 0.75rem;
@@ -435,12 +460,12 @@ main {
   }
 }
 @media (min-width: 1200px) {
-  #detail_hd .control-left .control-list .control-list-item span {
+  #detail_hd .control-left .control-list .control-list-item .badge {
     padding: 3px 7px !important;
     border-radius: 9px !important;
     margin-right: 10px !important;
     min-width: 0px !important;
-    font-size: 0.7em !important;
+    font-size: 0.8em !important;
     height: 1.5rem;
     line-height: 1.5rem;
     margin-top: 0.75rem;
@@ -450,7 +475,7 @@ main {
 #detail_hd .iph-tab {
   display: none;
   left: 1000px;
-  margin: -60rem 1rem 0 1rem;
+  margin: -50rem 1rem 0 1rem;
   /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
@@ -458,7 +483,7 @@ main {
 }
 @media (min-width: 320px) {
   #detail_hd .iph-tab {
-    margin: -90rem 5rem 0 5rem;
+    margin: -100rem 5rem 0 5rem;
   }
 }
 @media (min-width: 768px) {
@@ -481,13 +506,16 @@ main {
     display: block;
     left: 0;
   }
+}
+#detail_hd .iph-tab .tab_con {
+  margin-bottom: 5rem;
 }
 #detail_hd .iph-tab .tab_con .detai-tit-box {
   padding: 0;
   margin: 0;
 }
 #detail_hd .iph-tab .tab_con .detai-tit-box .detai-tit2 {
-  font-size: 3rem;
+  font-size: 1.4em;
   /* 大屏幕（手机，大于等于 320px） */
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
@@ -495,22 +523,22 @@ main {
 }
 @media (min-width: 320px) {
   #detail_hd .iph-tab .tab_con .detai-tit-box .detai-tit2 {
-    font-size: 5rem;
+    font-size: 1.4em;
   }
 }
 @media (min-width: 768px) {
   #detail_hd .iph-tab .tab_con .detai-tit-box .detai-tit2 {
-    font-size: 2rem;
+    font-size: 1.4em;
   }
 }
 @media (min-width: 992px) {
   #detail_hd .iph-tab .tab_con .detai-tit-box .detai-tit2 {
-    font-size: 2rem;
+    font-size: 1.4em;
   }
 }
 @media (min-width: 1200px) {
   #detail_hd .iph-tab .tab_con .detai-tit-box .detai-tit2 {
-    font-size: 2rem;
+    font-size: 1.4em;
   }
 }
 #detail_hd .iph-tab .tab_con .detai-tit-box .iph-back {
@@ -530,6 +558,27 @@ main {
     font-size: 1em;
     margin-top: 1rem;
     margin-bottom: 3rem;
+  }
+}
+#detail_hd .iph-tab .tab_con .want-com {
+  padding: 3rem 0 0 0;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  #detail_hd .iph-tab .tab_con .want-com {
+    padding: 0 0 0 0;
+  }
+}
+@media (min-width: 992px) {
+  #detail_hd .iph-tab .tab_con .want-com {
+    padding: 0 0 0 0;
+  }
+}
+@media (min-width: 1200px) {
+  #detail_hd .iph-tab .tab_con .want-com {
+    padding: 0 0 0 0;
   }
 }
 .hidden-xs .result-box {
@@ -566,11 +615,57 @@ main {
   font-size: 2em;
   color: #3b6caa;
 }
+.hidden-xs .result-box .paddB15 .share-love .changRed {
+  color: red;
+}
 .hidden-xs .result-box .paddB15 .share-love .back-search {
   height: 3rem;
   line-height: 3rem;
   font-size: 1.3em;
   color: #3b6caa;
+}
+#applyModal .modal-dialog .modal-content {
+  padding: 0 5rem 0 5rem;
+  /* 大屏幕（手机，大于等于 320px） */
+}
+@media (min-width: 320px) {
+  #applyModal .modal-dialog .modal-content {
+    padding: 0 5rem 0 5rem;
+  }
+}
+#issue-comment {
+  padding: 5rem 0 0 0;
+  /* 大屏幕（手机，大于等于 320px） */
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 320px) {
+  #issue-comment {
+    padding: 1rem 0 0 0;
+  }
+}
+@media (min-width: 768px) {
+  #issue-comment {
+    padding: 0 0 0 0;
+  }
+}
+@media (min-width: 992px) {
+  #issue-comment {
+    padding: 0 0 0 0;
+  }
+}
+@media (min-width: 1200px) {
+  #issue-comment {
+    padding: 0 0 0 0;
+  }
+}
+.ttt .container .row .left .control-list1 .control-list-item {
+  font-size: 1.5em;
+  font-weight: 600;
+  height: 3rem;
+  line-height: 3rem;
+  border: 1px solid red;
 }
 /* 小屏幕（平板，大于等于 768px） */
 /* 中等屏幕（桌面显示器，大于等于 992px） */
